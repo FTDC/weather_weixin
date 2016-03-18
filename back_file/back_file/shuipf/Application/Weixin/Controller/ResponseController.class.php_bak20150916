@@ -1,0 +1,382 @@
+<?php
+// +----------------------------------------------------------------------
+// | 微信回复配置
+// +----------------------------------------------------------------------
+// | Copyright (c) 2012-2014 All rights reserved.
+// +----------------------------------------------------------------------
+// | Author: 赵杰
+// +----------------------------------------------------------------------
+
+namespace Weixin\Controller;
+
+use Common\Controller\ShuipFCMS;
+
+class ResponseController extends ShuipFCMS
+{
+    //文字回复Xml
+    public $textXml = "<xml>
+					<ToUserName><![CDATA[%s]]></ToUserName>
+					<FromUserName><![CDATA[%s]]></FromUserName>
+					<CreateTime>%s</CreateTime>
+					<MsgType><![CDATA[%s]]></MsgType>
+					<Content><![CDATA[%s]]></Content>
+					</xml>";
+
+    //图文回复
+    public $imgXml = "<xml>
+					 <ToUserName><![CDATA[%s]]></ToUserName>
+					 <FromUserName><![CDATA[%s]]></FromUserName>
+					 <CreateTime>%s</CreateTime>
+					 <MsgType><![CDATA[%s]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[%s]]></Title> 
+					 <Description><![CDATA[%s]]></Description>
+					 <PicUrl><![CDATA[%s]]></PicUrl>
+					 <Url><![CDATA[%s]]></Url>
+					 </item>
+					 </Articles>
+					 </xml>";
+    //图文回复
+    public $imgXml_all = "<xml>
+					 <ToUserName><![CDATA[%s]]></ToUserName>
+					 <FromUserName><![CDATA[%s]]></FromUserName>
+					 <CreateTime>%s</CreateTime>
+					 <MsgType><![CDATA[%s]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[%s]]></Title> 
+					 <Description><![CDATA[%s]]></Description>
+					 <PicUrl><![CDATA[%s]]></PicUrl>
+					 <Url><![CDATA[%s]]></Url>
+					 </item>
+					 <item>
+					 <Title><![CDATA[%s]]></Title> 
+					 <Description><![CDATA[%s]]></Description>
+					 <PicUrl><![CDATA[%s]]></PicUrl>
+					 <Url><![CDATA[%s]]></Url>
+					 </item>
+					 <item>
+					 <Title><![CDATA[%s]]></Title> 
+					 <Description><![CDATA[%s]]></Description>
+					 <PicUrl><![CDATA[%s]]></PicUrl>
+					 <Url><![CDATA[%s]]></Url>
+					 </item>
+					 </Articles>
+					 <FuncFlag>1</FuncFlag>
+					 </xml>";
+    public $voice_xml = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[%s]]></MsgType>
+                    <Voice>
+                    <MediaId><![CDATA[%s]]></MediaId>
+                    </Voice>
+                    </xml>";
+
+    /**
+     * 自定义回复
+     * @param  [type] $postStr [description]
+     * @return [type]          [description]
+     */
+    public function responseMsg($postStr)
+    {
+        if (!empty ($postStr)) {
+            $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+            $fromUsername = $postObj->FromUserName;
+            $toUsername = $postObj->ToUserName;
+            $msgType = $postObj->MsgType;
+            $EventKey = $postObj->EventKey;
+            $Event = $postObj->Event;
+            $content = $postObj->Content;
+            $time = time();
+            define('THIS_TOKEN', $toUsername);
+
+            $json = json_encode($postObj);
+            $datas = json_decode($json, true);
+            file_put_contents('./shuipf/Application/Weixin/Controller/str1.txt', var_export($datas, true), FILE_APPEND);
+            file_put_contents('./shuipf/Application/Weixin/Controller/str1.txt', var_export($EventKey, true), FILE_APPEND);
+            //关注自动回复开始
+            if ($Event == "subscribe") {
+                return $this->getConcern($toUsername, $fromUsername, $msgType, $Event);
+            }
+            if ($Event == "unsubscribe") {
+
+            }
+            if ($Event == "CLICK") {
+                if ($EventKey == "天气预报") {
+                    //纯文本消息
+                    $tmp = M('province_weather');
+                    $info = $tmp->order('addtime desc')->find();
+//                    $array = explode('/n', $info['content']);
+//                    $str = '';
+//                    foreach($array as $val){
+//                        $str .= '"'.$val.'\n"';
+//                    }
+                    $contents = str_replace("@", "\n", $info['content']);
+//                    $contents = str_replace("r", "\r", $contents);
+                    $info["content"] = $contents;
+//                    $info["content"] = $str;
+
+                    return $this->getMessage($info, $content, $toUsername, $fromUsername, $msgType, $Event);
+                    die;
+
+                } else if ($EventKey == "灾害预警") {
+                    //单图文消息
+                    $tmp = M('warning_weather');
+                    $info = $tmp->order('addtime desc')->find();
+                    $info['content'] = $info['content'];
+                    $contents = str_replace("@", "\n", $info['content']);
+
+                    $msgType = "news";
+                    $time = time();
+                    $title = $info['disastertype'];
+                    $Description = $info['content'];
+                    $PicUrl = "http://" . $_SERVER['HTTP_HOST'] . "/statics/images/test.jpg";
+                    //$Url = $content['jump_url'];
+                    $Url = U('Weixin/Content/detail', array('id' => $info['id'], 'model' => 'warning_weather'));
+                    $resultStr = sprintf($this->imgXml, $fromUsername, $toUsername, $time, $msgType, $title, $Description, $PicUrl, $Url);
+                    return $resultStr;
+                    exit;
+                } else if ($EventKey == "空气质量") {
+                    //多图文消息
+                    $tmp = M('aqi_weather');
+                    $info = $tmp->order('addtime desc')->find();
+                    $content = unserialize($info['content']);
+                    $time = time();
+                    $count = count($info['content']);
+                    //$contents = str_replace("r","\r",$contents);
+                    $PicUrl = "http://" . $_SERVER['HTTP_HOST'] . "/statics/images/test.jpg";
+                    $msgType = "news";
+                    foreach ($content as $key => $value) {
+                        $contents[] = array(
+                            "Title" => $value,//$info['title'],
+                            "Description" => $value,
+                            "PicUrl" => $PicUrl,
+                            "Url" => ''//$value['jump_url']
+                        );
+                    }
+                    /*file_put_contents('./shuipf/Application/Weixin/Controller/str3.txt',var_export($postObj,true) . "\n",FILE_APPEND);
+                    file_put_contents('./shuipf/Application/Weixin/Controller/str3.txt',var_export($info,true) . "\n",FILE_APPEND);
+                    file_put_contents('./shuipf/Application/Weixin/Controller/str3.txt',var_export($content,true) . "\n",FILE_APPEND);*/
+                    return $this->transmitNews($postObj, $contents);
+                    die;
+                } else if ($EventKey == "主播爆天气") {
+
+                    echo "主播爆天气";
+                    die;
+                } else {
+                    $tmp = M('keyword');
+                    $where = "keyword = '{$EventKey}'";
+                    $info = $tmp->where("{$where}")->find();
+                    // $info = $tmp->where("token='" . THIS_TOK . "' {$where}")->find();
+                    if ($info) {
+                        //return $this->getMenuInfo($info, $toUsername, $fromUsername, $msgType, $Event);die;
+                        $content = $EventKey;
+                        return $this->getMessage($info, $content, $toUsername, $fromUsername, $msgType, $Event);
+                        die;
+                    }
+                }
+            }
+            //关注自动回复结束
+            // 语音留言
+            // voice : 接收语音消息识别为文字匹配
+            if ($datas['MsgType'] == 'voice') {
+                $data = array(
+                    'content' => $datas['Recognition'],
+                    'openid' => $datas['FromUserName'],
+                    'crdate' => time(),
+                );
+                $res = M('voice_msg')->add($data);
+
+                $content = "留言成功";
+                $info['content'] = "留言成功";
+                return $this->getMessage($info, $content, $toUsername, $fromUsername, $msgType, $Event);
+                die;
+            }
+
+            //文本回复
+            if ($content) {
+                $city_info = M('city_weather')->where("`cityname`='{$content}'")->order('addtime desc')->find();
+                if (empty($city_info)) {
+                    $tmp = M('keyword');
+                    $where = "keyword like '%{$content}%'";
+                    $info = $tmp->where("{$where}")->order(array('cTime' => 'DESC'))->select();
+                } else {
+                    $info = $city_info;
+                }
+
+                if ($info) {
+                    return $this->getMessage($info, $content, $toUsername, $fromUsername, $msgType, $Event);
+                }
+            }
+        } else {
+            return "";
+        }
+    }
+
+    //文本回复
+    public function getMenuInfo($info, $toUsername, $fromUsername, $msgType, $Event)
+    {
+        $where['id'] = array('eq', $info['aim_id']);
+        $table = substr($info['addon'], 4);
+        $tmp = M($table);
+        $content = $tmp->where($where)->find();
+        file_put_contents('./shuipf/Application/Weixin/Controller/data1.txt', var_export($content, true), FILE_APPEND);
+        if ($content) {
+            if ($info['addon'] == "custom_reply_news") {
+                $msgType = "news";
+                $time = time();
+                $title = $content['title'];
+                $Description = $content['intro'];
+                $PicUrl = "http://" . $_SERVER['HTTP_HOST'] . $content['cover'];
+                $Url = $content['jump_url'];
+                $resultStr = sprintf($this->imgXml, $fromUsername, $toUsername, $time, $msgType, $title, $Description, $PicUrl, $Url);
+                return $resultStr;
+                exit;
+            }
+        }
+    }
+
+    //获取关注时回复的数据
+    public function getConcern($toUsername, $fromUsername, $msgType, $Event)
+    {
+        //推送到微信的XML数据格式
+        $tmp = M('member_public');
+        $content = $tmp->find();
+        $tmps = json_decode($content['addon_config'], true);
+        $msgType = "text";
+        if ($tmps['Wecome']['url']) {
+            $url = $tmps['Wecome']['url'];
+        } else {
+            $url = "http://" . $_SERVER['HTTP_HOST'];
+        }
+        $contentStr = "<a href='{$url}' >" . $tmps['Wecome']['description'] . "</a>";
+        $resultStr = sprintf($this->textXml, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+        return $resultStr;
+    }
+
+    //文本回复
+    public function getMessage($info, $content, $toUsername, $fromUsername, $msgType, $Event)
+    {
+        foreach ($info as $key => $value) {
+            switch ($value['keyword_type']) {
+                case '0':
+                    $where['keyword'] = array('like', "{$content}");
+                    break;
+                case '1':
+                    $where['keyword'] = array('like', "%{$content}");
+                    break;
+                case '2':
+                    $where['keyword'] = array('like', "{$content}%");
+                    break;
+                case '3':
+                    $where['keyword'] = array('like', "%{$content}%");
+                    break;
+                default :
+                    $where['keyword'] = array('like', "{$content}");
+            }
+
+            $where['id'] = array('eq', $value['aim_id']);
+            $table = substr($info['addon'], 4);
+            $tmp = M($table);
+            $content = $tmp->where($where)->find();
+            if ($content) {
+                if ($info['addon'] == "ftdc_custom_reply_text") {
+                    $msgType = "text";
+                    $time = time();
+                    $contentStr = $content['content'];
+                    $resultStr = sprintf($this->textXml, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                    return $resultStr;
+                    exit;
+                }
+                if ($info['addon'] == "ftdc_custom_reply_news") {
+                    $msgType = "news";
+                    $time = time();
+                    $title = $content['title'];
+                    $Description = $content['intro'];
+                    $PicUrl = "http://" . $_SERVER['HTTP_HOST'] . $content['cover'];
+                    $Url = $content['jump_url'];
+                    $resultStr = sprintf($this->imgXml, $fromUsername, $toUsername, $time, $msgType, $title, $Description, $PicUrl, $Url);
+                    return $resultStr;
+                    exit;
+                }
+                if ($info['addon'] == "ftdc_custom_reply_mult") {
+                    return $this->getMoreMsg($content['mult_ids'], $toUsername, $fromUsername, $msgType, $Event);
+                    exit;
+                }
+            } else {
+                $msgType = "text";
+                $time = time();
+                $contentStr = $info['content'];
+                $resultStr = sprintf($this->textXml, $fromUsername, $toUsername, $time, $msgType, $contentStr);
+                return $resultStr;
+                exit;
+            }
+        }
+    }
+
+    protected function getMoreMsg($ids, $toUsername, $fromUsername, $msgType, $Event)
+    {
+        $where['id'] = array('in', $ids);
+        $content = D('custom_reply_news')->where($where)->select();
+        $count = count($content);
+        $time = time();
+        $msgType = "news";
+        $resultStr = "<xml>
+                <ToUserName><![CDATA[{$fromUsername}]]></ToUserName>
+                <FromUserName><![CDATA[{$toUsername}]]></FromUserName>
+                <CreateTime>{$time}</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>{$count}</ArticleCount>
+                <Articles>";
+        foreach ($content as $key => $value) {
+            $PicUrl = "http://" . $_SERVER['HTTP_HOST'] . $value['cover'];
+            $resultStr .= "<item>
+            <Title><![CDATA[{$value['title']}]]></Title>
+            <Description><![CDATA[{$value['intro']}]]></Description>
+            <PicUrl><![CDATA[{$PicUrl}]]></PicUrl>
+            <Url><![CDATA[{$value['jump_url']}]]></Url>
+            </item>";
+        }
+        $resultStr .= "</Articles></xml>";
+
+        return $resultStr;
+    }
+
+
+    public function transmitNews($object, $newsArray)
+    {
+        if (!is_array($newsArray)) {
+            return;
+        }
+
+        $itemTpl = "<item>
+                    <Title><![CDATA[%s]]></Title>
+                    <Description><![CDATA[%s]]></Description>
+                    <PicUrl><![CDATA[%s]]></PicUrl>
+                    <Url><![CDATA[%s]]></Url>
+                </item>";
+
+        $item_str = "";
+        foreach ($newsArray as $item) {
+            $item_str .= sprintf($itemTpl, $item['Title'], $item['Description'], $item['PicUrl'], $item['Url']);
+        }
+        $xmlTpl = "<xml>
+                    <ToUserName><![CDATA[%s]]></ToUserName>
+                    <FromUserName><![CDATA[%s]]></FromUserName>
+                    <CreateTime>%s</CreateTime>
+                    <MsgType><![CDATA[news]]></MsgType>
+                    <ArticleCount>%s</ArticleCount>
+                    <Articles>$item_str</Articles>
+                    </xml>";
+
+        $result = sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), count($newsArray));
+        file_put_contents('./shuipf/Application/Weixin/Controller/datas3.txt', var_export($result, true));
+        return $result;
+    }
+}

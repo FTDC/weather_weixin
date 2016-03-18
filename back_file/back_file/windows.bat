@@ -1,0 +1,1 @@
+"D:\Program Files\PHP\php.exe" -q "D:\Program Files\Apache2.2\htdocs\weixin\windows.php"

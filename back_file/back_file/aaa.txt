@@ -1,0 +1,10 @@
+<xml>
+					<ToUserName><![CDATA[ovSypuL0T6Njmonpj0cFclrtuhYk]]></ToUserName>
+					<FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					<CreateTime>1457664604</CreateTime>
+					<MsgType><![CDATA[text]]></MsgType>
+					<Content><![CDATA[武汉三天天气预报:
+11日 晴转多云 3～12℃
+12日 多云 4～14℃
+13日 晴 5～17℃]]></Content>
+					</xml>
