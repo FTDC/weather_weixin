@@ -143,7 +143,7 @@
                     </a>
                 </li>
                 <li>
-                    <a target="mainContent" href="{:U('Weixin/photo/index')}"> <i class="linecons-desktop"></i>
+                    <a target="mainContent" href="{:U('Photo/index')}"> <i class="linecons-desktop"></i>
                         <span class="title">实景天气</span>
                     </a>
                 </li>

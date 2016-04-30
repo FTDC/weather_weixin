@@ -1,1 +1,0 @@
-SELECT * FROM `ftdc_wp_keyword` WHERE ( token='THIS_TOKEN' and keyword = '空气质量' ) LIMIT 1  
