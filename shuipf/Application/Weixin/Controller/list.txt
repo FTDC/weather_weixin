@@ -1,0 +1,71 @@
+<xml>
+					 <ToUserName><![CDATA[ovSypuL0T6Njmonpj0cFclrtuhYk]]></ToUserName>
+					 <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					 <CreateTime>1446635441</CreateTime>
+					 <MsgType><![CDATA[news]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[地质灾害预警 发布时间:2015年9月23日]]></Title> 
+					 <Description><![CDATA[今日20点－明日20点，预计三峡库区（巴东、秭归、兴山），神农架林区，十堰大部地区（十堰市区、郧阳区、竹山、竹溪、房县），襄阳局部地区（保康）以及其他暴雨中心发生崩塌、滑坡、泥石流的风险较高（三级），请各级国土部门注意地质灾害防范，做好巡查工作。]]></Description>
+					 <PicUrl><![CDATA[http://219.140.167.87/weixin/statics/images/test.jpg]]></PicUrl>
+					 <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=1&model=geological]]></Url>
+					 </item>
+					 </Articles>
+					 </xml><xml>
+					 <ToUserName><![CDATA[ovSypuC5DqZKobkDk9OVmUZj_GoY]]></ToUserName>
+					 <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					 <CreateTime>1446635726</CreateTime>
+					 <MsgType><![CDATA[news]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[(系统测试)地质灾害预警 发布时间:2015年9月23日]]></Title> 
+					 <Description><![CDATA[今日20点－明日20点，预计三峡库区（巴东、秭归、兴山），神农架林区，十堰大部地区（十堰市区、郧阳区、竹山、竹溪、房县），襄阳局部地区（保康）以及其他暴雨中心发生崩塌、滑坡、泥石流的风险较高（三级），请各级国土部门注意地质灾害防范，做好巡查工作。]]></Description>
+					 <PicUrl><![CDATA[http://219.140.167.87/weixin/statics/images/test.jpg]]></PicUrl>
+					 <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=1&model=geological]]></Url>
+					 </item>
+					 </Articles>
+					 </xml><xml>
+					 <ToUserName><![CDATA[ovSypuL0T6Njmonpj0cFclrtuhYk]]></ToUserName>
+					 <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					 <CreateTime>1446635769</CreateTime>
+					 <MsgType><![CDATA[news]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[(系统测试)地质灾害预警 发布时间:2015年9月23日]]></Title> 
+					 <Description><![CDATA[今日20点－明日20点，预计三峡库区（巴东、秭归、兴山），神农架林区，十堰大部地区（十堰市区、郧阳区、竹山、竹溪、房县），襄阳局部地区（保康）以及其他暴雨中心发生崩塌、滑坡、泥石流的风险较高（三级），请各级国土部门注意地质灾害防范，做好巡查工作。]]></Description>
+					 <PicUrl><![CDATA[http://219.140.167.87/weixin/statics/images/test.jpg]]></PicUrl>
+					 <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=1&model=geological]]></Url>
+					 </item>
+					 </Articles>
+					 </xml><xml>
+					 <ToUserName><![CDATA[ovSypuK-zRCMH8_4kLxpfUfP9N04]]></ToUserName>
+					 <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					 <CreateTime>1446635785</CreateTime>
+					 <MsgType><![CDATA[news]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[(系统测试)地质灾害预警 发布时间:2015年9月23日]]></Title> 
+					 <Description><![CDATA[今日20点－明日20点，预计三峡库区（巴东、秭归、兴山），神农架林区，十堰大部地区（十堰市区、郧阳区、竹山、竹溪、房县），襄阳局部地区（保康）以及其他暴雨中心发生崩塌、滑坡、泥石流的风险较高（三级），请各级国土部门注意地质灾害防范，做好巡查工作。]]></Description>
+					 <PicUrl><![CDATA[http://219.140.167.87/weixin/statics/images/test.jpg]]></PicUrl>
+					 <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=1&model=geological]]></Url>
+					 </item>
+					 </Articles>
+					 </xml><xml>
+					 <ToUserName><![CDATA[ovSypuK-zRCMH8_4kLxpfUfP9N04]]></ToUserName>
+					 <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+					 <CreateTime>1446635813</CreateTime>
+					 <MsgType><![CDATA[news]]></MsgType>
+					 <ArticleCount>1</ArticleCount>
+					 <Articles>
+					 <item>
+					 <Title><![CDATA[(系统测试)地质灾害预警 发布时间:2015年9月23日]]></Title> 
+					 <Description><![CDATA[今日20点－明日20点，预计三峡库区（巴东、秭归、兴山），神农架林区，十堰大部地区（十堰市区、郧阳区、竹山、竹溪、房县），襄阳局部地区（保康）以及其他暴雨中心发生崩塌、滑坡、泥石流的风险较高（三级），请各级国土部门注意地质灾害防范，做好巡查工作。]]></Description>
+					 <PicUrl><![CDATA[http://219.140.167.87/weixin/statics/images/test.jpg]]></PicUrl>
+					 <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=1&model=geological]]></Url>
+					 </item>
+					 </Articles>
+					 </xml>
