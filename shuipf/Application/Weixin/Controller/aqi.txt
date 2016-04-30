@@ -1,0 +1,31 @@
+array (
+  0 => '9月21日AQI指数：63～93，首要污染物为PM2.5和臭氧，空气质量状况为良，极少数异常敏感人
+                群应减少户外活动。',
+  1 => '9月22日AQI指数：65～95。空气质量状况为良，极少数异常敏感人群应减少户外活动。',
+  2 => '9月23日AQI指数：71～101。空气质量状况为良到轻度污染，极少数异常敏感人群可适当减少长
+                 时间、高强度的户外锻炼。',
+)'<xml>
+                    <ToUserName><![CDATA[ovSypuL0T6Njmonpj0cFclrtuhYk]]></ToUserName>
+                    <FromUserName><![CDATA[gh_56e37529f9e2]]></FromUserName>
+                    <CreateTime>1443238854</CreateTime>
+                    <MsgType><![CDATA[news]]></MsgType>
+                    <ArticleCount>3</ArticleCount>
+                    <Articles><item>
+                    <Title><![CDATA[9月21日AQI指数：63～93，首要污染物为PM2.5和臭氧，空气质量状况为良，极少数异常敏感人
+                群应减少户外活动。]]></Title>
+                    <Description><![CDATA[]]></Description>
+                    <PicUrl><![CDATA[]]></PicUrl>
+                    <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=9&model=aqi_weather]]></Url>
+                </item><item>
+                    <Title><![CDATA[9月22日AQI指数：65～95。空气质量状况为良，极少数异常敏感人群应减少户外活动。]]></Title>
+                    <Description><![CDATA[]]></Description>
+                    <PicUrl><![CDATA[]]></PicUrl>
+                    <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=9&model=aqi_weather]]></Url>
+                </item><item>
+                    <Title><![CDATA[9月23日AQI指数：71～101。空气质量状况为良到轻度污染，极少数异常敏感人群可适当减少长
+                 时间、高强度的户外锻炼。]]></Title>
+                    <Description><![CDATA[]]></Description>
+                    <PicUrl><![CDATA[]]></PicUrl>
+                    <Url><![CDATA[http://219.140.167.87/weixin/index.php?g=Weixin&m=Content&a=detail&id=9&model=aqi_weather]]></Url>
+                </item></Articles>
+                    </xml>'
