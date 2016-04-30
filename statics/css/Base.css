@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+li span p{ font-size:14px;}
+em { color:#999;}
+ul {width:100%}
+/**
+ * 自定义菜单添加页面
+ */
+.lsList_ul{float:left;}
+.lsList_ul li { line-height:30px;}
+.lsList_ul i{display:inline;}
+.lsList_ul li span {
+	display:block;
+}
+
+.control {
+	display: inline;
+    width: 35%;
+}
+
+.table{ margin-top: 20px;}

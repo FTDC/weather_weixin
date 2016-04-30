@@ -1,0 +1,148 @@
+@charset "UTF-8";
+/*
+基础样式
+*/
+
+/*
+列表样式1
+
+    纵向列表
+    ul>li>a>内容:name img
+*/
+.list_1{padding:5px 0px;margin: 0px;}
+.list_1 li{margin:0px;border-bottom: 1px solid #ccc;}
+.list_1 li:active{background-color: #f1f1f1;}
+.list_1 li a{padding:0px 10px;width: 100%;height: 80px;line-height: 80px;}
+.list_1 li a img{width:60px;height: 60px;float: right;margin: 10px 0px;}
+
+/*
+列表样式2
+
+    纵向列表(带右侧箭头)
+    ul>li>a
+*/
+.list_2{ margin: 5px; padding:0px;border-radius: 5px;border: 1px solid #ccc;}
+.list_2 li{margin:0px;border-bottom: 1px solid #ccc;overflow: hidden;}
+.list_2 li:last-child{border-bottom: none;}
+.list_2 li:active{background-color: #f1f1f1;}
+.list_2 li a{padding:0px 10px;width: 100%;height: 40px;line-height: 40px;position: relative;color: #555;}
+.list_2 li a i{vertical-align: middle;}
+.list_2 li a i:last-child{font-size:2em;color: #ccc;}
+.list_2 li a .content{padding:0px 10px;width: 92%;display: inline-block;white-space: nowrap;text-overflow: ellipsis;}
+
+/*
+列表样式3
+
+    纯文本样式列表右侧一个箭头
+    a>ul>li
+*/
+.list_3{ margin: 5px; padding:0px;border-radius: 5px;border: 1px solid #ccc;color: #333;background-color: #fff;position: relative;}
+.list_3 ul{padding: 10px;margin: 0px;}
+.list_3 li{margin:0px;overflow: hidden;height:25px;line-height:25px;}
+.list_3 i{position: absolute;top: 30%;right: 10px;font-size: 3em;opacity: 0.5;}
+
+/*
+列表样式4
+
+    纯文本样式列表项中每一个右侧有一个箭头
+    ul>li>a>内容：i
+*/
+.list_4{padding:0px;margin: 5px;}
+.list_4 li{margin:0px;overflow: hidden;height:40px;line-height:40px;border-bottom: 1px solid #ccc;}
+.list_4 li:active{background-color: #f1f1f1;}
+.list_4 li a{display: block;padding:0px 10px;}
+.list_4 i{float: right;font-size: 2.2em;line-height: 40px;}
+
+/*
+图文列表1
+
+    头像列表
+    dl>dt>dd
+*/
+.imgList_1{padding:5px;content: '';display: table;clear: both;width: 100%;margin:0px;}
+.imgList_1 dt{float: left;margin-right: 10px;}
+.imgList_1 dt img{width:80px;height: 80px;border-radius: 80px;line-height: 0px;border:5px solid #fff;}
+.imgList_1 dd{line-height: 30px;}
+.imgList_1 dd.name{font-size: 1.2em;margin-top: 10px;}
+.imgList_1 dd.des{}
+
+/*
+图文列表2
+
+    图文列表，右侧文字4行
+    dl>dt>dd>div|div
+*/
+.imgList_2{padding:5px;content: '';display: table;clear: both;width: 100%;margin:0px;padding: 10px;border-bottom: 1px solid #ccc;height: 80px;}
+.imgList_2 dt{float: left;margin-right: 10px;}
+.imgList_2 dt img{width:80px;height: 80px;line-height: 0px;}
+.imgList_2 dd{line-height: 30px;}
+.imgList_2 dd.name{font-size: 1.2em;}
+.imgList_2 dd.name div{line-height: 19px;}
+.imgList_2 dd.name div:first-child span{font-size: 0.8em;color: #ccc;}
+.imgList_2 dd.name div:last-child h4{padding:0px;margin:0px;}
+.imgList_2 dd.des{font-size: 0.8em;line-height: 22px;}
+.imgList_2 dd.des div:last-child{color: #FF6600;}
+
+/*
+图文列表3
+
+    纯图片纵向列表
+    ul>li>a>img
+*/
+.imgList_3{padding:5px;width: 100%;margin:0px;}
+.imgList_3>li{padding:5px;margin:0px;}
+.imgList_3>li>a{display: block;overflow: hidden;}
+.imgList_3>li>a>img{width:100%;}
+
+/*
+图文列表4
+
+    图文混排纵向列表(第一条带黑色描述条)
+    ul
+        li
+            a
+                img
+                p
+        li
+            a
+                p
+                img
+*/
+.imgList_4{padding:5px;width: 100%;margin:0px;}
+.imgList_4>li{padding:5px;margin:0px;background-color: #fff;border-bottom: 1px solid #ccc;}
+.imgList_4>li:last-child{border-bottom: none;}
+.imgList_4>li>a{display: block;overflow: hidden;position: relative;text-decoration: none;}
+.imgList_4>li>a{color: #000;}
+.imgList_4>li>a:after{clear: both;content: '';}
+.imgList_4>li>a>p{float: left;width: 75%;padding:5px;margin: 0px;font-size: 1em;height: 45px;overflow: hidden;}
+.imgList_4>li>a>img{float:left;width:25%;padding:5px;border-radius: 10px;}
+.imgList_4>li:first-child{padding:10px;}
+.imgList_4>li:first-child img{width: 100%;padding: 0px;border-radius: 0px;}
+.imgList_4>li:first-child p{background-color: rgba(000,000,000,0.6);color: #fff;height: 30px;line-height: 30px;padding: 0px 5px;position: absolute;z-index: 5;bottom: 0px;margin: 0px;width: 100%;font-size: 0.9em;}
+
+/*
+Tab切换
+
+    两列切换
+    .Tabs
+        header.tabType
+            div#oDiv*
+        tab
+            a
+                ul
+                    li
+                        content
+    time时间
+    右侧箭头
+*/
+.Tabs .tabType{width: 100%;padding: 0px;margin: 0px;}
+.Tabs .tabType div[id^="oDiv"]{height: 38px;line-height: 38px;text-align: center;border-bottom: 1px solid #ccc;color: #666;}
+.Tabs .tabType div.active{color: #333;border-bottom:2px solid #FF9900;}
+.Tabs .tabNone{display: none;}
+.Tabs .tab a:active{background-color: #f1f1f1;}
+.Tabs .tab a{border-bottom: 1px solid #ccc;display: block;color: #666; font-size: 0.9em;position: relative;}
+.Tabs .tab a ul{padding: 0px 10px;margin: 0px;}
+.Tabs .tab a li{min-height: 25px;line-height: 25px;}
+.Tabs .tab a .Description{width: 99%;}
+.Tabs .tab a>i{position: absolute;top: 22%;right: 15px;font-size: 3em;opacity: 0.5;}
+
