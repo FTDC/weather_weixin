@@ -143,7 +143,7 @@
                     </a>
                 </li>
                 <li>
-                    <a target="mainContent" href="{:U('Photo/index')}"> <i class="linecons-desktop"></i>
+                    <a target="mainContent" href="{:U('Photo/index/index')}"> <i class="linecons-desktop"></i>
                         <span class="title">实景天气</span>
                     </a>
                 </li>
@@ -215,7 +215,7 @@
 
 
         });
-    })
+    });
 
     function siderH(){ //侧边栏高度
 
@@ -223,7 +223,7 @@
         var s_h=$(".sidebar-menu").height();
         if((s_h+126)>=w_h)
         {
-            return;
+            
         }
         else{
 
