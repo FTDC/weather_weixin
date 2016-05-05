@@ -12,14 +12,13 @@ use Common\Controller\ShuipFCMS;
 
 class PhotoController extends ShuipFCMS
 {
-    
+
 
     // 管理中心显示图片信息
-    public function  index(){
-        
+    public function index()
+    {
         $this->display();
     }
 
-    
 
 }

@@ -12,6 +12,8 @@
     <link rel="alternate icon" type="image/png" href="{$config_siteurl}/statics/assets/i/favicon.png">
     <link rel="stylesheet" href="{$config_siteurl}/statics/assets/css/amazeui.css"/>
     <style>
+
+        ul{ list-style:  none;}
         @media only screen and (min-width: 641px) {
             .am-offcanvas {
                 display: block;
@@ -33,6 +35,8 @@
             }
 
         }
+
+
 
         @media only screen and (max-width: 640px) {
             .am-offcanvas-bar .am-nav > li > a {
@@ -101,21 +105,156 @@
         .am-g {
             overflow: hidden;
         }
+
+        .upload_from {
+            background: #fff;
+        }
+
+        .upload_from input{ padding:  10px 0 10px 0;     border: 0;
+            width: 100%;
+            height: 45px;
+            font-size: 15px;
+            color: #000;
+            outline: 0;}
+
+        .upload_from textarea{ padding:  10px 0 10px 0;     border: 0;
+            width: 100%;
+            height: 170px;
+            font-size: 15px;
+            color: #000;
+            outline: 0;}
+
+        .pub-location {
+            padding-left: 6px;
+            height: 44px;
+            font-size: 14px;
+            line-height: 44px;
+            background: #fff;
+        }
+
+        .pub-location .location-text {
+            padding: 8px 8px 8px 28px;
+            color: #757575;
+            background: #fff url({$config_siteurl}/statics/photo/image/location.png) no-repeat;
+            background-position: 8px center;
+            background-size: 12px 16px;
+        }
+
+        .pub-type {
+            display: -webkit-box;
+            -webkit-box-pack: end;
+            -webkit-box-align: center;
+            -webkit-box-sizing: content-box;
+            padding: 10px 20px;
+            height: 35px;
+            font-size: 16px;
+            background: #fff; list-style: none;
+        }
+
+        .border-1px {
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            border: 1px solid #c8c7cc;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            pointer-events: none;
+        }
+
+        .pub-type .active {
+            background-image: url({$config_siteurl}/statics/photo/image/select-photo2-active.png);
+        }
+
+        .pub-type .pic-type {
+            overflow: hidden;
+            position: relative;
+            margin-right: 14px;
+            width: 25px;
+            height: 25px;
+            background: url({$config_siteurl}/statics/photo/image/select-photo2.png) no-repeat 0 0;
+            background-size: 25px 25px;
+        }
+
+        .pub-type li {
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .pub-publish {
+            border: 0;
+            border-radius: 4px;
+            width: 81px;
+            height: 35px;
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+            float: right;
+            background-color: #2791dc;
+        }
+
+        .pub-pics {
+            overflow: hidden;
+            padding: 9px 18px 15px;
+        }
+
+
+
+        .up-entry {
+            background: transparent url({$config_siteurl}/statics/photo/image/publish-sprite.png) no-repeat -130px 0;
+            background-size: 270px 65px;
+        }
+
+        .pub-pics li {
+            float: left;
+            position: relative;
+            margin: 6px 6px 0 0;
+            width: 65px;
+            height: 65px;
+        }
+
+        .upfile {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-<header class="am-g my-head">
-    <div class="am-u-sm-12 am-article">
-        <h1 class="am-article-title"><?php echo $info['title'];?></h1>
-    </div>
-</header>
-<hr class="am-article-divider"/>
 <div class="am-g am-g-fixed">
     <div class=" ">
         <div class="am-g">
             <div class="am-u-sm-11 am-u-sm-centered">
                 <div class="am-cf am-article">
-                
+                    <div class="upload_from">
+                        <div class="editor-outer">
+                            <input maxlength="200" spellcheck="false" class="ipt-theme" type="text" placeholder="标题，4-25个字">
+                        </div>
+                        <div class="editor-outer">
+                            <textarea spellcheck="false" class="editor" placeholder="内容，10-700个字"></textarea>
+                        </div>
+                        <div class="pub-location"><span class="location-text">所在城市</span></div>
+                        <div class="pub-line border-1px"></div>
+                        <ul class="pub-type">
+                            <li id="selectPic" class="pic-type active" title="添加图片"></li>
+                            <li class="pub-flex"></li>
+                            <li class="pub-btn ">
+                                <button class="pub-publish">发表</button>
+                            </li>
+                            <li class="loading "></li>
+                            <li class="pub-remain "><p class="pub-remain-wording" style="display:none"></p></li>
+                        </ul>
+                        <ul class="pub-pics">
+                            <li class="up-entry">
+                                <input class="upfile up-entry-two" type="file" accept="image/*"  multiple=""></li>
+                        </ul>
+                        <div class="pub-faces"></div>
+                    </div>
                 </div>
             </div>
         </div>
