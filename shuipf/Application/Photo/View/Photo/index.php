@@ -251,7 +251,8 @@
                         </ul>
                         <ul class="pub-pics">
                             <li class="up-entry">
-                                <input class="upfile up-entry-two" type="file" accept="image/*"  multiple=""></li>
+                                <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">
+                            </li>
                         </ul>
                         <div class="pub-faces"></div>
                     </div>
