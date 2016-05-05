@@ -11,6 +11,8 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="alternate icon" type="image/png" href="{$config_siteurl}/statics/assets/i/favicon.png">
     <link rel="stylesheet" href="{$config_siteurl}/statics/assets/css/amazeui.css"/>
+    <link rel="stylesheet" href="{$config_siteurl}/statics/webupload/webuploader.css"/>
+    <link rel="stylesheet" href="{$config_siteurl}/statics/webupload/style.css"/>
     <style>
 
         ul{ list-style:  none;}
@@ -223,6 +225,15 @@
             opacity: 0;
             cursor: pointer;
         }
+
+        .list_img{
+            border-top: 1px solid #eeeeee;
+            margin-top: 10px;
+            text-align: center;
+            background: whitesmoke;
+            position: relative;
+            padding-bottom: 0px; min-height: 400px;;
+        }
     </style>
 </head>
 <body>
@@ -240,32 +251,35 @@
                         </div>
                         <div class="pub-location"><span class="location-text">所在城市</span></div>
                         <div class="pub-line border-1px"></div>
-                        <ul class="pub-type">
-                            <li id="selectPic" class="pic-type active" title="添加图片"></li>
-                            <li class="pub-flex"></li>
-                            <li class="pub-btn ">
-                                <button class="pub-publish">发表</button>
-                            </li>
-                            <li class="loading "></li>
-                            <li class="pub-remain "><p class="pub-remain-wording" style="display:none"></p></li>
-                        </ul>
-                        <ul class="pub-pics">
-                            <li class="up-entry">
-                                <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">
-                            </li>
-                        </ul>
                         <div class="pub-faces"></div>
                     </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="list_img" id="uploader">
+<!--            <ul class="pub-pics">-->
+<!--                <li class="up-entry">-->
+<!--                    <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">-->
+<!--                </li>-->
+<!--            </ul>-->
+            <div class="queueList">
+                <div id="dndArea" class="placeholder">
+                    <div id="filePicker"></div>
+                    <p>或将照片拖到这里，单次最多可选10张</p>
+                </div>
+            </div>
+            <div class="statusBar" style="display:none;">
+                <div class="btns">
+                    <div id="filePicker2"></div><div class="uploadBtn">发表</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<footer class="my-footer">
-    <p>湖北气象<br>
-        <small>© Copyright Hubei Meteorology 2015</small>
-    </p>
-</footer>
 
+<script type="text/javascript" src="{$config_siteurl}/statics/webupload/jquery.js"></script>
+<script type="text/javascript" src="{$config_siteurl}/statics/webupload/webuploader.js"></script>
+<script type="text/javascript" src="{$config_siteurl}/statics/webupload/upload.js"></script>
 </body>
 </html>
