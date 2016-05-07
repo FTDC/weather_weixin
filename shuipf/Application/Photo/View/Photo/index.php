@@ -277,7 +277,9 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript">
+    var upload_path = "<?php echo U('Photo/Photo/uploadPhoto'); ?>";
+</script>
 <script type="text/javascript" src="{$config_siteurl}/statics/webupload/jquery.js"></script>
 <script type="text/javascript" src="{$config_siteurl}/statics/webupload/webuploader.js"></script>
 <script type="text/javascript" src="{$config_siteurl}/statics/webupload/upload.js"></script>

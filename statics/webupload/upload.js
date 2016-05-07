@@ -11,7 +11,7 @@
             $statusBar = $wrap.find( '.statusBar' ),
 
             // 文件总体选择信息。
-            //$info = $statusBar.find( '.info' ),
+            $info = $statusBar.find( '.info' ),
 
             // 上传按钮
             $upload = $wrap.find( '.uploadBtn' ),
@@ -151,7 +151,7 @@
             swf: 'Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: '../../server/fileupload.php',
+            server: upload_path,
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -220,7 +220,7 @@
                     '<span class="rotateLeft">向左旋转</span></div>').appendTo( $li ),
                 $prgress = $li.find('p.progress span'),
                 $wrap = $li.find( 'p.imgWrap' ),
-                $info = $('<p class="error"></p>'),
+                // $info = $('<p class="error"></p>'),
 
                 showError = function( code ) {
                     switch( code ) {
