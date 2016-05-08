@@ -121,7 +121,7 @@
 
         .upload_from textarea{ padding:  10px 0 10px 0;     border: 0;
             width: 100%;
-            height: 170px;
+            height: 70px;
             font-size: 15px;
             color: #000;
             outline: 0;}
