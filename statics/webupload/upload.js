@@ -257,18 +257,7 @@
                         img = $('<img src="'+src+'">');
                         $wrap.empty().append( img );
                     } else {
-                        $.ajax('../../server/preview.php', {
-                            method: 'POST',
-                            data: src,
-                            dataType:'json'
-                        }).done(function( response ) {
-                            if (response.result) {
-                                img = $('<img src="'+response.result+'">');
-                                $wrap.empty().append( img );
-                            } else {
-                                $wrap.text("预览出错");
-                            }
-                        });
+
                     }
                 }, thumbnailWidth, thumbnailHeight );
 
@@ -283,7 +272,6 @@
                     $li.off( 'mouseenter mouseleave' );
                     $btns.remove();
                 }
-
                 // 成功
                 if ( cur === 'error' || cur === 'invalid' ) {
                     console.log( file.statusText );
@@ -339,22 +327,7 @@
                     });
                 } else {
                     $wrap.css( 'filter', 'progid:DXImageTransform.Microsoft.BasicImage(rotation='+ (~~((file.rotation/90)%4 + 4)%4) +')');
-                    // use jquery animate to rotation
-                    // $({
-                    //     rotation: rotation
-                    // }).animate({
-                    //     rotation: file.rotation
-                    // }, {
-                    //     easing: 'linear',
-                    //     step: function( now ) {
-                    //         now = now * Math.PI / 180;
 
-                    //         var cos = Math.cos( now ),
-                    //             sin = Math.sin( now );
-
-                    //         $wrap.css( 'filter', "progid:DXImageTransform.Microsoft.Matrix(M11=" + cos + ",M12=" + (-sin) + ",M21=" + sin + ",M22=" + cos + ",SizingMethod='auto expand')");
-                    //     }
-                    // });
                 }
 
 
@@ -388,7 +361,7 @@
 
             spans.eq( 0 ).text( Math.round( percent * 100 ) + '%' );
             spans.eq( 1 ).css( 'width', Math.round( percent * 100 ) + '%' );
-            updateStatus();
+           // updateStatus();
         }
 
         function updateStatus() {
@@ -425,6 +398,7 @@
                 return;
             }
 
+            console.log(val);
             $upload.removeClass( 'state-' + state );
             $upload.addClass( 'state-' + val );
             state = val;
@@ -470,7 +444,9 @@
                 case 'finish':
                     stats = uploader.getStats();
                     if ( stats.successNum ) {
-                        alert( '上传成功' );
+                        // 文件上传成功后
+                        //$("#img_hide_list").append('<input type="hidden" name="imglist[]" value="'+stats.url+'">');
+                        $("#photo_form").submit();
                     } else {
                         // 没有成功的图片，重设
                         state = 'done';
@@ -518,6 +494,11 @@
 
         };
 
+        uploader.on('uploadSuccess', function(file, response){
+            $("#img_hide_list").append('<input type="hidden" id="'+file.id+'_val" name="imglist[]" value="'+response.url+'">');
+
+        })
+
         uploader.on( 'all', function( type ) {
             var stats;
             switch( type ) {
@@ -541,6 +522,12 @@
         };
 
         $upload.on('click', function() {
+            // 判断标题和描述是否为空
+            var title = $("#title").val(), desc = $("#description").val();
+            if(title == ''){
+                alert('请填写标题'); return false;
+            }
+
             if ( $(this).hasClass( 'disabled' ) ) {
                 return false;
             }
