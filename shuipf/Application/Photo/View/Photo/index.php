@@ -241,20 +241,23 @@
     <div class=" ">
         <div class="am-g">
             <div class="am-u-sm-11 am-u-sm-centered">
+                <form id="photo_form" action="<?php echo U('Photo/Photo/publish'); ?>" method="post">
                 <div class="am-cf am-article">
                     <div class="upload_from">
                         <div class="editor-outer">
-                            <input maxlength="200" spellcheck="false" class="ipt-theme" type="text" placeholder="标题，4-25个字">
+                            <input maxlength="200" id="title" name="title" spellcheck="false" class="ipt-theme" type="text" placeholder="标题，4-25个字">
                         </div>
                         <div class="editor-outer">
-                            <textarea spellcheck="false" class="editor" placeholder="内容，10-700个字"></textarea>
+                            <textarea spellcheck="false" id="description" name="description" class="editor" placeholder="内容，10-700个字"></textarea>
                         </div>
                         <div class="pub-location"><span class="location-text">所在城市</span></div>
                         <div class="pub-line border-1px"></div>
-                        <div class="pub-faces"></div>
                     </div>
+                    <div id="img_hide_list">
 
+                    </div>
                 </div>
+                </form>
             </div>
         </div>
         <div class="list_img" id="uploader">

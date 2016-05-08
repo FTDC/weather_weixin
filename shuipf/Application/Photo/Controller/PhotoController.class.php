@@ -9,6 +9,7 @@
 namespace Photo\Controller;
 
 use Common\Controller\ShuipFCMS;
+use Libs\Service\XfImage;
 use Libs\Service\XfUpload;
 
 class PhotoController extends ShuipFCMS
@@ -37,11 +38,12 @@ class PhotoController extends ShuipFCMS
 
 
         // 文件保目录
-        $save_path = $root_dir ;
+        $save_path = $root_dir;
 
 
         // 设置参数
-        $upload_config = array('maxSize' => 20480000,
+        $upload_config = array(
+            'maxSize' => 20480000,
             // 上传文件的最大值
             'supportMulti' => false,
             // 是否支持多文件上传
@@ -54,7 +56,7 @@ class PhotoController extends ShuipFCMS
 
             'thumb' => true,
             // 使用对上传图片进行缩略图处理
-            'thumbMaxWidth' => '1024',
+            'thumbMaxWidth' => '180',
             // 缩略图最大宽度
             'thumbMaxHeight' => '',
             // 缩略图最大高度
@@ -110,6 +112,7 @@ class PhotoController extends ShuipFCMS
 
             $uploads = $uploads[0];
 
+
             // 文件绝对路径
             $original_file = $uploads['savepath'] . $uploads['savename'];
 
@@ -121,6 +124,9 @@ class PhotoController extends ShuipFCMS
                 exit;
             }
 
+            //生成缩略图
+            $ximage = new XfImage();
+            $ximage->thumb($original_file, $this->thumb_name($original_file, "small"), '', 400, '', true);
 
             $data = array('state' => 'SUCCESS',
                 'url' => str_replace($root_dir, '', $original_file),
@@ -132,6 +138,99 @@ class PhotoController extends ShuipFCMS
         }
 
         echo json_encode($data);
+    }
+
+
+    public function thumb_name($filename, $type = 'small')
+    {
+        $pos = strrpos($filename, '.');
+        if (!$pos) return '';
+
+        $str1 = substr($filename, 0, $pos);
+        $str2 = substr($filename, $pos);
+
+        return $str1 . '_' . $type . $str2;
+    }
+
+
+    /**
+     *  发布实景图片
+     */
+    public function publish()
+    {
+
+        $title = I('title', '', 'trim');
+        $description = I('description', '', 'description');
+        $imglist = I('imglist', '', '');
+
+        if (empty($imglist)) {
+            $this->error('请选择上传文件');
+        }
+
+        $data = array();
+        foreach ($imglist as $item) {
+            if (!empty($item)) {
+                $data[] = array(
+                    'title' => $title,
+                    'description' => $description,
+                    'img_path' => $item,
+                    'city' => '武汉',
+                    'username' => 'xjin',
+                    'addtime' => time(),
+                );
+            }
+        }
+
+        M('weather_photo')->addAll($data);
+
+        $this->success('上报成功', U('Photo/Photo/listPhoto'));
+    }
+
+
+    public function listPhoto()
+    {
+        $list = M('weather_photo')->where(array('is_validata' => 0))->select();
+        foreach ($list as &$val) {
+            $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
+            $val['img_path_small'] = $this->thumb_name($val['img_path']);
+            $val['size'] = getimagesize($val['img_path']);
+        }
+        $this->assign("list", $list);
+        $this->display('list');
+    }
+
+
+    // 管理中心显示图片信息
+    public function hbqx_index()
+    {
+        $start_time = I('start_time');
+        $end_time = I('end_time');
+
+        $Obj = M('weather_photo');
+
+        $count = $Obj->count();
+        $page = $this->page($count, 20);
+
+        $where = array();
+
+        if (!empty($start_time) && !empty($end_time)) {
+            $start_time = strtotime($start_time);
+            $end_time = strtotime($end_time) + 86399;
+            $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
+        }
+
+
+        $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
+
+        foreach ($list as $key => $val) {
+            if (empty($val['img_path'])) {
+
+            }
+        }
+
+        $this->assign("Page", $page->show());
+        $this->assign("list", $list);
+        $this->display();
     }
 
 
