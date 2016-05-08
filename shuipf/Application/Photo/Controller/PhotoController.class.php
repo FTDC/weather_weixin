@@ -183,7 +183,7 @@ class PhotoController extends ShuipFCMS
 
         M('weather_photo')->addAll($data);
 
-        echo '上报成功!'; exit;
+        echo '上报成功!';  sleep(3);
         redirect(U('Photo/Photo/listPhoto'));
     }
 
