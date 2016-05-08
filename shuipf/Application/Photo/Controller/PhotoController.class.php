@@ -56,7 +56,7 @@ class PhotoController extends ShuipFCMS
 
             'thumb' => true,
             // 使用对上传图片进行缩略图处理
-            'thumbMaxWidth' => '180',
+            'thumbMaxWidth' => '1024',
             // 缩略图最大宽度
             'thumbMaxHeight' => '',
             // 缩略图最大高度
