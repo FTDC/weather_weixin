@@ -334,8 +334,8 @@
                             url: '<?php echo U('Photo/Photo/getaddressbylngb'); ?>',
                             dataType: "json",
                             data: {'latitude': latitude, 'longitude': longitude},
-                            success: function (res) {
-                                alert(JSON.stringify(res))
+                            success: function (data) {
+                                alert(JSON.stringify(data))
                             }
                         })
                 },
