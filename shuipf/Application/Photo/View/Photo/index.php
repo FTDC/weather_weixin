@@ -335,7 +335,7 @@
                             dataType: "json",
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
-                                alert(JSON.stringify(data))
+                                alert(data)
                             }
                         })
                 },
