@@ -243,5 +243,16 @@ class PhotoController extends ShuipFCMS
         $this->display();
     }
 
+    // 上报地理位置事件 感谢网友【blue7wings】和【strivi】提供的方案
+    public function getaddressbylngb()
+    {
+        $latitude = I('latitude', '');
+        $longitude = I('longitude', '');
+        $pos = file_get_contents('http://lbs.juhe.cn/api/getaddressbylngb?lngx=' . $latitude . '&lngy=' . $longitude);
+        $pos_ar = json_decode($pos, true);
+        echo $pos_ar; exit();
+
+    }
+
 
 }
