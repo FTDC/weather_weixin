@@ -1,6 +1,7 @@
 <?php
+namespace Libs\Service;
 
-class JSSDK
+class JSSDK extends \Libs\System\Service
 {
     private $appId;
     private $appSecret;

@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="{$config_siteurl}/statics/webupload/style.css"/>
     <style>
 
-        ul{ list-style:  none;}
+        ul {
+            list-style: none;
+        }
+
         @media only screen and (min-width: 641px) {
             .am-offcanvas {
                 display: block;
@@ -37,8 +40,6 @@
             }
 
         }
-
-
 
         @media only screen and (max-width: 640px) {
             .am-offcanvas-bar .am-nav > li > a {
@@ -112,19 +113,25 @@
             background: #fff;
         }
 
-        .upload_from input{ padding:  10px 0 10px 0;     border: 0;
+        .upload_from input {
+            padding: 10px 0 10px 0;
+            border: 0;
             width: 100%;
             height: 45px;
             font-size: 15px;
             color: #000;
-            outline: 0;}
+            outline: 0;
+        }
 
-        .upload_from textarea{ padding:  10px 0 10px 0;     border: 0;
+        .upload_from textarea {
+            padding: 10px 0 10px 0;
+            border: 0;
             width: 100%;
             height: 70px;
             font-size: 15px;
             color: #000;
-            outline: 0;}
+            outline: 0;
+        }
 
         .pub-location {
             padding-left: 6px;
@@ -150,7 +157,8 @@
             padding: 10px 20px;
             height: 35px;
             font-size: 16px;
-            background: #fff; list-style: none;
+            background: #fff;
+            list-style: none;
         }
 
         .border-1px {
@@ -201,8 +209,6 @@
             padding: 9px 18px 15px;
         }
 
-
-
         .up-entry {
             background: transparent url({$config_siteurl}/statics/photo/image/publish-sprite.png) no-repeat -130px 0;
             background-size: 270px 65px;
@@ -226,13 +232,14 @@
             cursor: pointer;
         }
 
-        .list_img{
+        .list_img {
             border-top: 1px solid #eeeeee;
             margin-top: 10px;
             text-align: center;
             background: whitesmoke;
             position: relative;
-            padding-bottom: 0px; min-height: 400px;;
+            padding-bottom: 0px;
+            min-height: 400px;;
         }
     </style>
 </head>
@@ -242,30 +249,32 @@
         <div class="am-g">
             <div class="am-u-sm-11 am-u-sm-centered">
                 <form id="photo_form" action="<?php echo U('Photo/Photo/publish'); ?>" method="post">
-                <div class="am-cf am-article">
-                    <div class="upload_from">
-                        <div class="editor-outer">
-                            <input maxlength="200" id="title" name="title" spellcheck="false" class="ipt-theme" type="text" placeholder="标题，4-25个字">
+                    <div class="am-cf am-article">
+                        <div class="upload_from">
+                            <div class="editor-outer">
+                                <input maxlength="200" id="title" name="title" spellcheck="false" class="ipt-theme"
+                                       type="text" placeholder="标题，4-25个字">
+                            </div>
+                            <div class="editor-outer">
+                                <textarea spellcheck="false" id="description" name="description" class="editor"
+                                          placeholder="内容，10-700个字"></textarea>
+                            </div>
+                            <div id="getLocation" class="pub-location"><span class="location-text">所在城市</span></div>
+                            <div class="pub-line border-1px"></div>
                         </div>
-                        <div class="editor-outer">
-                            <textarea spellcheck="false" id="description" name="description" class="editor" placeholder="内容，10-700个字"></textarea>
-                        </div>
-                        <div class="pub-location"><span class="location-text">所在城市</span></div>
-                        <div class="pub-line border-1px"></div>
-                    </div>
-                    <div id="img_hide_list">
+                        <div id="img_hide_list">
 
+                        </div>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
         <div class="list_img" id="uploader">
-<!--            <ul class="pub-pics">-->
-<!--                <li class="up-entry">-->
-<!--                    <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">-->
-<!--                </li>-->
-<!--            </ul>-->
+            <!--            <ul class="pub-pics">-->
+            <!--                <li class="up-entry">-->
+            <!--                    <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">-->
+            <!--                </li>-->
+            <!--            </ul>-->
             <div class="queueList">
                 <div id="dndArea" class="placeholder">
                     <div id="filePicker"></div>
@@ -274,7 +283,8 @@
             </div>
             <div class="statusBar" style="display:none;">
                 <div class="btns">
-                    <div id="filePicker2"></div><div class="uploadBtn">发表</div>
+                    <div id="filePicker2"></div>
+                    <div class="uploadBtn">发表</div>
                 </div>
             </div>
         </div>
@@ -307,20 +317,22 @@
         signature: '<?php echo $signPackage["signature"];?>',
         jsApiList: [
             // 所有要调用的 API 都要加到这个列表中
-            getLocation
+            "getLocation"
         ]
     });
     wx.ready(function () {
         // 在这里调用 API
-        wx.getLocation({
-            type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
-            success: function (res) {
-                var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
-                var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
-                var speed = res.speed; // 速度，以米/每秒计
-                var accuracy = res.accuracy; // 位置精度
-                console.log(res);
-            }
+
+        // 7.2 获取当前地理位置
+        $('#getLocation').click(function () {
+            wx.getLocation({
+                success: function (res) {
+                    alert(JSON.stringify(res));
+                },
+                cancel: function (res) {
+                    alert('用户拒绝授权获取地理位置');
+                }
+            });
         });
     });
 </script>

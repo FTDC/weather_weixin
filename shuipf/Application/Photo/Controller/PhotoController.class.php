@@ -9,6 +9,7 @@
 namespace Photo\Controller;
 
 use Common\Controller\ShuipFCMS;
+use Libs\Service\JSSDK;
 use Libs\Service\XfImage;
 use Libs\Service\XfUpload;
 
@@ -22,7 +23,7 @@ class PhotoController extends ShuipFCMS
         $appid = C('WX_APP_ID');
         $secret = C('WX_SECRET');
 
-        $jssdk = new \JSSDK($appid, $secret);
+        $jssdk = new JSSDK($appid, $secret);
         $signPackage = $jssdk->GetSignPackage();
         $this->assign("signPackage", $signPackage);
 
