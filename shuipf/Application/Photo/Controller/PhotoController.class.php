@@ -19,6 +19,13 @@ class PhotoController extends ShuipFCMS
     // 管理中心显示图片信息
     public function index()
     {
+        $appid = C('WX_APP_ID');
+        $secret = C('WX_SECRET');
+
+        $jssdk = new \JSSDK($appid, $secret);
+        $signPackage = $jssdk->GetSignPackage();
+        $this->assign("signPackage", $signPackage);
+
         $this->display();
     }
 
@@ -183,7 +190,8 @@ class PhotoController extends ShuipFCMS
 
         M('weather_photo')->addAll($data);
 
-        echo '上报成功!';  sleep(3);
+        echo '上报成功!';
+        sleep(3);
         redirect(U('Photo/Photo/listPhoto'));
     }
 
