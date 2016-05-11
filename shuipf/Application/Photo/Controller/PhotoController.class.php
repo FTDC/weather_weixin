@@ -250,10 +250,12 @@ class PhotoController extends ShuipFCMS
         $longitude = I('longitude', '');
 //        $pos = file_get_contents('http://lbs.juhe.cn/api/getaddressbylngb?lngx=' . $latitude . '&lngy=' . $longitude);
 //        $pos = file_get_contents('http://api.map.baidu.com/geocoder/v2/?output=json&ak=Uu7nmbVo3yWthageyl4CqGck&location=' . $latitude . ',' . $longitude);
-        $pos = file_get_contents('http://api.map.baidu.com/geocoder/v2/?output=json&ak=Uu7nmbVo3yWthageyl4CqGck&location=30.593099,114.305393');
+        $str = file_get_contents('http://api.map.baidu.com/geocoder/v2/?output=json&ak=Uu7nmbVo3yWthageyl4CqGck&location=' . $latitude . ','.$longitude.'&output=json&pois=1');
 //        $pos_ar = json_decode($pos, true);
 //        echo json_encode($pos_ar['result']['addressComponent']); exit();
-        echo $pos; exit();
+        $res=json_decode($str);
+        $res=object_array($res);
+        echo $res; exit();
 
     }
 
