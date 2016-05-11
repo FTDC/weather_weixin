@@ -170,6 +170,8 @@ class PhotoController extends ShuipFCMS
         $title = I('title', '', 'trim');
         $description = I('description', '', 'description');
         $imglist = I('imglist', '', '');
+        $city = I('city', '', '');
+        $location_xy = I('location_xy', '', '');
 
         if (empty($imglist)) {
             $this->error('请选择上传文件');
@@ -182,7 +184,8 @@ class PhotoController extends ShuipFCMS
                     'title' => $title,
                     'description' => $description,
                     'img_path' => $item,
-                    'city' => '武汉',
+                    'city' => $city,
+                    'location_xy' => $location_xy,
                     'username' => 'xjin',
                     'addtime' => time(),
                 );

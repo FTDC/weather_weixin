@@ -260,6 +260,8 @@
                                           placeholder="内容，10-700个字"></textarea>
                             </div>
                             <div id="getLocation" class="pub-location"><span class="location-text">所在城市</span></div>
+                            <input type="hidden" name="location_xy" id="location_xy" value="">
+                            <input type="hidden" name="city" id="city" value="">
                             <div class="pub-line border-1px"></div>
                         </div>
                         <div id="img_hide_list">
@@ -345,7 +347,9 @@
                             dataType: "json",
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
-                                alert(data)
+                                $(".location-text").html(data.city);
+                                $("#location_xy").val(latitude+','+longitude);
+                                $("#city").val(data.city);
                             }
                         })
                 },
