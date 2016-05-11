@@ -346,10 +346,11 @@
                             url: '<?php echo U('Photo/Photo/getaddressbylngb'); ?>',
                             dataType: "json",
                             beforeSend:function () {
-                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/select-photo2.png) no-repeat 0 0');
+                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/load.gif) no-repeat 0 0');
                             },
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
+                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/location.png) no-repeat 0 0');
                                 $(".location-text").html(data.city);
                                 $("#location_xy").val(latitude+','+longitude);
                                 $("#city").val(data.city);
