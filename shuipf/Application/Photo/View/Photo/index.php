@@ -312,7 +312,7 @@
      * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
      */
     wx.config({
-        debug: true,
+        debug: false,
         appId: '<?php echo $signPackage["appId"];?>',
         timestamp: <?php echo $signPackage["timestamp"];?>,
         nonceStr: '<?php echo $signPackage["nonceStr"];?>',
@@ -345,6 +345,9 @@
                             type: "post",
                             url: '<?php echo U('Photo/Photo/getaddressbylngb'); ?>',
                             dataType: "json",
+                            beforeSend:function () {
+                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/select-photo2.png) no-repeat 0 0');
+                            },
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
                                 $(".location-text").html(data.city);
