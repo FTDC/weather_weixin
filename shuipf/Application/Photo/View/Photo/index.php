@@ -142,9 +142,17 @@
         }
 
         .pub-location .location-text {
+             padding: 8px 8px 8px 28px;
+             color: #757575;
+             background: #fff url({$config_siteurl}/statics/photo/image/location.png) no-repeat;
+             background-position: 8px center;
+             background-size: 12px 16px;
+         }
+
+        .pub-location .location-load {
             padding: 8px 8px 8px 28px;
             color: #757575;
-            background: #fff url({$config_siteurl}/statics/photo/image/location.png) no-repeat;
+            background: #fff url({$config_siteurl}/statics/photo/image/load.gif) no-repeat;
             background-position: 8px center;
             background-size: 12px 16px;
         }
@@ -259,7 +267,7 @@
                                 <textarea spellcheck="false" id="description" name="description" class="editor"
                                           placeholder="内容，10-700个字"></textarea>
                             </div>
-                            <div id="getLocation" class="pub-location"><span class="location-text">所在城市</span></div>
+                            <div id="getLocation" class="pub-location"><span id="location_bg" class="location-text">所在城市</span></div>
                             <input type="hidden" name="location_xy" id="location_xy" value="">
                             <input type="hidden" name="city" id="city" value="">
                             <div class="pub-line border-1px"></div>
@@ -346,12 +354,12 @@
                             url: '<?php echo U('Photo/Photo/getaddressbylngb'); ?>',
                             dataType: "json",
                             beforeSend:function () {
-                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/load.gif) no-repeat 0 0');
+                                $("#location_bg").addClass("location-load").removeClass("location-text");
                             },
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
-                                $(".location-text").css('background','url({$config_siteurl}/statics/photo/image/location.png) no-repeat 0 0');
-                                $(".location-text").html(data.city);
+                                $("#location_bg").removeClass("location-load").addClass("location-text");
+                                $("#location_bg").html(data.city);
                                 $("#location_xy").val(latitude+','+longitude);
                                 $("#city").val(data.city);
                             }
