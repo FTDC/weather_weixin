@@ -204,10 +204,15 @@ class PhotoController extends ShuipFCMS
     {
         $list = M('weather_photo')->where(array('is_validate' => 0))->select();
         foreach ($list as &$val) {
+            $val['gg'] = C('UPLOADFILEPATH').'weather_photo/' . $val['img_path'];
+//            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+//            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+            $val['size'] = getimagesize($val['gg']);
             $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
-            $val['size'] = getimagesize($val['img_path']);
+//
         }
+
         $this->assign("list", $list);
         $this->display('list');
     }
