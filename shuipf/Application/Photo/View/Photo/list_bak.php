@@ -10,39 +10,33 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="{$config_siteurl}/statics/assets/css/amazeui.css"/>
-    <style>
+    <style type="text/css">
         ul.photo_gallery_13 {
             width: 100%;
             list-style: none;
             padding: 0px;
-            margin: 10px 0 20px 0;
+            margin: 0 auto;
             float: left;
             clear: both;
+            overflow: hidden;
         }
 
-        ul {
-            list-style: none;
-            margin: 0 auto;
-            min-height: 600px;
-            overflow: hidden;
-            position: relative;
-        }
 
         ul.photo_gallery_13 li {
-            width: 46%;
+            width: 150px;
             display: inline-block;
-            padding-right: 10px;
+            padding: 5px;
+            margin-top: 20px;
             -webkit-box-sizing: border-box;
             vertical-align: top;
-            margin: 5px 5px;
+            text-align: center;
             -webkit-box-shadow: 3px 3px 3px #eee;
             -moz-box-shadow: 3px 3px 3px #eee;
             box-shadow: 3px 3px 3px #eee;
-
         }
 
         ul.photo_gallery_13 li img {
-            width: 100%;
+            width: 130px;
             vertical-align: bottom;
         }
     </style>
@@ -55,7 +49,7 @@
                 <ul id="photoslist" class="photo_gallery_13">
                     <notempty name="list">
                         <volist name="list" id="vo">
-                            <li class="images-item"><img data-width="<?php echo $vo['size'][0]; ?>" data-height="<?php echo $vo['size'][1]; ?>" style="width: 150px;" title="{$vo['title']}" src="{$vo['img_path_small']}" alt="{$vo['title']}" data-src="{$vo['img_path']}"></li>
+                            <li class="images-item"><img data-width="<?php echo $vo['size'][0]; ?>" data-height="<?php echo $vo['size'][1]; ?>" title="{$vo['title']}" src="{$vo['img_path_small']}" alt="{$vo['title']}" data-src="{$vo['img_path']}"></li>
                         </volist>
                     </notempty>
                     <div class="clearleft"></div>
@@ -84,7 +78,7 @@
             //	2.获得屏幕可显示的列数
             var boxW = boxs[0].offsetWidth;
             var colsNum = Math.floor(document.documentElement.clientWidth / boxW);
-            wrap.style.width = boxW * colsNum + 'px';//为外层赋值宽度
+            wrap.style.width = boxW * colsNum+10 + 'px';//为外层赋值宽度
             //	3.循环出所有的box并按照瀑布流排列
             var everyH = [];//定义一个数组存储每一列的高度
             for (var i = 0; i < boxs.length; i++) {
@@ -156,7 +150,7 @@
             if (getStartNum >= index) return;
             $(box).css({
                 'position': 'absolute',
-                'top': top,
+                'top': top+20,
                 "left": left,
                 "opacity": "0"
             });
