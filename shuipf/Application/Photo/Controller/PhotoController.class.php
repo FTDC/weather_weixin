@@ -214,7 +214,7 @@ class PhotoController extends ShuipFCMS
         }
 
         $this->assign("list", $list);
-        $this->display('list');
+        $this->display('list_bak');
     }
 
 

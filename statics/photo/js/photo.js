@@ -40,7 +40,7 @@ define(function(require, exports, module) {
         })
 
 
-        $el.find('.pic').click(function(){
+        $el.find('.images-item').click(function(){
             show( $(this).index() );
         })
 
