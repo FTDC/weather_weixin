@@ -202,7 +202,7 @@ class PhotoController extends ShuipFCMS
 
     public function listPhoto()
     {
-        $list = M('weather_photo')->where(array('is_validata' => 0))->select();
+        $list = M('weather_photo')->where(array('is_validate' => 0))->select();
         foreach ($list as &$val) {
             $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
