@@ -35,15 +35,30 @@ class IndexController extends ShuipFCMS
 
         $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
 
-        foreach ($list as $key => $val){
-            if(empty($val['img_path'])){
-
+        foreach ($list as $key => &$val){
+            if(!empty($val['img_path'])){
+                $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
+                $val['img_path_small'] = $this->thumb_name($val['img_path']);
             }
         }
+
+//        var_dump($list); die();
 
         $this->assign("Page", $page->show());
         $this->assign("list", $list);
         $this->display();
+    }
+
+
+    public function thumb_name($filename, $type = 'small')
+    {
+        $pos = strrpos($filename, '.');
+        if (!$pos) return '';
+
+        $str1 = substr($filename, 0, $pos);
+        $str2 = substr($filename, $pos);
+
+        return $str1 . '_' . $type . $str2;
     }
 
     

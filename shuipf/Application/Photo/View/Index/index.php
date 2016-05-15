@@ -3,6 +3,7 @@
 <div class="wrap J_check_wrap">
     <Admintemplate file="Common/Nav"/>
     <link type="text/css" rel="stylesheet" href="{$config_siteurl}/statics/css/Base.css" />
+    <link type="text/css" rel="stylesheet" href="{$config_siteurl}/statics/photo/jquery.fancybox/fancybox.css" />
     <form method="post" action="{:U('Weixin/Weather/tucao')}">
         <div class="search_type cc mb10">
             <div class="mb10"> <span class="mr20">
@@ -15,10 +16,12 @@
       </span> </div>
         </div>
     </form>
+    <form class="J_ajaxForm" action="" method="post">
     <div class="table_list">
         <table width="100%" cellspacing="0">
             <thead>
             <tr>
+                <td width="3%"><label><input type="checkbox" class="J_check_all" data-direction="x" data-checklist="J_check_x"></label></td>
                 <td width="5%" >编号</td>
                 <td width="10%" >用户</td>
                 <td width="10%" >标题</td>
@@ -32,10 +35,12 @@
             <tbody>
             <tr>
                 <foreach name="list" item="vo">
+
+                    <td><input type="checkbox" class="J_check" data-yid="J_check_y" data-xid="J_check_x" name="ids[]" value="{$vo.id}"></td>
                     <td>{$vo.id}</td>
                     <td>{$vo['username']}</td>
                     <td>{$vo['title']}</td>
-                    <td><img src="{$vo['img_path']}" alt="{$vo['title']}" title="{$vo['title']}"/> </td>
+                    <td><a href="{$vo['img_path']}" class="mosaic-images-fancybox" rel="group" ><img  style="width: 125px;" src="{$vo['img_path_small']}" alt="{$vo['title']}" title="{$vo['title']}"/></a></td>
                     <td>
                         {$vo.city}
                     </td>
@@ -46,7 +51,8 @@
                         {$vo.is_validate}
                     </td>
                     <td>
-                        <a target="_self" href="{:U('Weather/del',array('id'=>$vo['id']))}">删除</a>
+                        <a target="_self" href="{:U('photo/del',array('id'=>$vo['id']))}">修改</a>
+                        <a target="_self" href="{:U('photo/edit',array('id'=>$vo['id']))}">删除</a>
                     </td>
             </tr><tr>
                 </foreach>
@@ -57,9 +63,22 @@
             <div class="pages"> {$Page} </div>
         </div>
     </div>
+    <div class="btn_wrap">
+        <div class="btn_wrap_pd">
+            <label class="mr20"><input type="checkbox" class="J_check_all" data-direction="y" data-checklist="J_check_y">全选</label>
+            <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/listorder')}">排序</button>
+            <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/public_check')}">审核</button>
+            <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/public_nocheck')}">取消审核</button>
+            <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/delete')}">删除</button>
+        </div>
+    </div>
+    </form>
 </div>
 <script src="{$config_siteurl}/statics/js/common.js?v"></script>
+<script src="{$config_siteurl}/statics/photo/jquery.fancybox/jquery.fancybox-1.3.1.pack.js?v"></script>
 <script type="text/javascript">
+    // 财产公示效果
+    $('.mosaic-images-fancybox').fancybox({cyclic: false});
 
     function generates(genid){
         //生成静态
