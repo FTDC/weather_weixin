@@ -1,0 +1,738 @@
+/* top 标准头 */
+.channelHead{width: 100%;min-width: 1000px;line-height:20px;font-size:12px;background: #f7f7f7;/*border-top: 3px solid #213e82;border-bottom: 1px solid #e5e5e5;*/position: relative;z-index: 9999;}
+.channelHead strong{font-weight:bold;}
+.channelHead a:link,.channelHead a:visited{color:#000;text-decoration:none;}
+.channelHead a:hover{color:#c00;text-decoration:underline;}
+.cheadTopbar{width:1000px;min-width: 1000px;height:41px;margin:0 auto;}
+.cheadTopbarLink{width:545px;float:left;padding:10px 0 0 5px;}
+.cheadUserInfo{float:right;text-align:center;margin-right: 15px;position: relative;}
+a.cheadLoginBtn:link, a.cheadLoginBtn:visited{width:50px;height:41px;color:#333;text-align:center;line-height:41px;text-decoration:none;border: solid #f7f7f7;border-width: 0 1px 0 1px;display: block;}
+a.cheadLoginBtn:hover, a.cheadLoginBtn:active, a.cheadLoginBtn:focus{color:#333;text-decoration:none;border: solid #b8cdef;border-width: 0 1px 0 1px;background: #eaeaea;}
+.cheadSearch{width:274px;float:right;padding:10px 0 0;height:30px;}
+.cheadSearch form{_zoom: 1;z-index: 10000;}
+.cheadSeaKey{width:143px;height:20px;padding:0 0 0 5px;line-height:21px;border:1px solid #afc5e0;color:#697a81;margin:0;vertical-align:top;float:left;font-size:12px;}
+.cheadSeaKeyClick{-moz-animation:bg .5s ease-in-out;-webkit-animation:bg .5s ease-in-out;-o-animation:bg .5s ease-in-out;}
+@-moz-keyframes bg{
+    0%{background:rgba(255,170,170,0.18);}
+    25%{background:rgba(255,170,170,0.5);}
+    50%{background:rgba(255,170,170,0.1);}
+    75%{background:rgba(255,170,170,0.5);}
+    100%{background:rgba(255,170,170,0.18);}
+} 
+@-webkit-keyframes bg{
+    0%{background:rgba(255,170,170,0.18);}
+    25%{background:rgba(255,170,170,0.5);}
+    50%{background:rgba(255,170,170,0.1);}
+    75%{background:rgba(255,170,170,0.5);}
+    100%{background:rgba(255,170,170,0.18);}
+}
+@-o-keyframes bg{
+    0%{background:rgba(255,170,170,0.18);}
+    25%{background:rgba(255,170,170,0.5);}
+    50%{background:rgba(255,170,170,0.1);}
+    75%{background:rgba(255,170,170,0.5);}
+    100%{background:rgba(255,170,170,0.18);}
+}
+.cheadSeaType{width:65px;height:22px;line-height:20px;vertical-align:top;margin:0 0 0 6px;float:left;font-size:12px;}
+.cheadSeaType option{line-height:20px;height:20px;}
+.cheadSeaSmt{width:43px;height:22px;border:none;text-align:center;line-height:22px;padding:0;color:#fff;background:url("http://i3.sinaimg.cn/cj/deco/2013/0516/images/fin_0506_mqm_imgs.png") -238px -84px no-repeat;vertical-align:top;cursor:pointer;_margin-left:-3px;font-size:12px;}
+.channelHead .tn-title-login-custom .tn-tab-custom:hover, .channelHead .tn-title-login-custom .tn-tab-custom-onmouse {color: #3e7cc0;border: #b8cdef;}
+.channelHead .tn-title-login-custom .tn-topmenulist-custom a em{color: #3e7cc0;}
+.channelHead .tn-title-login-custom .tn-topmenulist-custom a:hover{color: #3e7cc0;background: #ecf4fd;}
+.channelHead .tn-title-login-custom .tn-topmenulist-custom{border: #b8cdef;}
+.channelHead .tn-title-login-custom .tn-topmenulist-custom li{border-bottom: #b8cdef;}
+.channelHead .tn-title-login-custom .tn-tab-custom{color: #3e7cc0 !important;}
+.channelHead .tn-title-login-custom .tn-tab-custom .tn-new-custom{font-size: 8px !important;line-height: 10px !important;}
+.channelHead .tn-title-login-custom .tn-tab-custom .tn-arrow-custom{background: url("http://i3.sinaimg.cn/dy/main/index13/01/fin_0506_mqm_icon_custom_n.png") no-repeat scroll 0 0 transparent;}
+.channelHead .tn-title-login-custom .tn-tab-custom .tn-new-custom{background: url("http://i3.sinaimg.cn/dy/main/index13/01/fin_0506_mqm_icon_custom_n.png") no-repeat 0 -31px;height: 10px!important;text-indent:-9999em;overflow: hidden;}
+.channelHead .tn-title-login-custom .tn-user-greet, .channelHead .tn-title-login-custom .tn-tab-custom{_display: block;_float: left;_padding: 10px 0 !important;_height: 21px !important;_line-height: 21px !important;}
+.channelHead .tn-title-login-custom .tn-tab-custom i{_position: relative;_top: 2px;_zoom:1;}
+.channelHead .tn-title-login-custom .tn-topmenulist-custom{_right: -1px !important;}
+.link{float:right; margin-top:11px; color:#333;}
+.link span{margin:5px;}
+
+.wrap{ width: 1000px; margin: 0 auto;}
+#popup_mask{ display: none; position: absolute; z-index: 1999996; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.3; filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=30);}
+#popup_loading{ display: none; position: absolute; z-index: 1999998; left: 0; width: 50px; height: 24px;}
+#popup{ display: none; position: absolute; z-index: 1999997; left: 0; width: 0; background-color: #fff; border: none;}
+
+.wt_tt0_w{ height: 40px; line-height: 40px;}
+.wt_tt0{ float: left; display: inline; padding-left: 10px; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; font-weight: bold;}
+.wt_tt0_note{ font-size: 12px; font-weight: normal; color: #aaa;}
+.wt_tt0_r{ float: right; display: inline;}
+.wt_switch{ float: left; display: inline; margin-right: 5px; width: 48px; padding-left: 20px; height: 18px; line-height: 18px; text-align: center; font-size: 12px; border-radius: 99px; background-color: #656565; transition: background-color,color ease 0.6s; cursor: pointer; color: #aaa;}
+.wt_switch:hover{ background-color: #058793; color: #fff;}
+.wt_switch_on{ background-color: #058793; color: #fff; cursor: default;}
+
+.list0{ padding-left: 22px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/blk8_dots.gif) 12px 13px no-repeat;}
+.list0 li{ height: 28px; line-height: 28px; overflow: hidden;}
+.list0 li a, .list0 li a:visited{ color: #cbcbcb;}
+.list0 li a:hover{ color: #fff;}
+
+/*yellow icons day*/
+.wt_icons0_0{ background-position: 0 0; width: 128px; height: 128px; } 
+.wt_icons0_baoxue_0{ background-position: 0 -178px; width: 128px; height: 128px; } 
+.wt_icons0_baoyu_0{ background-position: 0 -356px; width: 128px; height: 128px; } 
+.wt_icons0_bingbao_0{ background-position: 0 -534px; width: 128px; height: 128px; } 
+.wt_icons0_daxue_0{ background-position: 0 -712px; width: 128px; height: 128px; } 
+.wt_icons0_dayu_0{ background-position: 0 -890px; width: 128px; height: 128px; } 
+.wt_icons0_dongyu_0{ background-position: 0 -1068px; width: 128px; height: 128px; } 
+.wt_icons0_duoyun_0{ background-position: 0 -1246px; width: 128px; height: 128px; } 
+.wt_icons0_feng_0{ background-position: 0 -1424px; width: 128px; height: 128px; } 
+.wt_icons0_fuchen_0{ background-position: 0 -1602px; width: 128px; height: 128px; } 
+.wt_icons0_leizhenyu_0{ background-position: 0 -1780px; width: 128px; height: 128px; } 
+.wt_icons0_mai_0{ background-position: -178px 0; width: 128px; height: 128px; } 
+.wt_icons0_nongwu_0{ background-position: -178px -178px; width: 128px; height: 128px; } 
+.wt_icons0_qiangshachenbao_0{ background-position: -178px -356px; width: 128px; height: 128px; } 
+.wt_icons0_qing_0{ background-position: -178px -534px; width: 128px; height: 128px; } 
+.wt_icons0_qingwu_0{ background-position: -178px -712px; width: 128px; height: 128px; } 
+.wt_icons0_shachenbao_0{ background-position: -178px -890px; width: 128px; height: 128px; } 
+.wt_icons0_shaoyun_0{ background-position: -178px -1068px; width: 128px; height: 128px; } 
+.wt_icons0_shuangdong_0{ background-position: -178px -1246px; width: 128px; height: 128px; } 
+.wt_icons0_tedabaoyu_0{ background-position: -178px -1424px; width: 128px; height: 128px; } 
+.wt_icons0_wu_0{ background-position: -178px -1602px; width: 128px; height: 128px; } 
+.wt_icons0_xiaoxue_0{ background-position: -178px -1780px; width: 128px; height: 128px; } 
+.wt_icons0_xiaoyu_0{ background-position: -356px 0; width: 128px; height: 128px; } 
+.wt_icons0_yan_0{ background-position: -356px -178px; width: 128px; height: 128px; } 
+.wt_icons0_yangsha_0{ background-position: -356px -356px; width: 128px; height: 128px; } 
+.wt_icons0_yin_0{ background-position: -356px -534px; width: 128px; height: 128px; } 
+.wt_icons0_yujiabingbao_0{ background-position: -356px -712px; width: 128px; height: 128px; } 
+.wt_icons0_yujiaxue_0{ background-position: -356px -890px; width: 128px; height: 128px; } 
+.wt_icons0_zhenyu_0{ background-position: -356px -1068px; width: 128px; height: 128px; } 
+.wt_icons0_zhongxue_0{ background-position: -356px -1246px; width: 128px; height: 128px; } 
+.wt_icons0_zhongyu_0{ background-position: -356px -1424px; width: 128px; height: 128px; }
+
+/*yellow icons 35px*/
+
+/*head*/
+.header{ background-color: #fff;}
+.hd_bar{ position: relative; z-index: 104; border-top: 3px solid #277471; border-bottom: 1px solid #e5e5e5; background-color: #F7F7F7;}
+.hc_cont{ height: 100px;}
+.logo_w{ position: relative; float: left; display: inline; width: 200px;}
+.logo_w h1{ position: relative; width: 200px; overflow: hidden; text-indent: -99em; margin-top: 35px; height: 60px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/logo_icon.png) 0 0 no-repeat;}
+.logo_w h1 a, .logo_w h1 a:visited{ display: block; width: 200px; height: 60px; cursor: pointer; outline: none;}
+#login_cn, #login_en{ position: absolute; display: block; top: 20px; left: 60px; display: none;}
+#login_cn{ width: 94px; height: 23px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/logo_cn.png) 0 0 no-repeat;}
+#login_en{ width: 49px; height: 26px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/logo_en.png) 0 0 no-repeat;}
+#effects{ position: absolute; top: 10px; left: 10px;}
+
+.hd_sh{ position: relative; z-index: 106; float: left; display: inline; width: 365px;}
+.hd_sh_form{ padding-top: 44px;}
+.hd_sh_input{ float: left; display: inline; margin: 0; padding: 10px 0; width: 285px; height: 16px; line-height: 16px; background-color: #fff; border: 1px solid #d5d5d5; font-size: 14px; color: #333; text-indent: 8px; font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";}
+.hd_sh_submit{ float: left; display: inline; margin-left: 6px; width: 71px; height: 38px; line-height: 38px; font-size: 16px; text-align: center; /* letter-spacing: 5px; */ color: #fff; cursor: pointer; background-color: #F39C12; transition: background-color ease 0.3s;}
+.hd_sh_submit:hover{ background-color: #FFAE2F;}
+.hd_sh_def{ position: absolute; z-index: 106; top: 87px; left: 0; width: 287px; background: #fff; box-shadow: 2px 2px 5px #333;}
+.hd_sh_sug{ position: absolute; z-index: 106; top: 87px; left: 0; width: 287px; background: #fff; box-shadow: 2px 2px 5px #333;}
+.hd_sh_sug_intro{ height: 28px; line-height: 28px; text-indent: 10px; font-size: 14px; color: #999;}
+.hd_sh_sug_i_w{}
+.hd_sh_sug_i{ height: 28px; line-height: 28px; overflow: hidden; text-indent: 10px; font-size: 14px; color: #656565; cursor: pointer;}
+.hd_sh_sug_i_on{ background-color: #eee;}
+.hd_sh_lbs{ height: 39px; border-bottom: 1px solid #f7f7f7;}
+.hd_sh_lb{ float: left; display: inline; width: 57px; height: 39px; line-height: 39px; font-size: 14px; text-align: center; cursor: pointer; background-color: #eaeaea; color: #656565; transition: background-color ease 0.6s;}
+.hd_sh_lb:hover{ background-color: #fff;}
+.hd_sh_lb_on{ color: #068793; cursor: default; background-color: #fff;}
+.hd_sh_def_list{ padding-bottom: 3px;}
+.hd_sh_def_list li{ float: left; display: inline; margin-left: 3px; margin-top: 3px; width: 92px; height: 30px; line-height: 30px; text-align: center; background-color: #e9e9e9; cursor: pointer; transition: background-color ease 0.6s;}
+.hd_sh_def_list li:hover{ background-color: #fff;}
+.hd_sh_def_list li a, .hd_sh_def_list li a:visited{ display: block; width: 92px; height: 30px; color: #000; outline: none;}
+
+.skins{ float: left; display: inline; width: 22px; margin-top: 50px; margin-left: 20px;}
+.skins_bulb_w{ position: relative; z-index: 1; width: 22px; height: 23px; cursor: pointer;}
+.skins_bulb{ position: absolute; z-index: 2; top: 0; left: 0; display: block; width: 22px; height: 23px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/icons_bulbs.png) 0 0 no-repeat;}
+.skins_bulb_w:hover .skins_bulb{ background-position: -100px 0px;}
+.skins_white:hover .skins_bulb{ background-position: -100px -100px;}
+.skins_white .skins_bulb{ background-position: 0px -100px;}
+
+.cities{ /*position: relative;*/ float: right; display: inline; margin-top: 10px; width: 362px; height: 76px; border-left: 1px solid #d8d8d8;}
+.cities_i{ position: relative; float: left; display: inline; width: 119px; height: 76px; overflow: hidden; border-right: 1px solid #d8d8d8; cursor: pointer;}
+.cities_i_hd{ position: relative; z-index: 1; width: 103px; margin: 0 auto; height: 27px; line-height: 27px; border-bottom: 1px dotted #c1c1c1;}
+.cities_i_ct{ font-size: 14px; color: #656565;}
+.cities_i_ct a, .cities_i_ct a:visited{ color: #656565;}
+.cities_i_del{ position: absolute; z-index: 2; right: 0; top: 7px; width: 11px; height: 11px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/cities_i_del.gif) center center no-repeat; background-color: rgba(3,3,3,0.2); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#66000000', endColorstr = '#66000000' )\9; cursor: pointer; transition: all 0.3s ease;}
+.cities_i_del:hover{  background-color: rgba(3,3,3,0.5); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#33000000', endColorstr = '#33000000' )\9;}
+.cities_i_wt{ height: 42px; margin-top: 5px; margin-left: 7px;}
+.cities_i .icons0_wt{ float: left; display: inline; width: 42px; height: 42px;}
+.cities_i_wt_txt{ float: right; display: inline; width: 67px;}
+.cities_i_wt_cn{ height: 20px; line-height: 20px; text-align: center; font-size: 12px;}
+
+.cities_add{ display: block; margin: 17px auto 0; width: 42px; height: 42px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/cities_add.png) 0 0 no-repeat; cursor: pointer;}
+.cities_add:hover{ background-position: 0 -42px;}
+.cities_i_wt_tp{ height: 25px; font-size: 24px; font-family: "Arial"; color: #068894; text-align: center; font-weight: normal;}
+.cities_num{ float: left; display: inline; width: 14px; height: 22px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/nums0.png) 0 0 no-repeat;}
+.cities_num_0{ background-position: 0 0;}
+.cities_num_1{ background-position: 0 -40px;}
+.cities_num_2{ background-position: 0 -80px;}
+.cities_num_3{ background-position: 0 -120px;}
+.cities_num_4{ background-position: 0 -160px;}
+.cities_num_5{ background-position: 0 -200px;}
+.cities_num_6{ background-position: -1px -239px;}
+.cities_num_7{ background-position: 0 -280px;}
+.cities_num_8{ background-position: 0 -320px;}
+.cities_num_9{ background-position: 0 -360px;}
+.cities_num_line{ background-position: 0 -400px;}
+.cities_num_degree{ margin-top: -2px; width: 25px; height: 24px; background-position: 0 -440px;}
+
+.hd_nav{ height: 50px; line-height: 50px; background-color: #2B2B2B;}
+.hd_nav_list{ float: left; display: inline; width: 800px;}
+.hd_nav_list li{ float: left; display: inline; margin-top: 7px; height: 35px; line-height: 35px; margin-left: 20px; margin-right: 20px; color: #fff; font-size: 16px; border-bottom: 0px solid #f39c12; transition: border ease 0.3s;}
+.hd_nav_list li.hd_nav_i_on{ border-bottom: 3px solid #f39c12;}
+.hd_nav_list li:hover{ border-bottom: 3px solid #f39c12;}
+.hd_nav_list li a, .hd_nav_list li a:visited{ color: #fff;}
+a.hd_nav_home, a.hd_nav_home:visited{ float: right; display: inline; color: #959595; font-size: 14px; transition: color ease 0.3s;}
+a.hd_nav_home:hover{ color: #fff;}
+
+body{ transition: background-position ease 0.3s;}
+.bg_away{ background-position: 0px 2000px!important; background-attachment: inherit!important;}
+/*白天*/
+.bg_01_00{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_01.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_02_00{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_02.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_03_00{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_03.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_04_00{ background: #000 url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_04.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_05_00{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_05.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_06_00{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_06.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_07_00{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_07.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_08_00{ background: #000 url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_08.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_09_00{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_09.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+/*夜间*/
+.bg_01_01{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_01.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_02_01{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_02.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_03_01{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_03.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_04_01{ background: #000 url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_04.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_05_01{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_05.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_06_01{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_06.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_07_01{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_07.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_08_01{ background: #000 url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_08.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+.bg_09_01{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_09.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
+
+/*slider*/
+.slider_w{ position: relative; width: 1000px; /*height: 460px;*/}
+.slider_add{ position: absolute; display: block; z-index: 97; right: 0; top: 0; width: 80px; height: 80px; line-height: 69px; text-align: center; font-size: 65px; font-family: Verdana; color: #ddd; /*background: rgba(0,0,0,0.3) url(http://i0.sinaimg.cn/dy/weather/main/index14/007/slider_add.png) center center no-repeat; _background: rgba(0,0,0,0.3) url(http://i1.sinaimg.cn/dy/weather/main/index14/007/slider_add.gif) center center no-repeat;*/ background-color: rgba(0,0,0,0.3); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#66000000', endColorstr = '#66000000' )\9; cursor: pointer; transition: all ease 0.6s;}
+.slider_add:hover{ background-color: rgba(0,0,0,0.7);}
+.slider_add_c{ position: absolute; display: block; z-index: 98; right: 0px; top: 0px; width: 290px; height: 180px; background-color: #fff; box-shadow: 2px 2px 5px #333;}
+.slider_add_close{ position: absolute; display: block; right: 10px; top: 10px; z-index: 99; width: 14px; height: 14px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/icon_addcity_close.png) 0 0 no-repeat; opacity: 0.7; cursor: pointer; transition: opacity ease 0.3s;}
+.slider_add_close:hover{ opacity: 1;}
+.slider_add_tt{ height: 60px; line-height: 60px; text-align: center; font-size: 18px; color: #656565; font-weight: normal;}
+.slider_add_input{ display: block; margin: 0 auto; width: 198px; height: 16px; padding-top: 10px; padding-bottom: 10px; line-height: 16px; border: 1px solid #ccc; font-size: 14px; color: #656565; text-indent: 10px; font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体";}
+.slider_add_btns{ margin-top: 20px; height: 30px; text-align: center;}
+.slider_add_btn{ display: inline-block; *display: inline; *zoom: 1; margin-right: 20px; width: 70px; height: 30px; line-height: 30px; color: #fff; text-align: center; font-size: 16px; cursor: pointer;}
+.slider_add_btn_cancel{ background-color: #cbcbcb;}
+.slider_add_btn_add{ background-color: #F29B11; margin-right: 0;}
+.slider_add_ctlist{ margin-left: 12px;}
+.slider_add_ctlist_i{ float: left; display: inline; margin-top: 3px; margin-left: 2px; width: 130px; height: 30px; line-height: 30px; text-align: center; background-color: #eee; cursor: pointer; transition: all ease 0.6s;}
+.slider_add_ctlist_i:hover{ background-color: #fff;}
+.slider_add_none{ height: 14px; line-height: 14px; font-size: 12px; color: #900; margin-left: 45px; padding-top: 16px;}
+
+.slider{ position: relative; width: 1000px; height: 460px; background: rgba(6,135,147,0.5); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa068793', endColorstr = '#aa068793' )\9; overflow: hidden;}
+.slider_ctrl{}
+.slider_arr_l, .slider_arr_r{ position: absolute; display: block; z-index: 2; top: 192px; width: 26px; height: 61px; overflow: hidden; text-indent: -99px; cursor: pointer; opacity: 1; transition: opacity ease 0.3s;}
+.slider_arr_l{ left: 10px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/slider_arr_l.png) 0 0 no-repeat;}
+.slider_arr_r{ right: 10px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/slider_arr_r.png) 0 0 no-repeat;}
+.slider_arr_l:hover, .slider_arr_r:hover{ opacity: 0.4; filter: alpha(opacity=40);}
+.slider_i{ position: relative; float: left; display: inline; width: 1000px; height: 460px;}
+.slider_ct{ position: absolute; left: 50px; top: 25px; z-index: 1; width: 330px;}
+.slider_ct_name{ height: 40px; line-height: 40px; font-size: 28px; font-weight: normal; color: #fff;}
+.slider_ct_enname{ height: 40px; line-height: 40px; font-size: 24px; font-weight: normal; color: #fff;}
+.slider_ct_date{ line-height: 30px; font-size: 18px; color: #fff;}
+.slider_ct_info{ line-height: 20px; font-size: 14px; color: #fff; padding-top: 10px;}
+.slider_ct_time{ margin-top: 18px; padding-left: 22px; width: 62px; height: 28px; line-height: 28px; text-align: center; border-radius: 99px; font-size: 14px; font-family: arial; color: #fff; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/icons_time.png) 12px 4px no-repeat; background-color: rgba(0,0,0,0.4); transition: background-color ease 0.3s;}
+.slider_ct_time:hover{ background-color: rgba(0,0,0,0.5);}
+.slider_states{ width: 440px; margin: 40px auto 0;}
+.slider_whicon_w{ height: 128px;}
+.slider_whicon{ display: block; margin: 0 auto; width: 128px; height: 128px;}
+.slider_degree{ height: 140px; line-height: 140px; text-align: center; font-size: 125px; color: #fff;}
+.slider_detail{ width: 100%; height: 41px; line-height: 41px; font-size: 16px; color: #fff; text-align: center; border-radius: 99px; background-color: rgba(0,0,0,0.3); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9; transition: background-color ease 0.3s;}
+.slider_detail:hover{ background-color: rgba(0,0,0,0.5);}
+
+.slider_tips{ position: relative; width: 200px; height: 50px; margin: 40px auto 0; text-align: center;}
+.slider_tip{ position: relative; z-index: 2; display: inline-block; *display: inline; *zoom: 1; width: 46px; height: 46px; cursor: pointer; opacity: 0.7; filter: alpha(opacity=70)\9; filter: none\0; transition: all ease 0.3s;}
+.slider_tip:hover{ opacity: 1; filter: alpha(opacity=100)\9; filter: none\0; top: -1px\0;}
+.slider_tip0{ position: relative; *top: 5px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/icon_tip0.png) 0 0 no-repeat;}
+.slider_tip0_heart{ position: absolute; z-index: 1; left: 12px; top: 13px; width: 23px; height: 20px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/icon_heart.png) 0 0 no-repeat;}
+.slider_tip1{ position: relative; margin-left: 23px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/icon_tip1.png) -1px 0 no-repeat;}
+.slider_tip_layer{ visibility: hidden; position: absolute; z-index: 1; left: -68px; top: 53px; width: 200px; padding-top: 7px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/tip_arr.png) 83px 0 no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/tip_arr.gif) 83px 0 no-repeat;}
+.slider_tip1 a, .slider_tip1 a:visited{ display: block; width: 46px; height: 46px; cursor: pointer; outline: none;}
+.slider_tip1 .slider_tip1_clouds{ position: absolute; z-index: -1; left: 1px; top: 1px; width: 44px; height: 44px; border-radius: 99px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_clouds.png) 0px 0px no-repeat;}
+.slider_tip_layer0{ left: -68px; top: 55px; }
+.slider_tip_layer1{ left: 3px; top: 55px; width: 121px;}
+.slider_tip_layer_c{ padding: 8px 15px; background-color: #fff; border-radius: 5px; box-shadow: 2px 2px 5px #333;}
+.slider_tip_layer_c p{ color: #656565;}
+
+.slider_warn{ position: absolute; z-index: 1; right: 60px; top: 160px; width: 206px;}
+.slider_warn_i{ cursor: pointer; transition: background-color 0.6s ease;}
+.slider_warn_i:hover{ background-color: rgba(255,255,255,0.2); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aaffffff', endColorstr = '#aaffffff' )\9;}
+.slider_warn_line0{ height: 1px; font-size: 0; line-height: 0; overflow: hidden; background-color: rgba(255,255,255,0.4); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aaffffff', endColorstr = '#aaffffff' )\9;}
+.slider_warn_i_tt{ float: left; display: inline; width: 90px; height: 60px;}
+.slider_warn_i_tt h6{ height: 30px; line-height: 30px; font-weight: normal; font-size: 14px; color: #fff; text-indent: 10px;}
+.slider_warn_i_tt p{ height: 24px; line-height: 24px; font-family: "arial"; font-size: 20px; color: #fff; text-indent: 10px;}
+.slider_warn_i_c{ margin-left: 90px;}
+.slider_warn_val{ height: 30px; line-height: 30px; font-weight: normal; font-size: 14px; color: #fff;}
+.slider_warn_val0{ text-indent: 10px;}
+.slider_warn_val1{ text-indent: 20px;}
+.slider_warn_val2{ text-indent: 30px;}
+.slider_warn_val3{ text-indent: 40px;}
+.slider_warn_val4{ text-indent: 45px;}
+.slider_warn_val5{ text-indent: 50px;}
+.slider_warn_map{ position: relative; height: 30px;}
+.slider_warn_map_i{ position: absolute; display: block; z-index: 1; bottom: 11px; width: 16px; height: 5px; font-size: 0; line-height: 0; transition: opacity 0.3s ease;}
+.slider_warn_map_i:hover{ opacity: 0.7; alpha(opacity=70);}
+.slider_warn_map_i0{ left: 10px; background-color: #72AF3C;}
+.slider_warn_map_i1{ left: 27px; background-color: #FFD630;}
+.slider_warn_map_i2{ left: 44px; background-color: #C88F35;}
+.slider_warn_map_i3{ left: 61px; background-color: #E66000;}
+.slider_warn_map_i4{ left: 78px; background-color: #E60000;}
+.slider_warn_map_i5{ left: 95px; background-color: #7646A3;}
+/*.slider_warn_map0 .slider_warn_map_i0, .slider_warn_map1 .slider_warn_map_i1, .slider_warn_map2 .slider_warn_map_i2, .slider_warn_map3 .slider_warn_map_i3, .slider_warn_map4 .slider_warn_map_i4, .slider_warn_map5 .slider_warn_map_i5{ height: 15px;}*/
+.slider_warn_map_i_on{ height: 15px;}
+/*预警-道路结冰*/
+.slider_warn_i1 .slider_warn_i_tt h6{ height: 60px; line-height: 60px;}
+.slider_warn_i1 .slider_warn_map_i2{ background-color: #00B5E9;}
+.slider_warn_i1 .slider_warn_map_i3{ background-color: #FFD630;}
+.slider_warn_i1 .slider_warn_map_i4{ background-color: #E66000;}
+.slider_warn_i1 .slider_warn_map_i5{ background-color: #E60000;}
+
+.slider_tools{ position: absolute; right: 0px; top: 420px; width: 100px; height: 40px; text-align: center;}
+.slider_tools_i{ position: relative; display: inline-block; margin-right: 10px; width: 30px; height: 30px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/icons_tools.png) 0 0 no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/icons_tools.gif) 0 0 no-repeat; cursor: pointer; opacity: 0.7; filter:alpha(opacity=70); filter:none\0; transition: opacity 0.3s ease;}
+.slider_tools_i:hover{ opacity: 1; filter:alpha(opacity=100); filter:none\0; top: -1px\0;}
+.slider_tools_wb{ background-position: 1px 2px;}
+.slider_tools_wb a, .slider_tools_wb a:visited{ display: block; width: 30px; height: 30px; outline: none;}
+.slider_tools_li{ background-position: -39px 2px;}
+
+.slider_byhours{ position: absolute; left: 30px; top: 423px; z-index: 2; width: 123px; height: 37px; font-size: 14px; color: #068793; cursor: pointer; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/icon_by_hours.png) 0 0 no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/icon_by_hours.gid) 0 0 no-repeat; /*transition: height ease 0.3s;*/}
+.slider_byhours_on{ height: 45px;}
+.slider_byhours_p{ padding-left: 16px; height: 30px; line-height: 30px; margin-top: 3px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/icon_byhours.png) 92px 6px no-repeat;}
+.slider_byhours_on .slider_byhours_p{ background-position: 92px -44px;}
+
+.slider_ani{ position: absolute; z-index: 10; background-color: #fff; opacity: 0.5; filter:alpha(opacity=50);}
+
+.wt_hours{ height: 400px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.wt_hours .wt_tt0_w{ padding-left: 25px; padding-top: 10px; height: 45px; line-height: 45px;}
+.wt_hours_c{ position: relative; height: 345px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_hours_c_bg.png) 32px 10px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/wt_hours_c_bg.gif) 32px 10px no-repeat;}
+.wt_hours_rp{ position: absolute; z-index: 1; left: 34px; top: 10px; width: 958px; height: 290px;}
+.wt_hours_h{ position: absolute; z-index: 1; top: 305px; width: 45px; height: 30px; line-height: 30px; font-size: 12px; color: #ccc; font-family: "arial"; 
+-moz-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-moz-transform-origin:center;
+-webkit-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-webkit-transform-origin:center;
+-o-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-o-transform-origin:center;
+-ms-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-ms-transform-origin:center;
+transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+transform-origin:center;
+-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0.92,M21=0.39,M12=-0.39,M22=0.92,SizingMethod='auto expand')";zoom:1;
+/*filter:progid:DXImageTransform.Microsoft.Matrix(M11=0.92,M21=0.39,M12=-0.39,M22=0.92,SizingMethod='auto expand');*/
+}
+.wt_hours_v{ position: absolute; z-index: 1; left: 0px; width: 28px; height: 30px; line-height: 30px; font-size: 14px; color: #ccc; text-align: right;}
+.wt_hours_v0{ top: 260px;}
+.wt_hours_v1{ top: 211px;}
+.wt_hours_v2{ top: 162px;}
+.wt_hours_v3{ top: 113px;}
+.wt_hours_v4{ top: 64px;}
+.wt_hours_v5{ top: 15px;}
+.wt_hours_h0{ left: 50px;}
+.wt_hours_h1{ left: 89px;}
+.wt_hours_h2{ left: 128px;}
+.wt_hours_h3{ left: 167px;}
+.wt_hours_h4{ left: 206px;}
+.wt_hours_h5{ left: 245px;}
+.wt_hours_h6{ left: 284px;}
+.wt_hours_h7{ left: 323px;}
+.wt_hours_h8{ left: 362px;}
+.wt_hours_h9{ left: 401px;}
+.wt_hours_h10{ left: 440px;}
+.wt_hours_h11{ left: 479px;}
+.wt_hours_h12{ left: 518px;}
+.wt_hours_h13{ left: 557px;}
+.wt_hours_h14{ left: 596px;}
+.wt_hours_h15{ left: 636px;}
+.wt_hours_h16{ left: 674px;}
+.wt_hours_h17{ left: 713px;}
+.wt_hours_h18{ left: 752px;}
+.wt_hours_h19{ left: 791px;}
+.wt_hours_h20{ left: 830px;}
+.wt_hours_h21{ left: 869px;}
+.wt_hours_h22{ left: 908px;}
+.wt_hours_h23{ left: 947px;}
+.wt_hours_icon_w{ position: absolute; z-index: 2; width: 48px; height: 50px; text-align: center; overflow: hidden; -webkit-transition: -webkit-transform 0.4s ease; -moz-transition: -moz-transform 0.4s ease; -ms-transition: -ms-transform 0.4s ease;}
+.wt_hours_icon_w:hover{ transform: scale(1.1, 1.1); -webkit-transform: scale(1.1, 1.1);}
+.wt_hours_icon{ display: block; margin: 0 auto; width: 32px; height: 32px;}
+.wt_hours_icon_txt{ display: block; font-size: 14px; color: #fff;}
+
+.wrap_w{ overflow: hidden;}
+/*天气预报*/
+.wt_forecast{ margin-top: 10px; height: 334px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.wt_switch0_0{ background-image: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.png); _background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.gif); background-position: 12px -47px; background-repeat: no-repeat;}
+.wt_switch0_1{ background-image: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.png); _background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.gif); background-position: -63px -47px; background-repeat: no-repeat;}
+.wt_switch_nofunc .wt_switch0_1{ display: none;}
+.wt_switch0_0.wt_switch_on{ background-position: 12px 3px;}
+.wt_switch0_1.wt_switch_on{ background-position: -63px 3px;}
+.wt_forecast .wt_tt0_w{ padding-top: 3px; height: 42px;}
+.wt_forecast .wt_tt0_r{ padding-right: 15px; padding-top: 10px;}
+.blk_fc_c{}
+
+/*天气预报-列表*/
+.blk_fc_c0{ position: relative; margin-top: 20px; height: 240px; _width: 1000px; overflow: hidden;}
+.blk_fc_c0_scroll_w{ position: relative; width: 940px; overflow: hidden; margin-left: 20px;}
+.blk_fc_c0_scroll{ position: relative; width: 30000px;}
+.blk_fc_c0_i{ float: left; display: inline; width: 169px; height: 240px; border-right: 1px dotted #575754; transition: background-color ease 0.3s;}
+.blk_fc_c0_i:hover{ background-color: rgba(255,255,255,0.05);}
+.blk_fc_prev{ position: absolute; z-index: 1; top: 80px; left: 0px; display: block; width: 29px; height: 57px; cursor: pointer; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/btn_fc_prev.png) 0 0 no-repeat;}
+.blk_fc_next{ position: absolute; z-index: 1; top: 80px; right: 0px; display: block; width: 29px; height: 57px; cursor: pointer; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/btn_fc_next.png) 0 0 no-repeat;}
+.blk_fc_prev:hover, .blk_fc_next:hover{ opacity: 0.7;}
+.wt_fc_c0_i_date{ padding-top: 10px; height: 20px; line-height: 20px; font-size: 14px; color: #cbcbcb; text-align: center;}
+.wt_fc_c0_i_day{ height: 20px; line-height: 20px; font-size: 16px; color: #cbcbcb; text-align: center;}
+.wt_fc_c0_i_today{ color: #068793;}
+.wt_fc_c0_i_icons{ padding-top: 10px; text-align: center; height: 37px; overflow: hidden;}
+.wt_fc_c0_i_icons .icons0_wt{ display: inline-block; *display: inline; *zoom: 1; width: 32px; height: 32px; margin-left: 5px; margin-right: 5px;}
+.wt_fc_c0_i_times{ height: 24px; line-height: 24px; text-align: center; overflow: hidden;}
+.wt_fc_c0_i_time{ display: inline-block; *display: inline; *zoom: 1; margin-right: 6px; margin-left: 6px; color: #cbcbcb; font-size: 14px;}
+.wt_fc_c0_i_temp{ height: 50px; line-height: 50px; font-size: 24px; color: #cbcbcb; text-align: center; font-family: "arial";}
+.wt_fc_c0_i_tip{ height: 20px; line-height: 20px; font-size: 14px; color: #cbcbcb; text-align: center;}
+.wt_fc_c0_i_level{ margin:12px auto 0; padding:0 15px; width:90px; height:26px; line-height:26px; overflow:hidden; *zoom:1; color:#fff; border-radius:15px; font-size:14px;}
+.wt_fc_c0_i_level .l{ float:left; line-height:26px;}
+.wt_fc_c0_i_level .r{ float:right; line-height:26px;}
+.level_bg6{background:#7646a3;}
+.level_bg2{background:#ffb533;}
+.level_bg1{background:#72af3c;}
+.level_bg3{background:#c88f35;}
+.level_bg5{background:#e60000;}
+.level_bg4{background:#e66000;}
+
+/*天气预报-趋势*/
+.blk_fc_c1{ position: relative; height: 289px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk_fc_c1.png) 61px 10px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk_fc_c1.gif) 61px 10px no-repeat;}
+.blk_fc_c1_rp{ width: 922px; height: 230px; padding-top: 10px; margin-left: 61px;}
+.blk_fc_v{ position: absolute; z-index: 1; left: 0px; width: 52px; height: 30px; line-height: 30px; font-size: 14px; color: #ccc; text-align: right;}
+.blk_fc_v0{ top: 180px;}
+.blk_fc_v1{ top: 149px;}
+.blk_fc_v2{ top: 118px;}
+.blk_fc_v3{ top: 87px;}
+.blk_fc_v4{ top: 56px;}
+.blk_fc_v5{ top: 25px;}
+.blk_fc_h{ position: absolute; z-index: 1; top: 247px; width: 45px; height: 36px; line-height: 18px; font-size: 14px; color: #ccc; text-align: center;}
+.blk_fc_h0{ left: 70px;}
+.blk_fc_h1{ left: 165px;}
+.blk_fc_h2{ left: 260px;}
+.blk_fc_h3{ left: 355px;}
+.blk_fc_h4{ left: 450px;}
+.blk_fc_h5{ left: 545px;}
+.blk_fc_h6{ left: 640px;}
+.blk_fc_h7{ left: 735px;}
+.blk_fc_h8{ left: 830px;}
+.blk_fc_h9{ left: 925px;}
+.fc_icons_w{ position: absolute; z-index: 2; width: 48px; height: 50px; text-align: center; overflow: hidden; -webkit-transition: -webkit-transform 0.4s ease; -moz-transition: -moz-transform 0.4s ease; -ms-transition: -ms-transform 0.4s ease;}
+.fc_icons_w:hover{ transform: scale(1.1, 1.1); -webkit-transform: scale(1.1, 1.1);}
+.fc_icon{ display: block; margin: 0 auto; width: 30px; height: 30px;}
+.fc_icon{ display: block; font-size: 14px; color: #fff;}
+
+.part1{ margin-top: 10px;}
+/*日出日落*/
+.blk3{ float: left; display: inline; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk3 .wt_tt0_w{ height: 45px; line-height: 45px;}
+.blk3_c{ position: relative; height: 180px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk3_bg.png) 12px 50px no-repeat;}
+.blk3_c canvas{ position: absolute; top: 31px; left: 18px; z-index: 1; display: block;}
+.blk3_star{ position: absolute; z-index: 2; left: 148px; top: 60px; width: 25px; height: 26px; -webkit-transition: -webkit-transform 0.4s ease; -moz-transition: -moz-transform 0.4s ease; -ms-transition: -ms-transform 0.4s ease;}
+.blk3_star:hover{ transform: scale(1.1, 1.1) matrix(0.92,0.39,-0.39,0.92,0,0); -webkit-transform: scale(1.1, 1.1) matrix(0.92,0.39,-0.39,0.92,0,0);}
+.blk3_sun{ background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk3_sun.png) 0 0 no-repeat; }
+.blk3_moon{ background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk3_moon.png) 0 0 no-repeat; }
+.blk3_rp{ position: absolute; z-index: 1; left: 11px; top: 50px; width: 200px; height: 100px;}
+.blk3_starrise, .blk3_starfall{ position: absolute; z-index: 2; top: 148px; width: 70px; height: 26px; line-height: 26px; color: #ccc; font-size: 12px;}
+.blk3_starrise{ left: 5px;}
+.blk3_starfall{ left: 185px;}
+
+/*日出日落-低版本*/
+.blk3_1_0{ float: left; display: inline; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk3_1_0_c0{ width: 190px; margin: 0 auto; height: 89px; border-bottom: 1px dotted #999; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_sun_rise.png) 30px 20px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/star_sun_rise.gif) 30px 20px no-repeat;}
+.blk3_1_0_c1{ width: 190px; margin: 0 auto; height: 90px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_sun_fall.png) 30px 20px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/star_sun_fall.gif) 30px 20px no-repeat;}
+.blk3_1_0_c p{ padding-top: 40px; padding-left: 120px; height: 41px; line-height: 41px; font-size: 20px; color: #ccc;}
+
+/*月出月落-低版本*/
+.blk3_1_1{ float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk3_1_1_c0{ width: 190px; margin: 0 auto; height: 89px; border-bottom: 1px dotted #999; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/star_moon_rise.png) 30px 20px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_moon_rise.gif) 30px 20px no-repeat;}
+.blk3_1_1_c1{ width: 190px; margin: 0 auto; height: 90px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/star_moon_fall.png) 30px 20px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_moon_fall.gif) 30px 20px no-repeat;}
+.blk3_1_1_c p{ padding-top: 40px; padding-left: 100px; height: 41px; line-height: 41px; font-size: 20px; color: #ccc;}
+
+/*实景天气*/
+.blk4{ float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk4 .wt_tt0_w{ height: 45px; line-height: 45px;}
+.blk4_c{ position: relative; width: 225px; height: 180px;}
+.blk4_pic{ display: block; position: absolute; z-index: 1; left: 0; top: 0; width: 225px; height: 180px;}
+.blk4_txt{ display: block; position: absolute; z-index: 2; left: 0; bottom: 0; width: 225px; height: 37px; line-height: 37px; overflow: hidden; background-color: rgba(0,0,0,0.75); color: #fff; font-size: 14px; text-indent: 5px;}
+.blk4_txt_r{ float: right; display: inline; margin-right: 10px; font-size: 12px; color: #aaa; text-indent: 0;}
+
+/*穿衣*/
+.blk5{ position: relative; float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk5_c{ width: 225px; height: 225px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk5_icons.png) 33px 12px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/blk5_icons.gif) 33px 12px no-repeat; }
+.blk5_line0{ position: absolute; z-index: 1; left: 0; top: 112px; display: block; font-size: 0; line-height: 0; width: 225px; height: 0px; overflow: hidden; border-top: 1px dotted #656565;}
+.blk5_line1{ position: absolute; z-index: 1; left: 112px; top: 0; display: block; font-size: 0; line-height: 0; width: 0px; height: 225px; overflow: hidden; border-left: 1px dotted #656565;}
+.blk5_i{ float: left; display: inline; width: 112px; height: 112px; transition: background-color ease 0.6s;}
+.blk5_i:hover{ background-color: rgba(255,255,255,0.15);}
+.blk5_i h4{ padding-top: 60px; height: 20px; line-height: 20px; text-align: center; font-size: 14px; font-weight: normal; color: #aaa;}
+.blk5_i p{ height: 24px; line-height: 24x; text-align: center; font-size: 16px; color: #fff;}
+
+/*逐月气候*/
+.blk6{ float: right; display: inline; width: 530px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk6 .wt_tt0_w{ height: 45px; line-height: 45px;}
+.blk6 .wt_tt0{ height: 45px;}
+.blk6 .wt_tt0_r{ padding-right: 10px; padding-top: 15px;}
+.wt_switch1_0{ background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.png); _background-image: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.gif); background-position: 12px 3px; background-repeat: no-repeat;}
+.wt_switch1_1{ background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.png); _background-image: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.gif); background-position: -60px 3px; background-repeat: no-repeat;}
+.wt_switch1_0.wt_switch_on{ background-position: 12px 3px;}
+.wt_switch1_1.wt_switch_on{ background-position: -60px 3px;}
+/*逐月气候-气温-高版本*/
+.blk6_c0_1{ position: relative; height: 180px; top: -5px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk6_c0_0.png) 55px 5px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk6_c0_0.gif) 55px 5px no-repeat;}
+.blk6_c0_1_rp{ width: 462px; height: 153px; padding-top: 5px; margin-left: 55px;}
+.blk6_c0_1_v{ position: absolute; z-index: 1; left: 0px; width: 42px; height: 30px; line-height: 30px; font-size: 14px; color: #ccc; text-align: right;}
+.blk6_c0_1_v0{ top: 122px;}
+.blk6_c0_1_v1{ top: 92px;}
+.blk6_c0_1_v2{ top: 62px;}
+.blk6_c0_1_v3{ top: 32px;}
+.blk6_c0_1_v4{ top: 2px;}
+.blk6_c0_1_h{ position: absolute; z-index: 1; top: 159px; width: 45px; height: 18px; line-height: 18px; font-size: 14px; color: #ccc; text-align: center;}
+.blk6_c0_1_h0{ left: 53px;}
+.blk6_c0_1_h1{ left: 92px;}
+.blk6_c0_1_h2{ left: 131px;}
+.blk6_c0_1_h3{ left: 170px;}
+.blk6_c0_1_h4{ left: 209px;}
+.blk6_c0_1_h5{ left: 248px;}
+.blk6_c0_1_h6{ left: 287px;}
+.blk6_c0_1_h7{ left: 326px;}
+.blk6_c0_1_h8{ left: 365px;}
+.blk6_c0_1_h9{ left: 404px;}
+.blk6_c0_1_h10{ left: 443px;}
+.blk6_c0_1_h11{ left: 482px;}
+.blk_c0_1_temp{ position: absolute; z-index: 1; top: 10px; width: 85px; height: 20px; line-height: 20px; font-size: 14px; color: #ccc; text-align: center; background-color: #000; border: 1px solid #fff; border-radius: 99px;}
+.blk_c0_1_temp0_0, .blk_c0_1_temp1_0{ left: 42px;}
+.blk_c0_1_temp0_1, .blk_c0_1_temp1_1{ left: 81px;}
+.blk_c0_1_temp0_2, .blk_c0_1_temp1_2{ left: 120px;}
+.blk_c0_1_temp0_3, .blk_c0_1_temp1_3{ left: 159px;}
+.blk_c0_1_temp0_4, .blk_c0_1_temp1_4{ left: 198px;}
+.blk_c0_1_temp0_5, .blk_c0_1_temp1_5{ left: 237px;}
+.blk_c0_1_temp0_6, .blk_c0_1_temp1_6{ left: 276px;}
+.blk_c0_1_temp0_7, .blk_c0_1_temp1_7{ left: 315px;}
+.blk_c0_1_temp0_8, .blk_c0_1_temp1_8{ left: 354px;}
+.blk_c0_1_temp0_9, .blk_c0_1_temp1_9{ left: 393px;}
+.blk_c0_1_temp0_10, .blk_c0_1_temp1_10{ left: 432px;}
+.blk_c0_1_temp0_11, .blk_c0_1_temp1_11{ left: 471px;}
+/*逐月气候-降水量*/
+.blk6_c1{ position: relative; height: 180px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/blk6_c1.png) 72px 10px no-repeat; _background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/blk6_c1.gif) 72px 10px no-repeat;}
+.blk6_i_w{ position: absolute; display: block; z-index: 1; left: 97px; bottom: 38px; width: 13px; height: 132px; transition: background-color ease 0.3s;}
+.blk6_i_w:hover{ background-color: rgba(255,255,255,0.2); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#33ffffff', endColorstr = '#33ffffff' )\9;}
+.blk6_i_w:hover .blk6_i .blk6_i_res{ display: block;}
+.blk6_i{ position: absolute; display: block; z-index: 1; left: 0px; bottom: 0px; width: 13px; background-color: rgba(5,135,147,0.7); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa058793', endColorstr = '#aa058793' )\9; transition: background-color ease 0.6s;}
+.blk6_i:hover{ background-color: rgba(5,135,147,1); background-color: #058793;}
+.blk6_i_res{ display: none; position: absolute; z-index: 2; top: -25px; left: -30px; color: #cbcbcb; font-size: 14px; line-height: 20px; width: 70px; text-align: center;}
+/*.blk6_i_on{ background-color: #058793;}
+.blk6_i_on .blk6_i_res{ display: block;}*/
+.blk6_i1_w{ left: 97px;}
+.blk6_i2_w{ left: 131px;}
+.blk6_i3_w{ left: 165px;}
+.blk6_i4_w{ left: 199px;}
+.blk6_i5_w{ left: 233px;}
+.blk6_i6_w{ left: 267px;}
+.blk6_i7_w{ left: 301px;}
+.blk6_i8_w{ left: 335px;}
+.blk6_i9_w{ left: 369px;}
+.blk6_i10_w{ left: 403px;}
+.blk6_i11_w{ left: 437px;}
+.blk6_i12_w{ left: 471px;}
+.blk6_c1_v{ position: absolute; z-index: 1; left: 10px; width: 56px; height: 20px; line-height: 20px; font-size: 14px; color: #999; text-align: right;}
+.blk6_c1_v0{ top: 132px;}
+.blk6_c1_v1{ top: 107px;}
+.blk6_c1_v2{ top: 82px;}
+.blk6_c1_v3{ top: 57px;}
+.blk6_c1_v4{ top: 32px;}
+.blk6_c1_v5{ top: 7px;}
+.blk6_c1_h{ position: absolute; z-index: 1; top: 147px; width: 45px; height: 30px; line-height: 30px; font-size: 12px; color: #999; font-family: "arial";
+-moz-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-moz-transform-origin:center;
+-webkit-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-webkit-transform-origin:center;
+-o-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-o-transform-origin:center;
+-ms-transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+-ms-transform-origin:center;
+transform:matrix(0.92,0.39,-0.39,0.92,0,0);
+transform-origin:center;
+-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=0.92,M21=0.39,M12=-0.39,M22=0.92,SizingMethod='auto expand')";zoom:1;
+/*filter:progid:DXImageTransform.Microsoft.Matrix(M11=0.92,M21=0.39,M12=-0.39,M22=0.92,SizingMethod='auto expand');*/}
+.blk6_c1_h0{ left: 90px;}
+.blk6_c1_h1{ left: 124px;}
+.blk6_c1_h2{ left: 158px;}
+.blk6_c1_h3{ left: 192px;}
+.blk6_c1_h4{ left: 226px;}
+.blk6_c1_h5{ left: 260px;}
+.blk6_c1_h6{ left: 294px;}
+.blk6_c1_h7{ left: 328px;}
+.blk6_c1_h8{ left: 362px;}
+.blk6_c1_h9{ left: 396px;}
+.blk6_c1_h10{ left: 430px;}
+.blk6_c1_h11{ left: 464px;}
+
+.part2{ margin-top: 10px;}
+/*底部幻灯图*/
+.blk7{ position: relative; float: left; display: inline; width: 460px; height: 345px;}
+.blk7_slider{ position: relative; width: 460px; height: 345px; overflow: hidden;}
+.blk7_slider_i{ position: relative; float: left; display: inline; width: 460px; height: 345px;}
+.blk7_slider_ctrl{ position: absolute; z-index: 2; right: 0; bottom: 17px; width: 90px; height: 4px; font-size: 0; line-height: 0;}
+.blk7_slider_txt{ display: block; position: absolute; z-index: 1; left: 0; bottom: 0; width: 460px; height: 40px; line-height: 40px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9; font-size: 16px; text-indent: 10px;}
+.blk7_slider_i a, .blk7_slider_i a:visited{ color: #cbcbcb;}
+.blk7_slider_i a:hover{ color: #fff;}
+.blk7_slider_ctrl_i{ float: left; display: inline; margin-right: 5px; width: 15px; height: 4px; font-size: 0; line-height: 0; background-color: #656565; cursor: pointer;}
+.blk7_slider_ctrl_i_on{ background-color: #F29B11;}
+
+/*天气要闻*/
+.blk8{ float: left; display: inline; margin-left: 10px; width: 260px; height: 345px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk8 .wt_tt0_w{ height: 45px; line-height: 45px;}
+.blk8 .list0{ }
+
+/*气象神科普,气象与生活*/
+.blk9{ float: right; display: inline; width: 260px; height: 345px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk9 .wt_tt0_w{ height: 45px; line-height: 45px;}
+.blk9_0{}
+.blk9_0_c{ position: relative; width: 240px; margin: 0 auto;}
+.blk9_0_c a, .blk9_0_c a:visited{ color: #cbcbcb;}
+.blk9_0_c a:hover{ color: #fff;}
+.blk9_0_pic{ display: block; width: 240px; height: 140px;}
+.blk9_0_txt{ position: absolute; display: block; z-index: 1; left: 0; bottom: 0; width: 240px; height: 26px; line-height: 26px; color: #fff; font-size: 14px; color: #cbcbcb; text-align: center; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
+.blk9_0_c a:hover .blk9_0_txt{ color: #fff;}
+.blk9_1{ margin-top: 11px;}
+
+.footer{ margin-top: 10px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9; *background-color: #000;}
+.ft_0{}
+.ft_tt{ padding-top: 10px; height: 40px; line-height: 40px; text-align: center; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "微软雅黑", "SimSun", "宋体"; font-weight: bold;}
+.ft_0_c{ padding-bottom: 20px; height: 26px; line-height: 26px; border-bottom: 1px dotted #999; text-align: center; font-size: 14px; color: #999;}
+.ft_0_c a, .ft_0_c a:visited{ color: #999;}
+.ft_0_c a:hover{ color: #fff;}
+.ft_1{ padding: 20px 0;}
+.ft_1 p{ line-height: 30px; text-align: center; font-size: 14px; color: #999;}
+.ft_1 p a, .ft_1 p a:visited{ color: #999;}
+.ft_1 p a:hover{ color: #fff;}
+
+.pullDown{display:block;visibility:visible;animation-name:pullDown;-webkit-animation-name:pullDown;animation-duration:0.3s;-webkit-animation-duration:0.3s;animation-timing-function:ease-out;-webkit-animation-timing-function:ease-out;transform-origin:50% 0%;-ms-transform-origin:50% 0%;-webkit-transform-origin:50% 0%;}@keyframes pullDown{0%{transform:scaleY(0.1);}100%{transform:scaleY(1);}}@-webkit-keyframes pullDown{0%{-webkit-transform:scaleY(0.1);}100%{-webkit-transform:scaleY(1);}}
+
+/*白色背景*/
+.bg_white .wrap_w{ background: #fff;}
+.bg_white .wt_hours { background-color: #efefef; filter:none\9;}
+.bg_white .wt_hours_v{ color: #656565;}
+.bg_white .wt_hours_h{ color: #656565;}
+.bg_white .wt_hours_icon_txt{ color: #656565;}
+.bg_white .wt_fc_c0_i_date{ color: #656565;}
+.bg_white .wt_fc_c0_i_day{ color: #656565;}
+.bg_white .wt_fc_c0_i_temp{ color: #656565;}
+.bg_white .wt_fc_c0_i_tip{ color: #656565;}
+.bg_white .wt_fc_c0_i_time{ color: #656565;}
+.bg_white .wt_forecast{ background-color: #fff; filter:none\9; border: 1px solid #d6d6d6;}
+.bg_white .blk_fc_v{ color: #656565;}
+.bg_white .blk_fc_h{ color: #656565;}
+.bg_white .blk3{ background-color: #fff; filter:none\9;}
+.bg_white .blk3_c{ position: relative; height: 180px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/blk3_wt_bg.png) 12px 50px no-repeat;}
+.bg_white .blk3_starrise, .bg_white .blk3_starfall{ color: #656565;}
+.bg_white .blk3_1_0, .bg_white .blk3_1_1{ background-color: #fff; filter:none\9;}
+.bg_white .blk3_1_0_c p, .bg_white .blk3_1_1_c p{ color: #656565;}
+.bg_white .blk4{ background-color: #fff; filter:none\9;}
+.bg_white .blk5{ background-color: #f5f5f5; filter:none\9;}
+.bg_white .blk5_i p{ color: #333;}
+.bg_white .blk5_line0{ border-top: 1px dotted #c4c4c4;}
+.bg_white .blk5_line1{ border-left: 1px dotted #c4c4c4;}
+.bg_white .blk5_i:hover{ background-color: rgba(0,0,0,0.1);}
+.bg_white .blk6{ background-color: #fff; filter:none\9;}
+.bg_white .blk6_c0_1_v{ color: #656565;}
+.bg_white .blk6_c0_1_h{ color: #656565;}
+.bg_white .blk6_c1_v{ color: #656565;}
+.bg_white .blk6_c1_h{ color: #656565;}
+.bg_white .blk6_i_res{ color: #656565;}
+.bg_white .blk_c0_1_temp{ color: #656565; border: 1px solid #000; background-color: #fff;}
+.bg_white .blk8{ background-color: #fff; filter:none\9;}
+.bg_white .list0{ background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/blk8_dots.gif) 12px 13px no-repeat;}
+.bg_white .list0 li{}
+.bg_white .list0 li a, .bg_white .list0 li a:visited{ color: #656565;}
+.bg_white .list0 li a:hover{ color: #333;}
+.bg_white .blk9{ background-color: #fff; filter:none\9;}
+.bg_white .footer{ width: 100%; background-color: #f0f0f0; filter:none\9;}
+.bg_white .ft_0_c a, .bg_white .ft_0_c a:visited{ color: #656565;}
+.bg_white .ft_0_c a:hover{ color: #333;}
+.bg_white .ft_1 p a, .bg_white .ft_1 p a:visited{ color: #999;}
+.bg_white .ft_1 p a:hover{ color: #333;}
+.bg_white .slider_tip_layer_c{ border: 1px solid #eee; border-top: none;}
+
+@-webkit-keyframes heartpulse {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes heartpulse {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.heartpulse {
+    -webkit-animation-name: heartpulse;
+    animation-name: heartpulse;
+    animation-duration: 3s;
+    -webkit-animation-duration: 3s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+.slider_tip:hover .heartpulse{ display: none;}
+
+@-webkit-keyframes clouds_ani {
+  0% {
+    background-position: 44px 0px;
+  }
+
+  100% {
+    background-position: -96px 0px;
+  }
+}
+
+@keyframes clouds_ani {
+  0% {
+    background-position: 44px 0px;
+  }
+
+  100% {
+    background-position: -96px 0px;
+  }
+}
+.clouds_ani{
+    -webkit-animation-name: clouds_ani;
+    animation-name: clouds_ani;
+    animation-duration: 10s;
+    -webkit-animation-duration: 10s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+.slider_tip:hover .clouds_ani{ display: none;}
