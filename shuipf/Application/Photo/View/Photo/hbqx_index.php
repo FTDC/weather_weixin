@@ -9,10 +9,12 @@
     <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
     <script src="{$config_siteurl}/statics/photo/waterfall/js/waterfall.js"></script>
     <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/scroll.js"></script>
-    <script language="javascript" type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
 </head>
 <body>
-<iframe frameborder=0 width=100% height=210 marginheight=0 marginwidth=0 scrolling=no src="http://www.hbqx.gov.cn/index.action"></iframe>
+<iframe frameborder=0 width=100% height=210 marginheight=0 marginwidth=0 scrolling=no
+        src="http://www.hbqx.gov.cn/index.action"></iframe>
 <div id="w_layout_1000" class="wrap">
     <div id="w_layout_in" style="">
 
@@ -89,7 +91,7 @@
                 <h4 class="w_sh">
                     <span class="w_sh_title">美图活动</span>
                 </h4>
-                <div class="w_sm"  style="height:169px;overflow:hidden;">
+                <div class="w_sm" style="height:169px;overflow:hidden;">
                     <!-- 代码开始 -->
                     <div class="list_lh" style="height:169px;overflow:hidden;">
                         <ul>
@@ -108,10 +110,13 @@
                     <span class="w_sh_title">查看美图</span>
                 </h4>
                 <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4321" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4322\',{d:-1});}'})"/>
+                    <input type="text" class="Wdate fl" style="width:90px" id="d4321"
+                           onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4322\',{d:-1});}'})"/>
                     <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" style="width:90px"  id="d4322" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4321\',{d:1});}'})"/>
-                    <input type="button" value="查看"  style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;" />
+                    <input type="text" class="Wdate fl" style="width:90px" id="d4322"
+                           onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4321\',{d:1});}'})"/>
+                    <input type="button" value="查看"
+                           style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
                 </div>
             </div>
@@ -132,39 +137,39 @@
     </div>
 </div>
 <script>
-    var opt={
-        getResource:function(index,render){
+    var opt = {
+        getResource: function (index, render) {
+            $.ajax({
+                url: "{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list",
+                dataType: 'json',
+                type: 'post',
+                data: {'city': 'wuhan', 'page': '1'},
+                success: function (data) {
+//                    console.log(data);
+                    var html = '';
+                    for (var i in data) {
+                        //渲染填充
+//                        console.log(data[i]);
+                        html += '<div class="wf-item" wf-data="in" style="width: 244px;"><a href="#" target="_blank"><img src="' + data[i].img_path + '" style="width: 244px;"><span class="__wf_item_area__" title="' + data[i].title + '">' + data[i].title + '</span><span class="__wf_item_time__">' + data[i].dateTime + '</span></a></div>';
+                    }
+                    console.log(html);
+                    return $(html);
+
+                }
+            });
             //index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
-            var data1=[{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_001.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_002.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_003.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_001.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_002.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_003.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_001.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_002.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_003.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_001.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_002.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_003.jpg',name:'我的名字叫图片3'}];
-
-            var data2=[{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_004.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_005.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_006.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_004.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_005.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_006.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_004.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_005.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_006.jpg',name:'我的名字叫图片3'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_004.jpg',name:'我的名字叫图片1'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_005.jpg',name:'我的名字叫图片2'},{dateTime:'2016-05-21 07:43:20',src:'http://cued.xunlei.com/demos/publ/img/P_006.jpg',name:'我的名字叫图片3'}];
-
-            var html='';
-            var data=null;
-            if(index==1){  //index为可变参数，为已经加载次数，根据这个变量ajax加载不同的数据
-                data=data1;
-            }
-            else{
-                data=data2;
-            }
-            for (var i=0 ;i<data.length; i++){//渲染填充
-                html+='<div class="wf-item" wf-data="in" style="width: 244px;"><a href="#" target="_blank"><img src="'+data[i].src+'" style="width: 244px;"><span class="__wf_item_area__" title="'+data[i].name+'">'+data[i].name+'</span><span class="__wf_item_time__">'+data[i].dateTime+'</span></a></div>';
-            }
-            
-            return $(html);
-
         },
-        auto_imgHeight:true,
-        insert_type:1
+        auto_imgHeight: true,
+        insert_type: 1
     }
     $('#w_layout_in').waterfall(opt);
     $("html,body").scrollTop(10);
     //公告滚动
 
-    $(function(){
+    $(function () {
         $("div.list_lh").myScroll({
-            speed:40, //数值越大，速度越慢
-            rowHeight:68 //li的高度
+            speed: 40, //数值越大，速度越慢
+            rowHeight: 68 //li的高度
         });
     });
 </script>

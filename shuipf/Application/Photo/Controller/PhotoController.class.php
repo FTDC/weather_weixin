@@ -257,6 +257,41 @@ class PhotoController extends ShuipFCMS
         $this->display();
     }
 
+    public function query_list(){
+        $start_time = I('start_time');
+        $end_time = I('end_time');
+
+        $Obj = M('weather_photo');
+
+        $count = $Obj->count();
+        $page = $this->page($count, 20);
+
+        $where = array();
+
+        if (!empty($start_time) && !empty($end_time)) {
+            $start_time = strtotime($start_time);
+            $end_time = strtotime($end_time) + 86399;
+            $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
+        }
+
+
+        $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
+
+        foreach ($list as &$val) {
+            $val['gg'] = C('UPLOADFILEPATH').'weather_photo/' . $val['img_path'];
+//            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+//            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+            $val['size'] = getimagesize($val['gg']);
+            $val['dateTime'] =date('Y-m-d H:i', $val['addtime']);
+            $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
+            $val['img_path_small'] = $this->thumb_name($val['img_path']);
+//
+        }
+
+        exit(json_encode($list));
+
+    }
+
     // 上报地理位置事件 感谢网友【blue7wings】和【strivi】提供的方案
     public function getaddressbylngb()
     {
