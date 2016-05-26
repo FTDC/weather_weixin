@@ -154,7 +154,6 @@
                     }
                     console.log(html);
                     return $(html);
-
                 }
             });
             //index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)

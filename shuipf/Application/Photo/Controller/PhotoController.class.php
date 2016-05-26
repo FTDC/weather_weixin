@@ -274,7 +274,6 @@ class PhotoController extends ShuipFCMS
             $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
         }
 
-
         $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
 
         foreach ($list as &$val) {
@@ -287,7 +286,6 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
 //
         }
-
         exit(json_encode($list));
 
     }
