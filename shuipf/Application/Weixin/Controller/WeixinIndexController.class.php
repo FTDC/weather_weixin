@@ -26,7 +26,6 @@ class WeixinIndexController extends ShuipFCMS
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         if (!empty($postStr)) {
             $resultStr = R('Weixin/response/responseMsg', array($postStr));
-            file_put_contents('./aaa.txt', $resultStr);
             if (!empty($resultStr)) {
                 echo $resultStr;
             } else {
