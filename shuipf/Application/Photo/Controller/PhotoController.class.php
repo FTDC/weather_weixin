@@ -287,7 +287,6 @@ class PhotoController extends ShuipFCMS
 //
         }
         exit(json_encode($list));
-
     }
 
     // 上报地理位置事件 感谢网友【blue7wings】和【strivi】提供的方案
