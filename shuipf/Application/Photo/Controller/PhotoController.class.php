@@ -31,6 +31,14 @@ class PhotoController extends ShuipFCMS
     }
 
 
+    public function shangbao()
+    {
+        $url = U('Photo/Photo/index');
+        $autho_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . C('WX_APP_ID') . "&redirect_uri=" . urlencode($url) . "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+        header('location:' . $autho_url);
+    }
+
+
     public function uploadPhoto()
     {
         // 文件保存主目录
@@ -205,7 +213,7 @@ class PhotoController extends ShuipFCMS
      */
     public function listPhoto()
     {
-        $list = M('weather_photo')->where(array('is_validate' => 1,'is_delete' => 0))->select();
+        $list = M('weather_photo')->where(array('is_validate' => 1, 'is_delete' => 0))->select();
         foreach ($list as &$val) {
             $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
 //            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
@@ -232,7 +240,7 @@ class PhotoController extends ShuipFCMS
         $count = $Obj->count();
         $page = $this->page($count, 20);
 
-        $where = array('is_delete'=> 0);
+        $where = array('is_delete' => 0);
 
         if (!empty($start_time) && !empty($end_time)) {
             $start_time = strtotime($start_time);
@@ -270,7 +278,7 @@ class PhotoController extends ShuipFCMS
         $count = $Obj->count();
         $page = $this->page($count, 20);
 
-        $where = array('is_delete'=> 0);
+        $where = array('is_delete' => 0);
 
         if (!empty($start_time) && !empty($end_time)) {
             $start_time = strtotime($start_time);
@@ -362,7 +370,8 @@ class PhotoController extends ShuipFCMS
     /**
      *  删除图片信息
      */
-    public function delete(){
+    public function delete()
+    {
         $ids = I('ids');
 
         if (empty($ids)) $this->error('请选择要操作的图片!');
@@ -406,6 +415,70 @@ class PhotoController extends ShuipFCMS
             $Obj->where(array('id' => array('in', $ids)))->save(array('is_beautiful' => 0));
         }
         $this->success('评选成功!');
+    }
+
+
+    /**
+     * 对链接进行outho验证
+     * @author zhaojie <z510727296@163.com>
+     */
+    public function authorInfo()
+    {
+        $str = I('request.backurl') ? I('request.backurl') : '';
+        session('backurl', $str);
+        $join = "left join wp_member_public_link as l on m.id = l.mp_id";
+        $appinfo = M('Member_public as m')->join($join)->where('l.is_use = 1')->find();
+        $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . "?s=/home/task/getInfo";
+        $autho_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $appinfo['appid'] . "&redirect_uri=" . urlencode($url) . "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+        header('location:' . $autho_url);
+    }
+
+    /**
+     * 获取openid
+     * @author zhaojie <z510727296@163.com>
+     * @return json  open id status
+     */
+    public function getInfo()
+    {
+        $url = I('request.backurl');
+        $backurl = session('backurl');
+        file_put_contents('./Application/Home/Controller/a.txt', var_export($backurl, true) . "\n", FILE_APPEND);
+        $code = $_GET['code'];
+        $state = $_GET['state'];
+        //换成自己的接口信息
+        $join = "left join wp_member_public_link as l on m.id = l.mp_id";
+        $appinfo = M('Member_public as m')->join($join)->where('l.is_use = 1')->find();
+        $appid = $appinfo['appid'];
+        $appsecret = $appinfo['secret'];
+        if (empty($code)) $this->error('授权失败');
+        $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $appid . '&secret=' . $appsecret . '&code=' . $code . '&grant_type=authorization_code';
+        $token = json_decode(file_get_contents($token_url));
+        if (isset($token->errcode)) {
+            echo '<h1>错误：</h1>' . $token->errcode;
+            echo '<br/><h2>错误信息：</h2>' . $token->errmsg;
+            exit;
+        }
+
+        //打印用户信息
+        $openId = $token->openid;
+        $access_token = $token->access_token;
+        $info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=" . $access_token . "&openid=" . $openId . "&lang=zh_CN";
+        $json_info = https_request($info_url);
+
+        $info_str = $this->encode($json_info);
+        /* if(strstr($backurl,'?')){
+            $urls = $backurl . '&data=' . $info_str;
+        }else{
+            $urls = $backurl . '?data=' . $info_str;
+        } */
+        $backarr = parse_url($backurl);
+        $headurl = $backarr['scheme'] . "://" . $backarr['host'] . $backarr['path'] . "?" . $backarr['query'] . '&data=' . $info_str;
+        if ($strs['fragment']) {
+            $headurl .= "#" . $strs['fragment'];
+        }
+
+        file_put_contents('./Application/Home/Controller/a.txt', var_export($headurl, true) . "\n", FILE_APPEND);
+        header('location:' . $headurl);
     }
 
 
