@@ -45,9 +45,7 @@ class PhotoController extends ShuipFCMS
         $root_dir = './d/weather_photo/';
 
         if (!file_exists($root_dir)) {
-
             $data = array('state' => '上传文件文件夹不存在');
-
             echo json_encode($data);
             exit;
         }
