@@ -21,6 +21,11 @@ class IndexController extends AdminBase {
             $this->ajaxReturn(array('status' => 1));
             return true;
         }
+
+        $Obj = M('weather_photo');
+        $newcount = $Obj->where(array('is_validate'=> 0))->count();
+        $this->assign("newcount", $newcount);
+        
         $this->assign("SUBMENU_CONFIG", json_encode(D("Admin/Menu")->getMenuList()));
         $this->assign('userInfo', User::getInstance()->getInfo());
         $this->assign('role_name', D('Admin/Role')->getRoleIdName(User::getInstance()->role_id));

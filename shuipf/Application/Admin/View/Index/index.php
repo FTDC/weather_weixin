@@ -144,8 +144,20 @@
                 </li>
                 <li>
                     <a target="mainContent" href="{:U('Photo/index/index')}"> <i class="linecons-desktop"></i>
-                        <span class="title">实景天气</span>
+                        <span class="title">实景天气</span><gt name="newcount" value="0"><b style="color: red;">({$newcount})</b><gt>
                     </a>
+                    <ul>
+                        <li target="mainContent" class="active main-menu-item2">
+                            <a target="mainContent" href="{:U('Photo/index/index')}">
+                                <span class="title">图片列表</span>
+                            </a>
+                        </li>
+                        <li target="mainContent" class="active main-menu-item2">
+                            <a target="mainContent" href="{:U('Photo/index/beautiful_list')}">
+                                <span class="title">美图管理</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a target="mainContent" href="{:U('Config/index',array('menuid'=>8))}">
