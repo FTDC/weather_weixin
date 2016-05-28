@@ -212,8 +212,9 @@ class PhotoController extends ShuipFCMS
     public function listPhoto()
     {
         $list = M('weather_photo')->where(array('is_validate' => 1, 'is_delete' => 0))->select();
+        $localfile = SITE_PATH . 'd/weather_photo/';
         foreach ($list as &$val) {
-            $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
+            $val['gg'] = $localfile . $val['img_path'];
 //            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
 //            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
             $val['size'] = getimagesize($val['gg']);
@@ -249,17 +250,15 @@ class PhotoController extends ShuipFCMS
 
         $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
 
+        $localfile = SITE_PATH . 'd/weather_photo/';
+
         foreach ($list as &$val) {
-            $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
-//            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
-//            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+            $val['gg'] = $localfile . $val['img_path'];
             $val['size'] = getimagesize($val['gg']);
             $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
 //
         }
-
-//        dump($list); exit();
 
         $this->assign("Page", $page->show());
         $this->assign("list", $list);
@@ -290,16 +289,15 @@ class PhotoController extends ShuipFCMS
         }
 
         $list = $Obj->where($where)->limit($page * $pageSize . ',' . $pageSize)->order(array('addtime' => 'DESC'))->select();
-
+        $localfile = SITE_PATH . 'd/weather_photo/';
         foreach ($list as &$val) {
-            $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
-            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
-//            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+            $val['gg'] = $localfile . $val['img_path'];
             $val['size'] = getimagesize($val['gg']);
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
             $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
         }
+//        exit;
 
         if (empty($list)) {
             $data = array('status' => 0, 'data' => '');
