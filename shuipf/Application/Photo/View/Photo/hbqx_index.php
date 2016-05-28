@@ -266,6 +266,7 @@
         }
     }
 
+    var num = 0;
     $(function () {
         var opt = {
             // 自定义跨域请求
@@ -273,7 +274,7 @@
                 $.ajax({
                     type: 'POST',
                     url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
-                    data: "p=" + 1,
+                    data: {'p':num++, 'starttime':'', 'endtime':'',  'city': ''},
                     dataType:'json',
                     success: success,
                     error: error
