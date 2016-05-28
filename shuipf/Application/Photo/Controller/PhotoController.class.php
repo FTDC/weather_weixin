@@ -31,6 +31,14 @@ class PhotoController extends ShuipFCMS
     }
 
 
+    public function shangbao()
+    {
+        $url = U('Photo/Photo/index');
+        $autho_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . C('WX_APP_ID') . "&redirect_uri=" . urlencode($url) . "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+        header('location:' . $autho_url);
+    }
+
+
     public function uploadPhoto()
     {
         // 文件保存主目录
@@ -257,10 +265,6 @@ class PhotoController extends ShuipFCMS
         $this->display();
     }
 
-
-    /**
-     * 网站异步加载
-     */
     public function query_list(){
         $start_time = I('start_time');
         $end_time = I('end_time');
