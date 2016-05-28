@@ -276,7 +276,7 @@ class PhotoController extends ShuipFCMS
         $count = $Obj->count();
         $page = $this->page($count, 20);
 
-        $where = array('is_delete' => 0);
+        $where = array('is_delete' => 0, 'is_validate'=>1);
 
         if (!empty($start_time) && !empty($end_time)) {
             $start_time = strtotime($start_time);
