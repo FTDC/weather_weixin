@@ -279,12 +279,13 @@
                     error: error
                 });
             },
-            createHtml: function (data) {
+            createHtml: function (res) {
                 var html = '';
-                data = data;
+                console.log(res);
+                data = res;
                 for (var i in data) {
                     //渲染填充
-//                        console.log(data);
+                        console.log(data[i]);
                     html += '<div class="wf-item-inner" wf-data="in" style="width: 232px;"><a href="#" target="_blank"><img src="' + data[i].img_path_small + '" style="width: 232px;" class="thumb_img"><span class="__wf_item_area__" title="' + data[i].title + '">' + data[i].title + '</span><span class="__wf_item_time__">' + data[i].dateTime + '</span></a><div class="handle"><a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i><b>赞</b><span name="likeCountNum" style="display:inline-block;">(<i>123</i>人已赞)</span></a></div></div>';
                 }
                 return html;
