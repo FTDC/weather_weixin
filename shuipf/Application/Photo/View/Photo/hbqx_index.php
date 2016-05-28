@@ -281,8 +281,8 @@
             },
             createHtml: function (res) {
                 var html = '';
-                console.log(res);
-                data = res;
+//                console.log(res);
+                data = res.data;
                 for (var i in data) {
                     //渲染填充
                         console.log(data[i]);

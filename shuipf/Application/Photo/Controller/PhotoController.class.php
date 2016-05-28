@@ -294,7 +294,13 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
 //
         }
-        exit(json_encode($list));
+
+        if(empty($list)){
+            $data =array('status'=> 0, 'data'=> '');
+        }else{
+            $data =array('status'=> 0, 'data'=> ($list));
+        }
+        exit(json_encode($data));
     }
 
     // 上报地理位置事件 感谢网友【blue7wings】和【strivi】提供的方案
