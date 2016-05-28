@@ -293,7 +293,7 @@ class PhotoController extends ShuipFCMS
 
         foreach ($list as &$val) {
             $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
-//            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
+            $val['size'] = getimagesize(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
 //            var_dump(C('UPLOADFILEPATH').'weather_photo/' . $val['img_path']);
             $val['size'] = getimagesize($val['gg']);
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
