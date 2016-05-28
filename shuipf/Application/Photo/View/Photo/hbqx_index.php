@@ -274,7 +274,7 @@
                 $.ajax({
                     type: 'POST',
                     url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
-                    data: {'p':num++, 'starttime':'', 'endtime':'',  'city': ''},
+                    data: {'page':num++, 'starttime':'', 'endtime':'',  'city': ''},
                     dataType:'json',
                     success: success,
                     error: error

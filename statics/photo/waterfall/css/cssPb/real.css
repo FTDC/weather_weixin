@@ -241,4 +241,9 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     background: url(../../img/SQsiteSpr1.png) no-repeat -16px -55px; 
 }
 
+.wf_item .thumb_img {
+    width: 100%;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+}
 

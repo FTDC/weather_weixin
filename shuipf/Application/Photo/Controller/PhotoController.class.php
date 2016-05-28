@@ -270,13 +270,14 @@ class PhotoController extends ShuipFCMS
     {
         $start_time = I('start_time');
         $end_time = I('end_time');
+        $city = I('city');
+        $page = I('page');
+
+        $pageSize = 10;
 
         $Obj = M('weather_photo');
 
-        $count = $Obj->count();
-        $page = $this->page($count, 20);
-
-        $where = array('is_delete' => 0, 'is_validate'=>1);
+        $where = array('is_delete' => 0, 'is_validate' => 1);
 
         if (!empty($start_time) && !empty($end_time)) {
             $start_time = strtotime($start_time);
@@ -284,7 +285,11 @@ class PhotoController extends ShuipFCMS
             $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
         }
 
-        $list = $Obj->where($where)->limit($page->firstRow . ',' . $page->listRows)->order(array('addtime' => 'DESC'))->select();
+        if (!empty($city)) {
+            $where['city'] = $city;
+        }
+
+        $list = $Obj->where($where)->limit($page * $pageSize . ',' . $pageSize)->order(array('addtime' => 'DESC'))->select();
 
         foreach ($list as &$val) {
             $val['gg'] = C('UPLOADFILEPATH') . 'weather_photo/' . $val['img_path'];
@@ -294,13 +299,12 @@ class PhotoController extends ShuipFCMS
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
             $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
-//
         }
 
-        if(empty($list)){
-            $data =array('status'=> 0, 'data'=> '');
-        }else{
-            $data =array('status'=> 0, 'data'=> ($list));
+        if (empty($list)) {
+            $data = array('status' => 0, 'data' => '');
+        } else {
+            $data = array('status' => 1, 'data' => ($list));
         }
         exit(json_encode($data));
     }
