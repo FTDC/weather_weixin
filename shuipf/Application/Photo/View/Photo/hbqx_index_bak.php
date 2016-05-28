@@ -1,247 +1,177 @@
 <!DOCTYPE html>
-<!-- saved from url=(0041)http://weather.sina.com.cn/photos/beijing -->
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>北京实景天气_北京实景天气照片_新浪天气_新浪网</title>
-    <meta name="keywords" content="湖北实景天气, 湖北实景天气照片,湖北天气">
-    <meta name="description" content="湖北天气为您带来最新北京实景天气,北京实景天气照片.您可以及时了解当地天气状况及风土人情,做到足不出户,观尽天下.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1010">
-    <link rel="stylesheet" href="{$config_siteurl}/statics/photo/css/common.css">
-    <link rel="stylesheet" href="{$config_siteurl}/statics/photo/css/index.css">
-    <script type="text/javascript" src="{$config_siteurl}/statics/js/jquery.js"></script>
-        <style type="text/css">
-        /* 标签重定义 */
-        body{padding:0;margin:0;background:#ddd url(images/bg.jpg) repeat;}
-        img{border:none;}
-        a{text-decoration:none;color:#444;}
-        a:hover{color:#999;}
-        #title{width:600px;margin:20px auto;text-align:center;}
-        /* 定义关键帧 */
-        @-webkit-keyframes shade{
-            from{opacity:1;}
-            15%{opacity:0.4;}
-            to{opacity:1;}
-        }
-        @-moz-keyframes shade{
-            from{opacity:1;}
-            15%{opacity:0.4;}
-            to{opacity:1;}
-        }
-        @-ms-keyframes shade{
-            from{opacity:1;}
-            15%{opacity:0.4;}
-            to{opacity:1;}
-        }
-        @-o-keyframes shade{
-            from{opacity:1;}
-            15%{opacity:0.4;}
-            to{opacity:1;}
-        }
-        @keyframes shade{
-            from{opacity:1;}
-            15%{opacity:0.4;}
-            to{opacity:1;}
-        }
-        /* wrap */
-        #wrap{width:1000px;height:auto;margin:0 auto;position:relative;}
-        #wrap .box{width:280px;height:auto;padding:10px;border:none;float:left;}
-        #wrap .box .info{width:280px;height:auto;border-radius:8px;box-shadow:0 0 11px #666;background:#fff;}
-        #wrap .box .info .pic{width:260px;height:auto;margin:0 auto;padding-top:10px;}
-        #wrap .box .info .pic:hover{
-            -webkit-animation:shade 3s ease-in-out 1;
-            -moz-animation:shade 3s ease-in-out 1;
-            -ms-animation:shade 3s ease-in-out 1;
-            -o-animation:shade 3s ease-in-out 1;
-            animation:shade 3s ease-in-out 1;
-        }
-        #wrap .box .info .pic img{width:260px;border-radius:3px;}
-        #wrap .box .info .title{width:260px;height:40px;margin:0 auto;line-height:40px;text-align:center;color:#666;font-size:18px;font-weight:bold;overflow:hidden;}
-    </style>
+    <meta charset="UTF-8">
+    <title>湖北实景天气, 湖北实景天气照片,湖北天气</title>
+    <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/common.css">
+    <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/index.css">
+    <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/real.css">
+    <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
+    <script src="{$config_siteurl}/statics/photo/waterfall/js/waterfall.js"></script>
+    <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/scroll.js"></script>
+    <script language="javascript" type="text/javascript"
+            src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
 </head>
-<body class="bg_white">
-<div class="side-btns-wrap" style="display: block; visibility: visible;">
-    <div class="side-btns-top"><a class="side-btns-top-btn" href="javascript:;" title="返回顶部" hidefocus="">回顶部</a></div>
-</div>
-<!--header begin-->
-<iframe src="http://www.hbqx.gov.cn/index.action" id="ckctlFrame" scrolling="no"
-        style="height: 180px; width: 100% overflow: hidden;"></iframe>
-<!--header end-->
-<!--content begin-->
-
-<!-- 主体部分 开始-->
+<body>
+<iframe frameborder=0 width=100% height=210 marginheight=0 marginwidth=0 scrolling=no
+        src="http://www.hbqx.gov.cn/index.action"></iframe>
 <div id="w_layout_1000" class="wrap">
-    <!-- 瀑布流开始 -->
-    <div id="wrap">
-        <notempty name="list">
-            <volist name="list" id="vo">
-                <div class="box">
-                    <div class="info">
-                        <div class="pic"><img src="{$vo['img_path_small']}"></div>
-                        <div class="title"><a href="{$vo['img_path']}">{$vo['title']}</a></div>
-                    </div>
-                </div>
-            </volist>
-        </notempty>
+    <div id="w_layout_in" style="">
 
     </div>
+    <!-- 瀑布流开始 -->
+    <div id="J_WF_Wrap" class="wf-wrap" style="width: 1000px;">
+        <div id="J_Blank_0" class="wf-blank wf-blank-0">
+            <h4 class="w_real_title">武汉网友实景</h4>
+            <span class="w_real_watch">第一时间窥视(*^__^*)</span>
+        </div>
+        <div id="J_Blank_1" class="wf-blank wf-blank-1">
+            <!-- section 湖北城市-->
+            <div class="w_section mt35">
+                <h4 class="w_sh">
+                    <span class="w_sh_title">湖北城市</span>
+                </h4>
+                <div class="w_sm mt5">
+                    <div class="w_hotCity">
+                        <div style="padding-left:12px;">
+                            <ul class="w_hc_list">
+                                <li>
+                                    <a href="/photos/beijing" target="">北京</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/shanghai" target="">上海</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/shenyang" target="">沈阳</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/tianjin" target="">天津</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/shijiazhuang" target="">石家庄</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/wulumuqi" target="">乌鲁木齐</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/changsha" target="">长沙</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/chongqing" target="">重庆</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/changchun" target="">长春</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/nanjing" target="">南京</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/taiyuan" target="">太原</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/zhengzhou" target="">郑州</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/wuhan" target="">武汉</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/xian" target="">西安</a>
+                                </li>
+                                <li>
+                                    <a href="/photos/hefei" target="">合肥</a>
+                                </li>
+                            </ul>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- section 美图活动-->
+            <div class="w_section mt35">
+                <h4 class="w_sh">
+                    <span class="w_sh_title">美图活动</span>
+                </h4>
+                <div class="w_sm" style="height:169px;overflow:hidden;">
+                    <!-- 代码开始 -->
+                    <div class="list_lh" style="height:169px;overflow:hidden;">
+                        <ul>
+                            <li>
+                                <a href="" style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 代码结束 -->
+
+                </div>
+            </div>
+            <!-- section 查看美图-->
+            <div class="w_section mt35">
+                <h4 class="w_sh">
+                    <span class="w_sh_title">查看美图</span>
+                </h4>
+                <div class="w_sm mt10 clearfix">
+                    <input type="text" class="Wdate fl" style="width:90px" id="d4321"
+                           onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4322\',{d:-1});}'})"/>
+                    <span class="fl">&nbsp;至&nbsp;</span>
+                    <input type="text" class="Wdate fl" style="width:90px" id="d4322"
+                           onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4321\',{d:1});}'})"/>
+                    <input type="button" value="查看"
+                           style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
+
+                </div>
+            </div>
+            <!-- section 图片来源-->
+            <div class="w_section mt35">
+                <h4 class="w_sh">
+                    <span class="w_sh_title">图片来源</span>
+                </h4>
+                <div class="w_sm mt10">
+                    <!--  墨迹天气logo-->
+                    <div class="w_sm_img" style="tex">
+                        <img src="{$config_siteurl}/statics/photo/waterfall/img/hbqx.jpg" alt=""></div>
+                    <!--  天气通logo-->
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script type="text/javascript">
-    window.onload = function(){
-        //运行瀑布流主函数
-        PBL('wrap','box');
-        //模拟数据
-        var data = [
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'},
-            {'src':'http://tupian.enterdesk.com/2014/lxy/2014/05/07/2/8.jpg','title':'素材家园-sucaijiayuan.com'}
-
-        ];
-
-
-        //设置滚动加载
-        window.onscroll = function(){
-            //校验数据请求
-            if(getCheck()){
-                var wrap = document.getElementById('wrap');
-                for(i in data){
-                    //创建box
-                    var box = document.createElement('div');
-                    box.className = 'box';
-                    wrap.appendChild(box);
-                    //创建info
-                    var info = document.createElement('div');
-                    info.className = 'info';
-                    box.appendChild(info);
-                    //创建pic
-                    var pic = document.createElement('div');
-                    pic.className = 'pic';
-                    info.appendChild(pic);
-                    //创建img
-                    var img = document.createElement('img');
-                    img.src = ''+data[i].src;
-                    img.style.height = 'auto';
-                    pic.appendChild(img);
-                    //创建title
-                    var title = document.createElement('div');
-                    title.className = 'title';
-                    info.appendChild(title);
-                    //创建a标记
-                    var a = document.createElement('a');
-                    a.innerHTML = data[i].title;
-                    title.appendChild(a);
+<script>
+    var opt = {
+        getResource: function (index, render) {
+            $.ajax({
+                url: "{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list",
+                dataType: 'json',
+                type: 'post',
+                data: {'city': 'wuhan', 'page': '1'},
+                success: function (data) {
+//                    console.log(data);
+                    var html = '';
+                    for (var i in data) {
+                        //渲染填充
+//                        console.log(data[i]);
+                        html += '<div class="wf-item" wf-data="in" style="width: 244px;"><a href="#" target="_blank"><img src="' + data[i].img_path + '" style="width: 244px;"><span class="__wf_item_area__" title="' + data[i].title + '">' + data[i].title + '</span><span class="__wf_item_time__">' + data[i].dateTime + '</span></a></div>';
+                    }
+                    console.log(html);
+                    return $(html);
                 }
-                PBL('wrap','box');
-            }
-        }
-    }
-    /**
-     * 瀑布流主函数
-     * @param  wrap	[Str] 外层元素的ID
-     * @param  box 	[Str] 每一个box的类名
-     */
-    function PBL(wrap,box){
-        //	1.获得外层以及每一个box
-        var wrap = document.getElementById(wrap);
-        var boxs  = getClass(wrap,box);
-        //	2.获得屏幕可显示的列数
-        var boxW = boxs[0].offsetWidth;
-        var colsNum = Math.floor(1000/boxW);
-        wrap.style.width = boxW*colsNum+'px';//为外层赋值宽度
-        //	3.循环出所有的box并按照瀑布流排列
-        var everyH = [];//定义一个数组存储每一列的高度
-        for (var i = 0; i < boxs.length; i++) {
-            if(i<colsNum){
-                everyH[i] = boxs[i].offsetHeight;
-            }else{
-                var minH = Math.min.apply(null,everyH);//获得最小的列的高度
-                var minIndex = getIndex(minH,everyH); //获得最小列的索引
-                getStyle(boxs[i],minH,boxs[minIndex].offsetLeft,i);
-                everyH[minIndex] += boxs[i].offsetHeight;//更新最小列的高度
-            }
-        }
-    }
-    /**
-     * 获取类元素
-     * @param  warp		[Obj] 外层
-     * @param  className	[Str] 类名
-     */
-    function getClass(wrap,className){
-        var obj = wrap.getElementsByTagName('*');
-        var arr = [];
-        for(var i=0;i<obj.length;i++){
-            if(obj[i].className == className){
-                arr.push(obj[i]);
-            }
-        }
-        return arr;
-    }
-    /**
-     * 获取最小列的索引
-     * @param  minH	 [Num] 最小高度
-     * @param  everyH [Arr] 所有列高度的数组
-     */
-    function getIndex(minH,everyH){
-        for(index in everyH){
-            if (everyH[index] == minH ) return index;
-        }
-    }
-    /**
-     * 数据请求检验
-     */
-    function getCheck(){
-        var documentH = document.documentElement.clientHeight;
-        var scrollH = document.documentElement.scrollTop || document.body.scrollTop;
-        return documentH+scrollH>=getLastH() ?true:false;
-    }
-    /**
-     * 获得最后一个box所在列的高度
-     */
-    function getLastH(){
-        var wrap = document.getElementById('wrap');
-        var boxs = getClass(wrap,'box');
-        return boxs[boxs.length-1].offsetTop+boxs[boxs.length-1].offsetHeight;
-    }
-    /**
-     * 设置加载样式
-     * @param  box 	[obj] 设置的Box
-     * @param  top 	[Num] box的top值
-     * @param  left 	[Num] box的left值
-     * @param  index [Num] box的第几个
-     */
-    var getStartNum = 0;//设置请求加载的条数的位置
-    function getStyle(box,top,left,index){
-        if (getStartNum>=index) return;
-        $(box).css({
-            'position':'absolute',
-            'top':top,
-            "left":left,
-            "opacity":"0"
-        });
-        $(box).stop().animate({
-            "opacity":"1"
-        },999);
-        getStartNum = index;//更新请求数据的条数位置
-    }
-</script>
+            });
 
+            //index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
+        },
+        auto_imgHeight: true,
+        insert_type: 1
+    }
+    $('#w_layout_in').waterfall(opt);
+    $("html,body").scrollTop(10);
+    //公告滚动
+
+    $(function () {
+        $("div.list_lh").myScroll({
+            speed: 40, //数值越大，速度越慢
+            rowHeight: 68 //li的高度
+        });
+    });
+</script>
 </body>
 </html>

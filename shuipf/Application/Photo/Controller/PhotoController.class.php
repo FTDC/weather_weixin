@@ -257,6 +257,10 @@ class PhotoController extends ShuipFCMS
         $this->display();
     }
 
+
+    /**
+     * 网站异步加载
+     */
     public function query_list(){
         $start_time = I('start_time');
         $end_time = I('end_time');
