@@ -1,0 +1,34 @@
+@charset "gb2312";
+/* CSS Document */
+
+/*main*/
+#w_layout_1000{overflow: visible; width: 1000px;}
+body{margin:0;padding:0;}
+.wf-wrap{width:1000px; position: relative;margin:0px auto;min-height:600px;_height:600px;overflow:hidden;}
+.wf-item{width: 244px; background: #fff;position: absolute;top:-99999em;left:-99999em;text-align: center; box-shadow: 1px 1px 0 #ccc;}
+.wf-item span.__wf_item_area__{ font-size: 14px; color: #333; display: block; padding-top: 8px; line-height: 22px; height: 22px; width: 244px; text-align: center; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+.wf-item span.__wf_item_time__{ font-size: 12px; color: #999; display: block; line-height: 20px; height: 20px; width: 230px; text-align: right; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; padding-bottom: 10px; padding-right: 14px;}
+
+.wf-item a:link,.wf-item a:visited{color:#333;text-decoration:none;}
+.wf-item a:hover,.wf-item a:hover span{color:#058892;text-decoration:none;}
+.wf-item img{border:0;}
+/*.wf-blank{width:545px;height:350px;line-height:350px;text-align:center; background:#ccc;}*/
+.wf-loading{height:50px;margin:0 auto 20px;border:1px solid #058892;border-radius:10px; line-height:20px;text-align:center;background:url(http://i3.sinaimg.cn/dy/stencil/sysimages/sysimg/loading_01.gif) center 20px no-repeat; width: 988px;}
+
+/*空白需要css配合*/
+.wf-blank{position:absolute;top:0;}
+.wf-blank-0{width:746px;height:40px; line-height: 40px; left:0px; top: 28px; border-bottom: 2px solid #ccc; overflow: hidden; zoom:1;}
+.wf-blank-1{width:244px;height:412px;right:0;}
+
+.w_real_title{ font-size: 22px; font-weight: bold; color: #058892; float: left;}
+.w_real_watch{ float: right; font-size: 14px; color: #999; margin-right: 6px; display: inline;}
+
+/*aside*/
+.w_hotCity{ overflow: hidden; width: 244px;}
+.w_hc_list{ overflow: hidden;}
+.w_hc_list li{ float: left; height: 27px;  padding-right: 5px; padding-top: 5px;}
+.w_hc_list li a{ float: left; height: 27px; padding: 0 12px; line-height: 27px; background: #fff; white-space: nowrap;}
+.w_hc_list li a:hover{ background: #f39c11; color: #fff;}
+#w_wf_logo .w_sm_img{ width: 244px;}
+#w_wf_logo .w_sm_img img{ margin-left: -28px; width: 300px;}
+
