@@ -292,7 +292,7 @@ class PhotoController extends ShuipFCMS
         $localfile = SITE_PATH . 'd/weather_photo/';
         foreach ($list as &$val) {
             $val['gg'] = $localfile . $val['img_path'];
-            $size= getimagesize($val['gg']);
+            $size= getimagesize($this->thumb_name($val['img_path']));
             $val['width'] = $size[0];
             $val['hight'] = $size[1];
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
