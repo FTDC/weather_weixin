@@ -229,14 +229,15 @@
         if (o.find("b").html() == "赞") {
             var n = o.find("span i").html();
             var photo_id = o.find("span i").attr('data');
+            o.find("b").html("已赞");
+            o.find("span i").html(n * 1 + 1);
             $.ajax({
                 type: 'POST',
                 url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=parise_photo',
                 data: {'photo_id':photo_id},
-                dataType:'json',
-                success: function () {
-                    o.find("b").html("已赞");
-                    o.find("span i").html(n * 1 + 1);
+                dataType:'html',
+                success: function (des) {
+                    console.log(des);
                 }
             });
         }

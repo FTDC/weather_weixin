@@ -291,8 +291,9 @@ class PhotoController extends ShuipFCMS
         $list = $Obj->where($where)->limit($page * $pageSize . ',' . $pageSize)->order(array('addtime' => 'DESC'))->select();
         $localfile = SITE_PATH . 'd/weather_photo/';
         foreach ($list as &$val) {
-            $val['gg'] = $localfile . $val['img_path'];
-            $size= getimagesize($this->thumb_name($val['img_path']));
+            $thumb_name = $this->thumb_name($val['img_path']);
+            $val['gg'] = $localfile . $thumb_name;
+            $size= getimagesize($val['gg']);
             $val['width'] = $size[0];
             $val['hight'] = $size[1];
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
@@ -309,6 +310,10 @@ class PhotoController extends ShuipFCMS
         exit(json_encode($data));
     }
 
+
+    /**
+     * 图片详细
+     */
     public function detail()
     {
         $id = I('id', '', 'intval');
@@ -322,8 +327,6 @@ class PhotoController extends ShuipFCMS
 
         $detail['dateTime'] = date('Y-m-d H:i', $detail['addtime']);
         $detail['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $detail['img_path'];
-
-//        echo  $Obj->getLastSql(); exit;
 
         $this->assign("detail", $detail);
         $this->display('hbqx_index_detail');
@@ -389,9 +392,8 @@ class PhotoController extends ShuipFCMS
         if (empty($ids)) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
-        foreach ($ids as $item) {
-            $Obj->where(array('id' => array('in', $ids)))->save(array('is_validate' => 2));
-        }
+        $Obj->where(array('id' => array('in', $ids)))->save(array('is_validate' => 2));
+
         $this->success('操作成功!');
     }
 
@@ -406,9 +408,8 @@ class PhotoController extends ShuipFCMS
         if (empty($ids)) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
-        foreach ($ids as $item) {
-            $Obj->where(array('id' => array('in', $ids)))->save(array('is_delete' => 1));
-        }
+        $Obj->where(array('id' => array('in', $ids)))->save(array('is_delete' => 1));
+
         $this->success('操作成功!');
     }
 
@@ -423,9 +424,8 @@ class PhotoController extends ShuipFCMS
         if (empty($ids)) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
-        foreach ($ids as $item) {
-            $Obj->where(array('id' => array('in', $ids)))->save(array('is_beautiful' => 1));
-        }
+        $Obj->where(array('id' => array('in', $ids)))->save(array('is_beautiful' => 1));
+
         $this->success('评选成功!');
     }
 
@@ -452,10 +452,12 @@ class PhotoController extends ShuipFCMS
      */
     public function parise_photo()
     {
-        $photo_id = I('photo_id', '', 'intval');
-        if (empty($ids)) $this->error('请选择要操作的图片!');
+        $photo_id = I('photo_id', 0, 'intval');
+
+        if ($photo_id == 0) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
+
         $res = $Obj->where(array('id' => $photo_id))->setInc('parise');
 
         echo $res;
