@@ -457,10 +457,11 @@ class PhotoController extends ShuipFCMS
         if ($photo_id == 0) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
+//        $res = $Obj->where(array('id' => $photo_id))->save(array('exp','parise+1'));
+        $res = $Obj->query('UPDATE ftdc_weather_photo SET parise=parise+1 WHERE id = '.$photo_id);
 
-        $res = $Obj->where(array('id' => $photo_id))->setInc('parise');
-
-        echo $res;
+//        echo $Obj->getLastSql();
+        echo json_encode($res);
         exit;
     }
 
