@@ -132,7 +132,31 @@
 </div>
 <div id="w_layout_1000" class="wrap">
     <div id="w_layout_in" style="">
+        <div class="w_main_article">
+            <div class="w_ma_img">
+                <a>
+                    <img src="{$detail['img_path']}" alt="{$detail['title']}">
+                </a>
+            </div>
+            <div class="w_ma_infor">
+                <div class="w_mac_user">
+                    <div class="w_mac_user_head">
+                        <a>
+                            <img src="http://www.sinaimg.cn/dy/weather/main/index14/male_34.png" width="34" height="34" alt="">
+                        </a>
+                    </div>
+                    <p class="font14">
+                        <a>{$detail['username']}</a>
+                    </p>
+                    <p class="c666"></p>
+                </div>
+                <div class="w_mac_address">
+                    <p class="font14">{$detail['title']}</p>
+                    <p class="c999">{$detail['dateTime']}</p>
+                </div>
+            </div>
 
+        </div>
     </div>
     <!-- 瀑布流开始 -->
     <div id="J_WF_Wrap" class="wf-wrap" style="width: 1000px;">
@@ -223,63 +247,6 @@
     </div>
 </div>
 <script>
-    //绑定点赞
-    function praise(o) {
-        event.stopPropagation();
-        if (o.find("b").html() == "赞") {
-            var n = o.find("span i").html();
-            var photo_id = o.find("span i").attr('data');
-            $.ajax({
-                type: 'POST',
-                url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=parise_photo',
-                data: {'photo_id':photo_id},
-                dataType:'json',
-                success: function () {
-                    o.find("b").html("已赞");
-                    o.find("span i").html(n * 1 + 1);
-                }
-            });
-        }
-        else {
-            alert("您已经点赞！");
-            return false;
-        }
-    }
-
-    var num = 0;
-    $(function () {
-        var opt = {
-            // 自定义跨域请求
-            ajaxFunc: function (success, error) {
-                $.ajax({
-                    type: 'POST',
-                    url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
-                    data: {'page':num++, 'starttime':'', 'endtime':'',  'city': ''},
-                    dataType:'json',
-                    success: success,
-                    error: error
-                });
-            },
-            createHtml: function (res) {
-                var html = '';
-//                console.log(res);
-                data = res.data;
-                for (var i in data) {
-                    //渲染填充
-                    //渲染填充
-                        console.log(data[i]);
-                    html += '<div class="wf-item-inner" wf-data="in"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'" target="_blank" class="thumb"><img src="' + data[i].img_path_small + '"   class="thumb_img"><span class="__wf_item_area__" title="' + data[i].title + '">' + data[i].title + '</span><span class="__wf_item_time__">' + data[i].dateTime + '</span></a><div class="handle"><a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i><b>赞</b><span name="likeCountNum" style="display:inline-block;">(<i data="'+data[i].id+'">'+data[i].parise+'</i>人已赞)</span></a></div></div>';
-                }
-                return html;
-
-            },
-            auto_imgHeight: true,
-            insert_type: 1
-        }
-        $('#w_layout_in').waterfall(opt);
-        //$("html,body").scrollTop(10);
-        //公告滚动
-    });
     $(function () {
         $("div.list_lh").myScroll({
             speed: 40, //数值越大，速度越慢

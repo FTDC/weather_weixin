@@ -9,7 +9,7 @@ body{
 #w_layout_in{overflow: hidden; width: 754px;position: absolute;top: 0;left: 10px;z-index: 5}
 body{margin:0;padding:0;position: relative;z-index: 1;}
 .wf-wrap{width:1000px; position: relative;margin:0px auto;min-height:600px;_height:600px;}
-.wf-item-inner{position: relative;z-index: 3;border: 1px solid #d2d2d2;width: 244px; background: #fff;text-align: center; box-shadow: 1px 1px 0 #ccc;margin-bottom: 5px;box-shadow: 5px 3px 3px rgba(221,221,221,.32);}
+.wf-item-inner{position: relative;z-index: 3;border: 1px solid #d2d2d2; background: #fff;text-align: center; box-shadow: 1px 1px 0 #ccc;margin-bottom: 5px;box-shadow: 5px 3px 3px rgba(221,221,221,.32);}
 .wf-item-inner span.__wf_item_area__{ font-size: 14px; color: #333; display: block; padding-top: 8px; line-height: 22px; height: 22px; width: 244px; text-align: center; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
 .wf-item-inner span.__wf_item_time__{ font-size: 12px; color: #999; display: block; line-height: 20px; height: 20px; width: 230px; text-align: right; overflow: hidden; white-space: nowrap; text-overflow:ellipsis; padding-bottom: 10px; padding-right: 14px;}
 
@@ -26,8 +26,8 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
 
 .w_real_title{ font-size: 22px; font-weight: bold; color: #377ecf; float: left;}
 .w_real_watch{ float: right; font-size: 14px; color: #999; margin-right: 6px; display: inline;}
-.wf_item{margin-right: 5px;margin-top: 80px;position: absolute;}
-.wf_item{ width: 235px;color: #565656;float: left;overflow: hidden;zoom: 1;}
+.wf_item{margin-right: 5px;margin-top: 80px;position: absolute;width: 235px;color: #565656;float: left;overflow: hidden;zoom: 1;}
+.wf_col{position: relative;min-height: 473px;_height: 473px;}
 /*aside*/
 .w_hotCity{ overflow: hidden; width: 244px;}
 .w_hc_list{ overflow: hidden;}
@@ -246,4 +246,24 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     max-width: 100%;
     -ms-interpolation-mode: bicubic;
 }
+.wf_item .thumb{ 
+    position: relative;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+}
 
+.w_main_article{ background: #fff;width: 97%;margin: 84px 0 0 0;}
+.w_ma_img{ width: 100%; text-align: center;}
+.w_ma_img img{max-width: 100%;}
+.w_ma_infor{ padding-top: 20px; overflow: hidden; height: 40px;}
+.w_ma_infor p{ line-height: 20px; overflow: hidden; white-space: nowrap; text-overflow:ellipsis;}
+.w_ma_infor p.font14{ font-size: 14px;}
+.w_mac_user{ float: left; position: relative; padding-left: 63px;}
+.w_mac_user_head{ position: absolute; left: 20px; top: 3px; height: 34px; width: 34px; overflow: hidden;}
+.w_mac_user_head img{ display: block; width: 100%;}
+.w_mac_user p{ width: 260px;}
+
+.w_mac_address{ float: right; padding-right: 20px;}
+.w_mac_address p{ width: 320px; text-align: right;}
+.w_ma_main{ padding: 20px; overflow: hidden; line-height: 22px; text-indent: 2em; font-size: 14px;}

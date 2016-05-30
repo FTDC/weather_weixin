@@ -307,6 +307,27 @@ class PhotoController extends ShuipFCMS
         exit(json_encode($data));
     }
 
+    public function detail()
+    {
+        $id = I('id', '', 'intval');
+        if ($id == 0) $this->error('图片不存在!');
+
+        $Obj = M('weather_photo');
+
+        $where = array('id' => $id);
+
+        $detail = $Obj->where($where)->find();
+
+        $detail['dateTime'] = date('Y-m-d H:i', $detail['addtime']);
+        $detail['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $detail['img_path'];
+
+//        echo  $Obj->getLastSql(); exit;
+
+        $this->assign("detail", $detail);
+        $this->display('hbqx_index_detail');
+
+    }
+
     // 上报地理位置事件 感谢网友【blue7wings】和【strivi】提供的方案
     public function getaddressbylngb()
     {
@@ -421,6 +442,22 @@ class PhotoController extends ShuipFCMS
             $Obj->where(array('id' => array('in', $ids)))->save(array('is_beautiful' => 0));
         }
         $this->success('评选成功!');
+    }
+
+
+    /**
+     * 赞美图
+     */
+    public function parise_photo()
+    {
+        $photo_id = I('photo_id', '', 'intval');
+        if (empty($ids)) $this->error('请选择要操作的图片!');
+
+        $Obj = M('weather_photo');
+        $res = $Obj->where(array('id' => $photo_id))->setInc('parise');
+
+        echo $res;
+        exit;
     }
 
 
