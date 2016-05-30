@@ -272,7 +272,7 @@ class PhotoController extends ShuipFCMS
         $city = I('city');
         $page = I('page');
 
-        $pageSize = 10;
+        $pageSize = 2;
 
         $Obj = M('weather_photo');
 
