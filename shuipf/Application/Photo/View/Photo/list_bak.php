@@ -39,6 +39,18 @@
             width: 130px;
             vertical-align: bottom;
         }
+
+        .add_photo{
+            background:url({$config_siteurl}/statics/photo/img/addPhoto.png) no-repeat 0 0;
+            width: 80px;
+            height: 79px;
+            display: inline-block;
+            position: fixed;
+            z-index: 10000;
+            bottom:30px;
+            left: 50%;
+            margin-left: -40px;
+        }
     </style>
 </head>
 <body>
@@ -56,6 +68,7 @@
                 </ul>
             </div>
         </div>
+        <a href="{:U('Photo/Photo/shangbao')}" class="add_photo"></a>
     </div>
 </div>
 <script type="text/javascript" src="{$config_siteurl}/statics/photo/js/lib.js"></script>
