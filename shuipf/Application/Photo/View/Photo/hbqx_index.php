@@ -106,7 +106,7 @@
                 //设置滚动加载
                 window.onscroll = function(){
 
-                    if(page > 0) return false;
+                    if(status > 0) return false;
                     $.ajax({
                         type: 'POST',
                         url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
@@ -170,6 +170,8 @@
                                 wrap.append(box);
                                 if(res.status > 0){
                                     PBL('wrap','box');
+                                }else{
+                                    status = 0;
                                 }
 
                             }
@@ -371,7 +373,7 @@
     </div>
     <div id="w_layout_in" style="">
         <div id="wrap">
-            <notemtpy name="list">
+
                 <volist name="list" id="item">
             <div class="box">
                 <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
@@ -391,7 +393,7 @@
                 </a>
             </div>
                 </volist>
-                </notemtpy>
+                
         </div>
     </div>
     <!-- 瀑布流开始 -->
