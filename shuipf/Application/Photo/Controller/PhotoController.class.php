@@ -272,7 +272,7 @@ class PhotoController extends ShuipFCMS
         $city = I('city');
         $page = I('page');
 
-        $pageSize = 2;
+        $pageSize = 12;
 
         $Obj = M('weather_photo');
 
@@ -388,7 +388,6 @@ class PhotoController extends ShuipFCMS
     public function public_nocheck()
     {
         $ids = I('ids');
-
         if (empty($ids)) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
@@ -401,10 +400,9 @@ class PhotoController extends ShuipFCMS
     /**
      *  删除图片信息
      */
-    public function delete()
+    public function delete_pic()
     {
         $ids = I('ids');
-
         if (empty($ids)) $this->error('请选择要操作的图片!');
 
         $Obj = M('weather_photo');
@@ -460,7 +458,7 @@ class PhotoController extends ShuipFCMS
 //        $res = $Obj->where(array('id' => $photo_id))->save(array('exp','parise+1'));
         $res = $Obj->query('UPDATE ftdc_weather_photo SET parise=parise+1 WHERE id = '.$photo_id);
 
-//        echo $Obj->getLastSql();
+        echo $Obj->getLastSql(); exit();
         echo json_encode($res);
         exit;
     }

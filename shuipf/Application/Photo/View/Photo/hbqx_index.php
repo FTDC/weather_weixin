@@ -74,13 +74,39 @@
             });
         </script>
         <script>
+
+            //绑定点赞
+            function praise(o) {
+                event.stopPropagation();
+                if (o.find("b").html() == "赞") {
+                    var n = o.find("span i").html();
+                    var photo_id = o.find("span i").attr('data');
+                    o.find("b").html("已赞");
+                    o.find("span i").html(n * 1 + 1);
+                    $.ajax({
+                        type: 'POST',
+                        url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=parise_photo',
+                        data: {'photo_id':photo_id},
+                        dataType:'html',
+                        success: function (des) {
+                            console.log(des);
+                        }
+                    });
+                }
+                else {
+                    alert("您已经点赞！");
+                    return false;
+                }
+            }
+
             window.onload = function(){
                 //运行瀑布流主函数
                 PBL('wrap','box');
-
+                var num=2,data =null, status=0;
                 //设置滚动加载
                 window.onscroll = function(){
-                    var num=1,data =null;
+
+                    if(page > 0) return false;
                     $.ajax({
                         type: 'POST',
                         url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
@@ -142,13 +168,16 @@
                                         '</div> ';
                                 }
                                 wrap.append(box);
-                                PBL('wrap','box');
+                                if(res.status > 0){
+                                    PBL('wrap','box');
+                                }
+
                             }
                         }
                     });
 
                 }
-            }
+            };
             /**
              * 瀑布流主函数
              * @param  wrap  [Str] 外层元素的ID
@@ -342,206 +371,27 @@
     </div>
     <div id="w_layout_in" style="">
         <div id="wrap">
-
+            <notemtpy name="list">
+                <volist name="list" id="item">
             <div class="box">
+                <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
                 <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
+                    <div class="pic"><img src="{$item.img_path_small}"></div>
+                    <div class="title">
+                        <span class="__wf_item_time__" style="display:block">{$item.title}</span>
                         <div class="handle">
                             <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
                         <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963beb88d7_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5739632860f89_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
+                            ( <i data="{$item.id}">{$item.parise}</i>
                             人已赞)
                         </span>
                             </a>
                         </div></div>
                 </div>
+                </a>
             </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963beb88d7_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5739632860f89_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963beb88d7_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5739632860f89_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/573963fee9d2e_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/573963beb88d7_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5739632860f89_small.jpeg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <div class="pic"><img src="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg"></div>
-                    <div class="title"><a href="http://wechat.7ido.com/d/weather_photo/201605/5737264cf1eb8_small.jpg">素材家园-sucaijiayuan.com</a>
-                        <span class="__wf_item_time__" style="display:block">2016-05-16 14:09</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
-                        <span name="likeCountNum" style="display:inline-block;">
-                            ( <i data="46">1</i>
-                            人已赞)
-                        </span>
-                            </a>
-                        </div></div>
-                </div>
-            </div>
-
-
-
+                </volist>
+                </notemtpy>
         </div>
     </div>
     <!-- 瀑布流开始 -->

@@ -47,7 +47,7 @@
                     if( this.width != 1 || this.height != 1 ) {
                         support = false;
                     }
-                }
+                };
                 data.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
                 return support;
             } )(),
@@ -93,11 +93,11 @@
                     window['expressinstallcallback'] = function( state ) {
                         switch(state) {
                             case 'Download.Cancelled':
-                                alert('您取消了更新！')
+                                alert('您取消了更新！');
                                 break;
 
                             case 'Download.Failed':
-                                alert('安装失败')
+                                alert('安装失败');
                                 break;
 
                             default:
@@ -182,7 +182,6 @@
                     break;
                 }
             }
-
             return !denied;
         });
 
@@ -327,10 +326,7 @@
                     });
                 } else {
                     $wrap.css( 'filter', 'progid:DXImageTransform.Microsoft.BasicImage(rotation='+ (~~((file.rotation/90)%4 + 4)%4) +')');
-
                 }
-
-
             });
 
             $li.appendTo( $queue );
@@ -398,7 +394,6 @@
                 return;
             }
 
-            console.log(val);
             $upload.removeClass( 'state-' + state );
             $upload.addClass( 'state-' + val );
             state = val;
@@ -497,7 +492,7 @@
         uploader.on('uploadSuccess', function(file, response){
             $("#img_hide_list").append('<input type="hidden" id="'+file.id+'_val" name="imglist[]" value="'+response.url+'">');
 
-        })
+        });
 
         uploader.on( 'all', function( type ) {
             var stats;

@@ -97,7 +97,7 @@
                 <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/beautiful')}">评选美图</button>
                 <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/cancel_beautiful')}">取消美图
                 </button>
-                <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/delete')}">删除</button>
+                <button class="btn J_ajax_submit_btn" type="submit" data-action="{:U('Photo/delete_pic')}">删除</button>
             </div>
         </div>
     </form>
