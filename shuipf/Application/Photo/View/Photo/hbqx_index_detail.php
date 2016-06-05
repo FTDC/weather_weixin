@@ -211,25 +211,25 @@
                         </ul>
                     </div>
                     <!-- 代码结束 -->
-
                 </div>
             </div>
+            <form method="get" action="{:U('Photo/Photo/hbqx_index')}">
+                <input type="hidden" id="city" name="city" value="">
             <!-- section 查看美图-->
             <div class="w_section mt35">
                 <h4 class="w_sh">
                     <span class="w_sh_title">查看美图</span>
                 </h4>
                 <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4321"
-                           onFocus="WdatePicker({maxDate:'#F{$dp.$D('d4322',{d:-1});}'})"/>
+                    <input type="text" class="Wdate fl" name="start_time"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
                     <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4322"
-                           onFocus="WdatePicker({minDate:'#F{$dp.$D('d4321',{d:1});}'})"/>
-                    <input type="button" value="查看"
+                    <input type="text" class="Wdate fl" name="end_time" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                    <input type="submit" value="查看"
                            style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
                 </div>
             </div>
+            </form>
             <!-- section 图片来源-->
             <div class="w_section mt35">
                 <h4 class="w_sh">

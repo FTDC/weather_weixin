@@ -407,7 +407,7 @@
                     <div class="w_hotCity">
                         <div style="padding-left:12px;">
                             <ul class="w_hc_list">
-                                <li><a href="javascript:void(0);" data="wh" >武汉市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh" >武汉市</a></li>
                                 <li><a href="javascript:void(0);" data="hs" >黄石市</a></li>
                                 <li><a href="javascript:void(0);" data="xf" >襄樊市</a></li>
                                 <li><a href="javascript:void(0);" data="sy" >十堰市</a></li>
@@ -449,19 +449,23 @@
                 </div>
             </div>
             <!-- section 查看美图-->
-            <div class="w_section mt35">
-                <h4 class="w_sh">
-                    <span class="w_sh_title">查看美图</span>
-                </h4>
-                <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4321" onFocus="WdatePicker()"/>
-                    <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4322" onFocus="WdatePicker()"/>
-                    <input type="button" value="查看"
-                           style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
+            <form method="post" action="{:U('Photo/Photo/hbqx_index')}">
+                <input type="hidden" id="city" name="city" value="">
+                <!-- section 查看美图-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">查看美图</span>
+                    </h4>
+                    <div class="w_sm mt10 clearfix">
+                        <input type="text" class="Wdate fl" name="start_time"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                        <span class="fl">&nbsp;至&nbsp;</span>
+                        <input type="text" class="Wdate fl" name="end_time" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                        <input type="submit" value="查看"
+                               style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
+                    </div>
                 </div>
-            </div>
+            </form>
             <!-- section 图片来源-->
             <div class="w_section mt35">
                 <h4 class="w_sh">

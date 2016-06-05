@@ -239,17 +239,27 @@ class PhotoController extends ShuipFCMS
 
         $where = array('is_delete' => 0, 'is_validate'=> 1);
 
-        if (!empty($start_time) && !empty($end_time)) {
-            $start_time = strtotime($start_time);
+        $start_time = strtotime($start_time);
+
+
+        if (!empty($start_time) && empty($end_time)) {
+            $where['addtime'] = array(array('GT', $start_time));
+        }elseif (empty($start_time) && !empty($end_time)){
+            $end_time = strtotime($end_time) + 86399;
+            $where['addtime'] = array(array('LT', $end_time));
+        }elseif (!empty($start_time) && !empty($end_time)){
             $end_time = strtotime($end_time) + 86399;
             $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
         }
+
 
         if (!empty($city)) {
             $where['city'] = $city;
         }
 
         $list = $Obj->where($where)->limit(0,12)->order(array('addtime' => 'DESC'))->select();
+
+//        echo $Obj->getLastSql(); exit;
 
         $localfile = SITE_PATH . 'd/weather_photo/';
 
@@ -260,6 +270,7 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
         }
 
+        $this->assign("post", $_POST);
         $this->assign("list", $list);
         $this->display();
     }
