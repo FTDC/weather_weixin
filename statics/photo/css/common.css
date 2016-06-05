@@ -6,8 +6,8 @@ body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,th,td,p,blockquote,pre,form,fieldset,le
 ul,li {list-style:none;}
 fieldset, img {border:none;}
 body {background:#fff;color: #2a2a2a;}
-body,button,input,select,textarea {font:12px/1.5 tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;}	 /*å­—ä½“(unicode)ï¼šå®‹ä½“(\5B8B\4F53)é»‘ä½“(\9ED1\4F53)å¾®è½¯é›…é»‘(\5FAE\8F6F\96C5\9ED1)*/
-input,select,textarea {font-size:100%;}		/* é»˜è®¤å¹¶ä¸é›†æˆçˆ¶çº§çš„æ–‡å­—å¤§å° */
+body,button,input,select,textarea {font:12px/1.5 tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;}	 /*×ÖÌå(unicode)£ºËÎÌå(\5B8B\4F53)ºÚÌå(\9ED1\4F53)Î¢ÈíÑÅºÚ(\5FAE\8F6F\96C5\9ED1)*/
+input,select,textarea {font-size:100%;}		/* Ä¬ÈÏ²¢²»¼¯³É¸¸¼¶µÄÎÄ×Ö´óĞ¡ */
 textarea {resize:none;}
 table {border-collapse:collapse;border-spacing:0; empty-cells: show;}
 button {cursor:pointer;}
@@ -21,7 +21,7 @@ img,li {vertical-align:top;}
 th {text-align:inherit;}
 iframe {display:block;}
 
-/* CSS3 æ¸è¿›å¢å¼º */
+/* CSS3 ½¥½øÔöÇ¿ */
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus {border-color: rgba(242, 145, 73, 0.8) !important;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(242, 145, 73, 0.6);outline: 0 none;}
 a:hover, a:active, a:focus {text-decoration:none; -webkit-transition: color 0.3s ease; transition: color 0.3s ease;}
 
@@ -30,12 +30,12 @@ a:hover, a:active, a:focus {text-decoration:none; -webkit-transition: color 0.3s
 .clearfix{zoom:1;}
 .clearit{clear:both;height:0;font-size:0;overflow:hidden;}
 
-/* å•è¡Œæ–‡å­—æº¢å‡ºæ—¶å‡ºç°çœç•¥å·ï¼Œéœ€è®¾å®šå®½åº¦ */
+/* µ¥ĞĞÎÄ×ÖÒç³öÊ±³öÏÖÊ¡ÂÔºÅ£¬ĞèÉè¶¨¿í¶È */
 .fn-text-overflow {overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 
-/*commonéƒ¨åˆ†å¼€å§‹*/
-body {font-family:"Microsoft Yahei", SimHei; background: #f3f3f3; color: #333;} /*å¾®è½¯é›…é»‘ */
-.simhei{font-family:Microsoft Simhei;} /*é»‘ä½“ */
+/*common²¿·Ö¿ªÊ¼*/
+body {font-family:"Microsoft Yahei", SimHei;  color: #333;} /*Î¢ÈíÑÅºÚ */
+.simhei{font-family:Microsoft Simhei;} /*ºÚÌå */
 .wrap {width:1000px; margin:0 auto;}
 .fl {float:left;}
 .fr {float:right;}
@@ -47,24 +47,24 @@ body {font-family:"Microsoft Yahei", SimHei; background: #f3f3f3; color: #333;} 
 .mt35 {margin-top:35px!important;}
 .mt40 {margin-top:40px!important;}
 
-/*é“¾æ¥é¢œè‰²*/
+/*Á´½ÓÑÕÉ«*/
 a { color: #333;}
 a:visited { color: #9a9a9a;}
 a:hover {color:#068894;}
 
 .linkGreenBox a,
-.linkGreenBox a:visited {color:#058892;}  /*å¢¨ç»¿è‰²*/
+.linkGreenBox a:visited {color:#058892;}  /*Ä«ÂÌÉ«*/
 .linkGreenBox a:hover {color:#f39c11;}
 
 a.linkGreen,
-a.linkGreen:visited {color:#058892;}  /*å¢¨ç»¿è‰²*/
+a.linkGreen:visited {color:#377ecf;}  /*Ä«ÂÌÉ«*/
 a.linkGreen:hover {color:#f39c11;}
 
-/*å­—ä½“é¢œè‰²*/
+/*×ÖÌåÑÕÉ«*/
 .c666{ color: #666;}
 .c999{ color: #999;}
 
-/*layout å¸ƒå±€æ ·å¼*/
+/*layout ²¼¾ÖÑùÊ½*/
 #w_layout_670_300{ overflow: hidden;}
 #w_layout_670_300 .w_main{ width: 670px; overflow: hidden;}
 #w_layout_670_300 .w_aside{ width: 300px; overflow: hidden;}
@@ -73,17 +73,17 @@ a.linkGreen:hover {color:#f39c11;}
 #w_layout_400_570 .w_main{ width: 570px; overflow: hidden;}
 #w_layout_400_570 .w_aside{ width: 400px; overflow: hidden;}
 
-/*section æ¨¡å—*/
+/*section Ä£¿é*/
 .w_section{ overflow: hidden;}
 .w_sh{ height: 30px; overflow: hidden; position: relative; width: 100%;}
-.w_sh_title{ font-size: 20px; line-height: 30px; font-weight: bold; color: #058892;}
+.w_sh_title{ font-size: 20px; line-height: 30px; font-weight: bold; color: #377ecf;}
 .w_sh_more{ line-height: 18px; position: absolute; right: 0px; bottom: 2px; font-family: "\5B8B\4F53";}
 .w_sm{ overflow: hidden;}
 
 .w_sm_img{ width: 300px; overflow: hidden;}
 .w_sm_img a img{ display: block; width: 100%;}
 
-/*è¿”å›é¡¶éƒ¨css 1000 margin-left:505px; 950å®½ margin-left:485px;*/
+/*·µ»Ø¶¥²¿css 1000 margin-left:505px; 950¿í margin-left:485px;*/
 html,* html body{background-image:url(about:blank);background-attachment:fixed}
 .side-btns-wrap{position: fixed;_position: absolute;right: 50%;bottom: 100px;width: 50px;margin-right: -560px;_top: expression(documentElement.scrollTop + documentElement.clientHeight-150);}
 .side-btns-top{width:50px; height: 50px;}

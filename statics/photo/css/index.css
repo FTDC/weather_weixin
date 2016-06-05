@@ -1,4 +1,4 @@
-/* top Â±ÃªÃ—Â¼ÃÂ· */
+/* top ±ê×¼Í· */
 .channelHead{width: 100%;min-width: 1000px;line-height:20px;font-size:12px;background: #f7f7f7;/*border-top: 3px solid #213e82;border-bottom: 1px solid #e5e5e5;*/position: relative;z-index: 9999;}
 .channelHead strong{font-weight:bold;}
 .channelHead a:link,.channelHead a:visited{color:#000;text-decoration:none;}
@@ -57,7 +57,7 @@ a.cheadLoginBtn:hover, a.cheadLoginBtn:active, a.cheadLoginBtn:focus{color:#333;
 #popup{ display: none; position: absolute; z-index: 1999997; left: 0; width: 0; background-color: #fff; border: none;}
 
 .wt_tt0_w{ height: 40px; line-height: 40px;}
-.wt_tt0{ float: left; display: inline; padding-left: 10px; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "ÃÂ¢ÃˆÃ­Ã‘Ã…ÂºÃš", "SimSun", "Ã‹ÃÃŒÃ¥"; font-weight: bold;}
+.wt_tt0{ float: left; display: inline; padding-left: 10px; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "Î¢ÈíÑÅºÚ", "SimSun", "ËÎÌå"; font-weight: bold;}
 .wt_tt0_note{ font-size: 12px; font-weight: normal; color: #aaa;}
 .wt_tt0_r{ float: right; display: inline;}
 .wt_switch{ float: left; display: inline; margin-right: 5px; width: 48px; padding-left: 20px; height: 18px; line-height: 18px; text-align: center; font-size: 12px; border-radius: 99px; background-color: #656565; transition: background-color,color ease 0.6s; cursor: pointer; color: #aaa;}
@@ -118,7 +118,7 @@ a.cheadLoginBtn:hover, a.cheadLoginBtn:active, a.cheadLoginBtn:focus{color:#333;
 
 .hd_sh{ position: relative; z-index: 106; float: left; display: inline; width: 365px;}
 .hd_sh_form{ padding-top: 44px;}
-.hd_sh_input{ float: left; display: inline; margin: 0; padding: 10px 0; width: 285px; height: 16px; line-height: 16px; background-color: #fff; border: 1px solid #d5d5d5; font-size: 14px; color: #333; text-indent: 8px; font-family: "Microsoft YaHei", "ÃÂ¢ÃˆÃ­Ã‘Ã…ÂºÃš", "SimSun", "Ã‹ÃÃŒÃ¥";}
+.hd_sh_input{ float: left; display: inline; margin: 0; padding: 10px 0; width: 285px; height: 16px; line-height: 16px; background-color: #fff; border: 1px solid #d5d5d5; font-size: 14px; color: #333; text-indent: 8px; font-family: "Microsoft YaHei", "Î¢ÈíÑÅºÚ", "SimSun", "ËÎÌå";}
 .hd_sh_submit{ float: left; display: inline; margin-left: 6px; width: 71px; height: 38px; line-height: 38px; font-size: 16px; text-align: center; /* letter-spacing: 5px; */ color: #fff; cursor: pointer; background-color: #F39C12; transition: background-color ease 0.3s;}
 .hd_sh_submit:hover{ background-color: #FFAE2F;}
 .hd_sh_def{ position: absolute; z-index: 106; top: 87px; left: 0; width: 287px; background: #fff; box-shadow: 2px 2px 5px #333;}
@@ -183,7 +183,7 @@ a.hd_nav_home:hover{ color: #fff;}
 
 body{ transition: background-position ease 0.3s;}
 .bg_away{ background-position: 0px 2000px!important; background-attachment: inherit!important;}
-/*Â°Ã—ÃŒÃ¬*/
+/*°×Ìì*/
 .bg_01_00{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_01.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_02_00{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_02.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_03_00{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_03.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
@@ -193,7 +193,7 @@ body{ transition: background-position ease 0.3s;}
 .bg_07_00{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_07.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_08_00{ background: #000 url(http://i3.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_08.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_09_00{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/day/bg_09.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
-/*Ã’Â¹Â¼Ã¤*/
+/*Ò¹¼ä*/
 .bg_01_01{ background: #000 url(http://i0.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_01.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_02_01{ background: #000 url(http://i1.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_02.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
 .bg_03_01{ background: #000 url(http://i2.sinaimg.cn/dy/weather/main/index14/007/bg_body/night/bg_03.jpg) top center no-repeat; background-attachment: fixed; -webkit-background-size: 2000px 1300px;}
@@ -212,7 +212,7 @@ body{ transition: background-position ease 0.3s;}
 .slider_add_close{ position: absolute; display: block; right: 10px; top: 10px; z-index: 99; width: 14px; height: 14px; background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/icon_addcity_close.png) 0 0 no-repeat; opacity: 0.7; cursor: pointer; transition: opacity ease 0.3s;}
 .slider_add_close:hover{ opacity: 1;}
 .slider_add_tt{ height: 60px; line-height: 60px; text-align: center; font-size: 18px; color: #656565; font-weight: normal;}
-.slider_add_input{ display: block; margin: 0 auto; width: 198px; height: 16px; padding-top: 10px; padding-bottom: 10px; line-height: 16px; border: 1px solid #ccc; font-size: 14px; color: #656565; text-indent: 10px; font-family: "Microsoft YaHei", "ÃÂ¢ÃˆÃ­Ã‘Ã…ÂºÃš", "SimSun", "Ã‹ÃÃŒÃ¥";}
+.slider_add_input{ display: block; margin: 0 auto; width: 198px; height: 16px; padding-top: 10px; padding-bottom: 10px; line-height: 16px; border: 1px solid #ccc; font-size: 14px; color: #656565; text-indent: 10px; font-family: "Microsoft YaHei", "Î¢ÈíÑÅºÚ", "SimSun", "ËÎÌå";}
 .slider_add_btns{ margin-top: 20px; height: 30px; text-align: center;}
 .slider_add_btn{ display: inline-block; *display: inline; *zoom: 1; margin-right: 20px; width: 70px; height: 30px; line-height: 30px; color: #fff; text-align: center; font-size: 16px; cursor: pointer;}
 .slider_add_btn_cancel{ background-color: #cbcbcb;}
@@ -283,7 +283,7 @@ body{ transition: background-position ease 0.3s;}
 .slider_warn_map_i5{ left: 95px; background-color: #7646A3;}
 /*.slider_warn_map0 .slider_warn_map_i0, .slider_warn_map1 .slider_warn_map_i1, .slider_warn_map2 .slider_warn_map_i2, .slider_warn_map3 .slider_warn_map_i3, .slider_warn_map4 .slider_warn_map_i4, .slider_warn_map5 .slider_warn_map_i5{ height: 15px;}*/
 .slider_warn_map_i_on{ height: 15px;}
-/*Ã”Â¤Â¾Â¯-ÂµÃ€Ã‚Â·Â½Ã¡Â±Ã¹*/
+/*Ô¤¾¯-µÀÂ·½á±ù*/
 .slider_warn_i1 .slider_warn_i_tt h6{ height: 60px; line-height: 60px;}
 .slider_warn_i1 .slider_warn_map_i2{ background-color: #00B5E9;}
 .slider_warn_i1 .slider_warn_map_i3{ background-color: #FFD630;}
@@ -359,7 +359,7 @@ transform-origin:center;
 .wt_hours_icon_txt{ display: block; font-size: 14px; color: #fff;}
 
 .wrap_w{ overflow: hidden;}
-/*ÃŒÃ¬Ã†Ã¸Ã”Â¤Â±Â¨*/
+/*ÌìÆøÔ¤±¨*/
 .wt_forecast{ margin-top: 10px; height: 334px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .wt_switch0_0{ background-image: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.png); _background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.gif); background-position: 12px -47px; background-repeat: no-repeat;}
 .wt_switch0_1{ background-image: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.png); _background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch0.gif); background-position: -63px -47px; background-repeat: no-repeat;}
@@ -370,7 +370,7 @@ transform-origin:center;
 .wt_forecast .wt_tt0_r{ padding-right: 15px; padding-top: 10px;}
 .blk_fc_c{}
 
-/*ÃŒÃ¬Ã†Ã¸Ã”Â¤Â±Â¨-ÃÃÂ±Ã­*/
+/*ÌìÆøÔ¤±¨-ÁĞ±í*/
 .blk_fc_c0{ position: relative; margin-top: 20px; height: 240px; _width: 1000px; overflow: hidden;}
 .blk_fc_c0_scroll_w{ position: relative; width: 940px; overflow: hidden; margin-left: 20px;}
 .blk_fc_c0_scroll{ position: relative; width: 30000px;}
@@ -398,7 +398,7 @@ transform-origin:center;
 .level_bg5{background:#e60000;}
 .level_bg4{background:#e66000;}
 
-/*ÃŒÃ¬Ã†Ã¸Ã”Â¤Â±Â¨-Ã‡Ã·ÃŠÃ†*/
+/*ÌìÆøÔ¤±¨-Ç÷ÊÆ*/
 .blk_fc_c1{ position: relative; height: 289px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk_fc_c1.png) 61px 10px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk_fc_c1.gif) 61px 10px no-repeat;}
 .blk_fc_c1_rp{ width: 922px; height: 230px; padding-top: 10px; margin-left: 61px;}
 .blk_fc_v{ position: absolute; z-index: 1; left: 0px; width: 52px; height: 30px; line-height: 30px; font-size: 14px; color: #ccc; text-align: right;}
@@ -425,7 +425,7 @@ transform-origin:center;
 .fc_icon{ display: block; font-size: 14px; color: #fff;}
 
 .part1{ margin-top: 10px;}
-/*ÃˆÃ•Â³Ã¶ÃˆÃ•Ã‚Ã¤*/
+/*ÈÕ³öÈÕÂä*/
 .blk3{ float: left; display: inline; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk3 .wt_tt0_w{ height: 45px; line-height: 45px;}
 .blk3_c{ position: relative; height: 180px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk3_bg.png) 12px 50px no-repeat;}
@@ -439,19 +439,19 @@ transform-origin:center;
 .blk3_starrise{ left: 5px;}
 .blk3_starfall{ left: 185px;}
 
-/*ÃˆÃ•Â³Ã¶ÃˆÃ•Ã‚Ã¤-ÂµÃÂ°Ã¦Â±Â¾*/
+/*ÈÕ³öÈÕÂä-µÍ°æ±¾*/
 .blk3_1_0{ float: left; display: inline; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk3_1_0_c0{ width: 190px; margin: 0 auto; height: 89px; border-bottom: 1px dotted #999; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_sun_rise.png) 30px 20px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/star_sun_rise.gif) 30px 20px no-repeat;}
 .blk3_1_0_c1{ width: 190px; margin: 0 auto; height: 90px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_sun_fall.png) 30px 20px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/star_sun_fall.gif) 30px 20px no-repeat;}
 .blk3_1_0_c p{ padding-top: 40px; padding-left: 120px; height: 41px; line-height: 41px; font-size: 20px; color: #ccc;}
 
-/*Ã”Ã‚Â³Ã¶Ã”Ã‚Ã‚Ã¤-ÂµÃÂ°Ã¦Â±Â¾*/
+/*ÔÂ³öÔÂÂä-µÍ°æ±¾*/
 .blk3_1_1{ float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk3_1_1_c0{ width: 190px; margin: 0 auto; height: 89px; border-bottom: 1px dotted #999; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/star_moon_rise.png) 30px 20px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_moon_rise.gif) 30px 20px no-repeat;}
 .blk3_1_1_c1{ width: 190px; margin: 0 auto; height: 90px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/star_moon_fall.png) 30px 20px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/star_moon_fall.gif) 30px 20px no-repeat;}
 .blk3_1_1_c p{ padding-top: 40px; padding-left: 100px; height: 41px; line-height: 41px; font-size: 20px; color: #ccc;}
 
-/*ÃŠÂµÂ¾Â°ÃŒÃ¬Ã†Ã¸*/
+/*Êµ¾°ÌìÆø*/
 .blk4{ float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk4 .wt_tt0_w{ height: 45px; line-height: 45px;}
 .blk4_c{ position: relative; width: 225px; height: 180px;}
@@ -459,7 +459,7 @@ transform-origin:center;
 .blk4_txt{ display: block; position: absolute; z-index: 2; left: 0; bottom: 0; width: 225px; height: 37px; line-height: 37px; overflow: hidden; background-color: rgba(0,0,0,0.75); color: #fff; font-size: 14px; text-indent: 5px;}
 .blk4_txt_r{ float: right; display: inline; margin-right: 10px; font-size: 12px; color: #aaa; text-indent: 0;}
 
-/*Â´Â©Ã’Ã‚*/
+/*´©ÒÂ*/
 .blk5{ position: relative; float: left; display: inline; margin-left: 10px; width: 225px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk5_c{ width: 225px; height: 225px; background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk5_icons.png) 33px 12px no-repeat; _background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/blk5_icons.gif) 33px 12px no-repeat; }
 .blk5_line0{ position: absolute; z-index: 1; left: 0; top: 112px; display: block; font-size: 0; line-height: 0; width: 225px; height: 0px; overflow: hidden; border-top: 1px dotted #656565;}
@@ -469,7 +469,7 @@ transform-origin:center;
 .blk5_i h4{ padding-top: 60px; height: 20px; line-height: 20px; text-align: center; font-size: 14px; font-weight: normal; color: #aaa;}
 .blk5_i p{ height: 24px; line-height: 24x; text-align: center; font-size: 16px; color: #fff;}
 
-/*Ã–Ã°Ã”Ã‚Ã†Ã¸ÂºÃ²*/
+/*ÖğÔÂÆøºò*/
 .blk6{ float: right; display: inline; width: 530px; height: 225px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk6 .wt_tt0_w{ height: 45px; line-height: 45px;}
 .blk6 .wt_tt0{ height: 45px;}
@@ -478,7 +478,7 @@ transform-origin:center;
 .wt_switch1_1{ background-image: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.png); _background-image: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/wt_switch1.gif); background-position: -60px 3px; background-repeat: no-repeat;}
 .wt_switch1_0.wt_switch_on{ background-position: 12px 3px;}
 .wt_switch1_1.wt_switch_on{ background-position: -60px 3px;}
-/*Ã–Ã°Ã”Ã‚Ã†Ã¸ÂºÃ²-Ã†Ã¸ÃÃ‚-Â¸ÃŸÂ°Ã¦Â±Â¾*/
+/*ÖğÔÂÆøºò-ÆøÎÂ-¸ß°æ±¾*/
 .blk6_c0_1{ position: relative; height: 180px; top: -5px; background: url(http://i1.sinaimg.cn/dy/weather/main/index14/007/blk6_c0_0.png) 55px 5px no-repeat; _background: url(http://i2.sinaimg.cn/dy/weather/main/index14/007/blk6_c0_0.gif) 55px 5px no-repeat;}
 .blk6_c0_1_rp{ width: 462px; height: 153px; padding-top: 5px; margin-left: 55px;}
 .blk6_c0_1_v{ position: absolute; z-index: 1; left: 0px; width: 42px; height: 30px; line-height: 30px; font-size: 14px; color: #ccc; text-align: right;}
@@ -513,7 +513,7 @@ transform-origin:center;
 .blk_c0_1_temp0_9, .blk_c0_1_temp1_9{ left: 393px;}
 .blk_c0_1_temp0_10, .blk_c0_1_temp1_10{ left: 432px;}
 .blk_c0_1_temp0_11, .blk_c0_1_temp1_11{ left: 471px;}
-/*Ã–Ã°Ã”Ã‚Ã†Ã¸ÂºÃ²-Â½ÂµÃ‹Â®ÃÂ¿*/
+/*ÖğÔÂÆøºò-½µË®Á¿*/
 .blk6_c1{ position: relative; height: 180px; background: url(http://i3.sinaimg.cn/dy/weather/main/index14/007/blk6_c1.png) 72px 10px no-repeat; _background: url(http://i0.sinaimg.cn/dy/weather/main/index14/007/blk6_c1.gif) 72px 10px no-repeat;}
 .blk6_i_w{ position: absolute; display: block; z-index: 1; left: 97px; bottom: 38px; width: 13px; height: 132px; transition: background-color ease 0.3s;}
 .blk6_i_w:hover{ background-color: rgba(255,255,255,0.2); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#33ffffff', endColorstr = '#33ffffff' )\9;}
@@ -569,7 +569,7 @@ transform-origin:center;
 .blk6_c1_h11{ left: 464px;}
 
 .part2{ margin-top: 10px;}
-/*ÂµÃ—Â²Â¿Â»ÃƒÂµÃ†ÃÂ¼*/
+/*µ×²¿»ÃµÆÍ¼*/
 .blk7{ position: relative; float: left; display: inline; width: 460px; height: 345px;}
 .blk7_slider{ position: relative; width: 460px; height: 345px; overflow: hidden;}
 .blk7_slider_i{ position: relative; float: left; display: inline; width: 460px; height: 345px;}
@@ -580,12 +580,12 @@ transform-origin:center;
 .blk7_slider_ctrl_i{ float: left; display: inline; margin-right: 5px; width: 15px; height: 4px; font-size: 0; line-height: 0; background-color: #656565; cursor: pointer;}
 .blk7_slider_ctrl_i_on{ background-color: #F29B11;}
 
-/*ÃŒÃ¬Ã†Ã¸Ã’ÂªÃÃ…*/
+/*ÌìÆøÒªÎÅ*/
 .blk8{ float: left; display: inline; margin-left: 10px; width: 260px; height: 345px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk8 .wt_tt0_w{ height: 45px; line-height: 45px;}
 .blk8 .list0{ }
 
-/*Ã†Ã¸ÃÃ³Ã‰Ã±Â¿Ã†Ã†Ã•,Ã†Ã¸ÃÃ³Ã“Ã«Ã‰ÃºÂ»Ã®*/
+/*ÆøÏóÉñ¿ÆÆÕ,ÆøÏóÓëÉú»î*/
 .blk9{ float: right; display: inline; width: 260px; height: 345px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9;}
 .blk9 .wt_tt0_w{ height: 45px; line-height: 45px;}
 .blk9_0{}
@@ -599,7 +599,7 @@ transform-origin:center;
 
 .footer{ margin-top: 10px; background-color: rgba(0,0,0,0.75); filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 0,startColorstr = '#aa000000', endColorstr = '#aa000000' )\9; *background-color: #000;}
 .ft_0{}
-.ft_tt{ padding-top: 10px; height: 40px; line-height: 40px; text-align: center; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "ÃÂ¢ÃˆÃ­Ã‘Ã…ÂºÃš", "SimSun", "Ã‹ÃÃŒÃ¥"; font-weight: bold;}
+.ft_tt{ padding-top: 10px; height: 40px; line-height: 40px; text-align: center; font-size: 18px; color: #068894; font-family: "Microsoft YaHei", "Î¢ÈíÑÅºÚ", "SimSun", "ËÎÌå"; font-weight: bold;}
 .ft_0_c{ padding-bottom: 20px; height: 26px; line-height: 26px; border-bottom: 1px dotted #999; text-align: center; font-size: 14px; color: #999;}
 .ft_0_c a, .ft_0_c a:visited{ color: #999;}
 .ft_0_c a:hover{ color: #fff;}
@@ -610,7 +610,7 @@ transform-origin:center;
 
 .pullDown{display:block;visibility:visible;animation-name:pullDown;-webkit-animation-name:pullDown;animation-duration:0.3s;-webkit-animation-duration:0.3s;animation-timing-function:ease-out;-webkit-animation-timing-function:ease-out;transform-origin:50% 0%;-ms-transform-origin:50% 0%;-webkit-transform-origin:50% 0%;}@keyframes pullDown{0%{transform:scaleY(0.1);}100%{transform:scaleY(1);}}@-webkit-keyframes pullDown{0%{-webkit-transform:scaleY(0.1);}100%{-webkit-transform:scaleY(1);}}
 
-/*Â°Ã—Ã‰Â«Â±Â³Â¾Â°*/
+/*°×É«±³¾°*/
 .bg_white .wrap_w{ background: #fff;}
 .bg_white .wt_hours { background-color: #efefef; filter:none\9;}
 .bg_white .wt_hours_v{ color: #656565;}
