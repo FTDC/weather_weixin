@@ -237,9 +237,6 @@ class PhotoController extends ShuipFCMS
 
         $Obj = M('weather_photo');
 
-        $count = $Obj->count();
-        $page = $this->page($count, 20);
-
         $where = array('is_delete' => 0, 'is_validate'=> 1);
 
         if (!empty($start_time) && !empty($end_time)) {
@@ -252,7 +249,7 @@ class PhotoController extends ShuipFCMS
             $where['city'] = $city;
         }
 
-        $list = $Obj->where($where)->limit(0,3)->order(array('addtime' => 'DESC'))->select();
+        $list = $Obj->where($where)->limit(0,12)->order(array('addtime' => 'DESC'))->select();
 
         $localfile = SITE_PATH . 'd/weather_photo/';
 
@@ -263,7 +260,6 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
         }
 
-        $this->assign("Page", $page->show());
         $this->assign("list", $list);
         $this->display();
     }

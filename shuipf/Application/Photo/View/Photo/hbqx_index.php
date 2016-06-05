@@ -63,7 +63,6 @@
 <div id="background"></div>
 <div id="warp">
     <div id="headerbar">
-
         <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/date.js"></script>
         <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/setHome.js"></script>
         <script type="text/javascript">
@@ -374,26 +373,26 @@
     <div id="w_layout_in" style="">
         <div id="wrap">
 
-                <volist name="list" id="item">
-            <div class="box">
-                <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
-                <div class="info">
-                    <div class="pic"><img src="{$item.img_path_small}"></div>
-                    <div class="title">
-                        <span class="__wf_item_time__" style="display:block">{$item.title}</span>
-                        <div class="handle">
-                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
+            <volist name="list" id="item">
+                <div class="box">
+                    <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
+                        <div class="info">
+                            <div class="pic"><img src="{$item.img_path_small}"></div>
+                            <div class="title">
+                                <span class="__wf_item_time__" style="display:block">{$item.title}</span>
+                                <div class="handle">
+                                    <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
                         <span name="likeCountNum" style="display:inline-block;">
                             ( <i data="{$item.id}">{$item.parise}</i>
                             人已赞)
                         </span>
-                            </a>
-                        </div></div>
+                                    </a>
+                                </div></div>
+                        </div>
+                    </a>
                 </div>
-                </a>
-            </div>
-                </volist>
-                
+            </volist>
+
         </div>
     </div>
     <!-- 瀑布流开始 -->
@@ -426,6 +425,7 @@
                                 <li><a href="javascript:void(0);" data="tm" >天门市</a></li>
                                 <li><a href="javascript:void(0);" data="slj" >神农架林区</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
