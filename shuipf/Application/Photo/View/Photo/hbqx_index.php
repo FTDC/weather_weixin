@@ -170,7 +170,7 @@
                                 if(res.status > 0){
                                     PBL('wrap','box');
                                 }else{
-                                    status = 0;
+                                    status = 1;
                                 }
 
                             }
