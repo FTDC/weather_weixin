@@ -251,10 +251,10 @@
         }
     </style>
 </head>
-<body>
+<body style="background: whitesmoke;>
 <div class="am-g am-g-fixed">
     <div class=" ">
-        <div class="am-g">
+        <div class="am-g" style="background-color: #fff;">
             <div class="am-u-sm-11 am-u-sm-centered">
                 <form id="photo_form" action="<?php echo U('Photo/Photo/publish'); ?>" method="post">
                     <div class="am-cf am-article">
