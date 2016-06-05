@@ -481,12 +481,88 @@
             </div>
         </div>
     </div>
+    <div class="floatBox" style=" position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30">
+        <div class="backTop" style="display: none;" title="返回顶部">
+            <span></span>
+        </div>
+    </div>
+    <script>
+
+        $(window).scroll(function() {
+            $(document).scrollTop();
+            $(document).height();
+
+            var bodyScrollTop = "";
+            if (document.documentElement && document.documentElement.scrollTop) {
+                bodyScrollTop = document.documentElement.scrollTop;
+            } else if (document.body) {
+                bodyScrollTop = document.body.scrollTop;
+            }
+
+
+            var st = $(document).scrollTop(),
+                winh = $(window).height();
+            if (!window.XMLHttpRequest) {
+                $(".floatBox").css("top", st + winh - 66 - 168);
+            }
+            if (bodyScrollTop == 0) {
+                $(".backTop").css("display", "none");
+            } else {
+                $(".backTop").css("display", "block");
+            }
+        });
+
+        feedbackAndTotop();
+        //回到顶部和用户反馈
+        function feedbackAndTotop() {
+            $(".floatBox").attr("style", " position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30");
+            $(".floatBox").find(".backTop").attr("title", "返回顶部");
+
+            //返回顶部功能实现
+            $(".backTop").bind("click", function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 200);
+                backTop();
+            });
+            $(".backTop").bind("mouseover", function () {
+                $(this).addClass("active");
+            });
+            $(".backTop").bind("mouseout", function () {
+                $(this).removeClass("active");
+            });
+            window.onscroll = backTop;
+
+            function backTop() {
+                var bodyScrollTop = "";
+                if (document.documentElement && document.documentElement.scrollTop) {
+                    bodyScrollTop = document.documentElement.scrollTop;
+                } else if (document.body) {
+                    bodyScrollTop = document.body.scrollTop;
+                }
+
+                var st = $(document).scrollTop(),
+                    winh = $(window).height();
+                if (!window.XMLHttpRequest) {
+                    $(".floatBox").css("top", st + winh - 66 - 168);
+                }
+                if (bodyScrollTop == 0) {
+                    $(".backTop").css("display", "none");
+                } else {
+                    $(".backTop").css("display", "block");
+                }
+            }
+
+
+        }
+    </script>
     <script>
         $(function () {
             $("div.list_lh").myScroll({
                 speed: 40, //数值越大，速度越慢
                 rowHeight: 68 //li的高度
             });
+
         });</script>
 </div>
 </body>

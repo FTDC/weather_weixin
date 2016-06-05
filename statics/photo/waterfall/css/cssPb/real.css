@@ -1,9 +1,6 @@
-@charset "gb2312";
-/* CSS Document */
-
 /*main*/
 body{
-	min-height: 1200px;
+    min-height: 1200px;
 }
 #w_layout_1000{overflow: visible; width: 1000px;position: relative;z-index: 1;background: #fff;}
 #w_layout_in{/*overflow: hidden;*/ width: 754px;/*position: absolute;top: 0;left: 10px;z-index: 5*/}
@@ -38,11 +35,11 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
 #w_wf_logo .w_sm_img img{ margin-left: -28px; width: 300px;}
 
 #newslist1{
-	height: 200px;
-	overflow: hidden;
+    height: 200px;
+    overflow: hidden;
 }
 #newslist1 li a{
-	line-height: 35px;
+    line-height: 35px;
 }
 
 /*Í·²¿banner*/
@@ -135,7 +132,7 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     *padding:0 46px;
 }
 .menu li a{
-    color:#fff; 
+    color:#fff;
 }
 .menu li:hover{
     background: #5199de;
@@ -180,7 +177,7 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
 }
 .clidren li a{
     display: block;
-    color:#666; 
+    color:#666;
 }
 .clidren li a:hover{
     color:#1261ad;
@@ -238,7 +235,7 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     width: 15px;
     height: 17px;
     vertical-align: middle;
-    background: url(../../img/SQsiteSpr1.png) no-repeat -16px -55px; 
+    background: url(../../img/SQsiteSpr1.png) no-repeat -16px -55px;
 }
 
 .wf_item .thumb_img {
@@ -246,7 +243,7 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     max-width: 100%;
     -ms-interpolation-mode: bicubic;
 }
-.wf_item .thumb{ 
+.wf_item .thumb{
     position: relative;
     display: block;
     overflow: hidden;
@@ -267,3 +264,65 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
 .w_mac_address{ float: right; padding-right: 20px;}
 .w_mac_address p{ width: 320px; text-align: right;}
 .w_ma_main{ padding: 20px; overflow: hidden; line-height: 22px; text-indent: 2em; font-size: 14px;}
+
+/* */
+.floatBox {
+    position: fixed;
+    _position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.feedback,.backTop {
+    width:48px;
+    height:48px;
+    line-height:0;
+    overflow:hidden;
+    font-size:0;
+    text-align:center;
+    border-radius:48px;
+    background:#3f3f3f;
+    border:3px solid #b1b1b1;
+    margin:0 0 6px 0;
+    cursor:pointer;
+    opacity:0.3;
+    filter:alpha(opacity=30);
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+}
+.floatBox span {
+    display:inline-block;
+    width:22px;
+    height:22px;
+    line-height:0;
+    font-size:0;
+    margin-top:15px;
+    background:url(../../img/dodoPubIcon.png) no-repeat 0 0;
+    _background:url(../../img/dodoPubIcon.gif) no-repeat 0 0;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+}
+.backTop span {
+    background-position:0 -33px;
+}
+.floatBox .active {
+    opacity:0.5;
+    filter:alpha(opacity=50);
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+}
+.floatBox .active span {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+@-webkit-keyframes shake {
+    0%,20%,50%,80%,100%{-webkit-transform:translateY(0)}
+    40%{-webkit-transform:translateY(-6px)}
+    60%{-webkit-transform:translateY(-6px)}
+}
+@-moz-keyframes shake {
+    0%,20%,50%,80%,100%{-webkit-transform:translateY(0)}
+    40%{-webkit-transform:translateY(-6px)}
+    60%{-webkit-transform:translateY(-6px)}
+}
