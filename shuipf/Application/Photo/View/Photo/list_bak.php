@@ -16,11 +16,12 @@
             list-style: none;
             padding: 0px;
             margin: 0 auto;
-            float: left;
+            /* float: left; */
             clear: both;
-            overflow: hidden;
+            /* overflow: hidden; */
+            position: relative;
+            z-index: 1;
         }
-
 
         ul.photo_gallery_13 li {
             width: 150px;
