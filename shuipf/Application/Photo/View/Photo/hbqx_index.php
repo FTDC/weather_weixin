@@ -367,7 +367,7 @@
 </div>
 <div id="w_layout_1000" class="wrap">
     <div id="J_Blank_0" class="wf-blank wf-blank-0" style="padding: 10px 0;margin-bottom: 10px;">
-        <h4 class="w_real_title">武汉网友实景</h4>
+        <h4 class="w_real_title">{$data['city']}网友实景</h4>
         <span class="w_real_watch">第一时间窥视(*^__^*)</span>
     </div>
     <div id="w_layout_in" style="">
@@ -408,22 +408,22 @@
                         <div style="padding-left:12px;">
                             <ul class="w_hc_list">
                                 <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh" >武汉市</a></li>
-                                <li><a href="javascript:void(0);" data="hs" >黄石市</a></li>
-                                <li><a href="javascript:void(0);" data="xf" >襄樊市</a></li>
-                                <li><a href="javascript:void(0);" data="sy" >十堰市</a></li>
-                                <li><a href="javascript:void(0);" data="jz" >荆州市</a></li>
-                                <li><a href="javascript:void(0);" data="yc" >宜昌市</a></li>
-                                <li><a href="javascript:void(0);" data="jm" >荆门市</a></li>
-                                <li><a href="javascript:void(0);" data="ez" >鄂州市</a></li>
-                                <li><a href="javascript:void(0);" data="xg" >孝感市</a></li>
-                                <li><a href="javascript:void(0);" data="hg" >黄冈市</a></li>
-                                <li><a href="javascript:void(0);" data="xl" >咸宁市</a></li>
-                                <li><a href="javascript:void(0);" data="sz" >随州市</a></li>
-                                <li><a href="javascript:void(0);" data="ens" >恩施市</a></li>
-                                <li><a href="javascript:void(0);" data="xt" >仙桃市</a></li>
-                                <li><a href="javascript:void(0);" data="qj" >潜江市</a></li>
-                                <li><a href="javascript:void(0);" data="tm" >天门市</a></li>
-                                <li><a href="javascript:void(0);" data="slj" >神农架林区</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}" data="hs" >黄石市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}" data="xf" >襄樊市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}" data="sy" >十堰市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}" data="jz" >荆州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}" data="yc" >宜昌市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}" data="jm" >荆门市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}" data="ez" >鄂州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}" data="xg" >孝感市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}" data="hg" >黄冈市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}" data="xl" >咸宁市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}" data="sz" >随州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}" data="ens" >恩施市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}" data="xt" >仙桃市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}" data="qj" >潜江市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}" data="tm" >天门市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}" data="slj" >神农架林区</a></li>
                             </ul>
 
                         </div>
@@ -450,16 +450,16 @@
             </div>
             <!-- section 查看美图-->
             <form method="post" action="{:U('Photo/Photo/hbqx_index')}">
-                <input type="hidden" id="city" name="city" value="">
+                <input type="hidden" id="city" name="city" value="{$data['city']}">
                 <!-- section 查看美图-->
                 <div class="w_section mt35">
                     <h4 class="w_sh">
                         <span class="w_sh_title">查看美图</span>
                     </h4>
                     <div class="w_sm mt10 clearfix">
-                        <input type="text" class="Wdate fl" name="start_time"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                        <input type="text" class="Wdate fl" name="start_time" value="<?php echo empty($data['start_time']) ? '': date('Y-m-d',$data['start_time']);?>"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
                         <span class="fl">&nbsp;至&nbsp;</span>
-                        <input type="text" class="Wdate fl" name="end_time" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                        <input type="text" class="Wdate fl" name="end_time" value="<?php echo empty($data['end_time']) ? '': date('Y-m-d',$data['end_time']);?>" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
                         <input type="submit" value="查看"
                                style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 

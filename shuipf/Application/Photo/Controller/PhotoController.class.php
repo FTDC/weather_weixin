@@ -270,7 +270,7 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
         }
 
-        $this->assign("post", $_POST);
+        $this->assign("data", array('city'=>$city, 'start_time'=>$start_time, 'end_time'=>$end_time));
         $this->assign("list", $list);
         $this->display();
     }
