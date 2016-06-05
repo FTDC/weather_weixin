@@ -42,7 +42,7 @@
         }
 
         .add_photo{
-            background:url({$config_siteurl}/statics/photo/img/addPhoto.png) no-repeat 0 0;
+            background:url({$config_siteurl}/statics/photo/waterfall/img/addPhoto.png) no-repeat 0 0;
             width: 80px;
             height: 79px;
             display: inline-block;
