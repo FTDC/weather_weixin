@@ -327,10 +327,13 @@ body{margin:0;padding:0;position: relative;z-index: 1;}
     40%{-webkit-transform:translateY(-6px)}
     60%{-webkit-transform:translateY(-6px)}
 }
-
+.page_detail{
+    min-height: auto;
+}
 .page_detail #w_layout_in{
     position: absolute;
     top: 47px;
+    padding-bottom: 40px
 }
 .page_detail .w_section{
     margin-top: 20px!important;
