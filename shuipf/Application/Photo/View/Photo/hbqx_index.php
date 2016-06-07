@@ -149,22 +149,14 @@
                                     // title.appendChild(span);
                                     //创建span标记
                                     box+='<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">'+
-                                        '<div class="info">'+
+                                        '<a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'"><div class="info">'+
                                         '<div class="pic"><img src="' + data[i].img_path_small + '"></div>'+
-                                        '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'">'+
-                                        data[i].title+
-                                        ' <span class="__wf_item_time__" style="display:block">'+data[i].dateTime+'</span>'+
+                                        '<div class="title">'+  data[i].title+ ' <span class="__wf_item_time__" style="display:block">'+data[i].dateTime+'</span>'+
                                         '<div class="handle">'+
                                         ' <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>'+
                                         ' <span name="likeCountNum" style="display:inline-block;">'+
                                         ' ( <i data="'+data[i].id+'">'+data[i].parise+'</i>人已赞)'+
-                                        '</span>'+
-                                        '</a>'+
-                                        '</div>'+
-
-                                        '</div>'+
-                                        '</div>'+
-                                        '</div> ';
+                                        '</span>'+''+'</div>'+ '</div>'+  '</div></a>'+ '</div> ';
                                 }
                                 wrap.append(box);
                                 if(res.status > 0){
