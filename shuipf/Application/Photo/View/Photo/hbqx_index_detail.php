@@ -221,9 +221,9 @@
                     <span class="w_sh_title">查看美图</span>
                 </h4>
                 <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" name="start_time" value="<?php echo date('Y-m-d',$post['start_time']);?>"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                    <input type="text" class="Wdate fl" name="start_time" value=""  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
                     <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" name="end_time" value="<?php echo date('Y-m-d',$post['end_time']);?>" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                    <input type="text" class="Wdate fl" name="end_time" value="" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
                     <input type="submit" value="查看"
                            style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
