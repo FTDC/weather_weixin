@@ -364,7 +364,9 @@
     </div>
     <div id="w_layout_in" style="">
         <div id="wrap">
-
+            <empty name="list">
+                <p style="    width: 100%;    text-align: center;    color: #999;    font-size: 20px;    padding-top: 50px;    overflow: hidden;    position: absolute;"> 请扫描右下角的二维码，关注湖北气象， 上传实景图片。</p>
+            <else />
             <volist name="list" id="item">
                 <div class="box">
                     <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
@@ -384,6 +386,8 @@
                     </a>
                 </div>
             </volist>
+            </empty>
+
 
         </div>
     </div>
