@@ -12,7 +12,7 @@
     <script language="javascript" type="text/javascript"
             src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
 </head>
-<body>
+<body class="page_detail">
 
 <div id="background"></div>
 <div id="warp">
