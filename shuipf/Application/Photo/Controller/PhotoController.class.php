@@ -188,6 +188,7 @@ class PhotoController extends ShuipFCMS
         $description = I('description', '', '');
         $imglist = I('imglist', '', '');
         $city = I('city', '', '');
+        $nickname = I('nickname', '', '');
         $location_xy = I('location_xy', '', '');
 
         if (empty($imglist)) {
@@ -203,7 +204,7 @@ class PhotoController extends ShuipFCMS
                     'img_path' => $item,
                     'city' => $city,
                     'location_xy' => $location_xy,
-                    'username' => 'xjin',
+                    'username' => $nickname,
                     'addtime' => time(),
                 );
             }
