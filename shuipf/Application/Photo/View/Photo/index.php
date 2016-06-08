@@ -272,8 +272,8 @@
                                                                          class="location-text">所在城市</span></div>
                         <input type="hidden" name="location_xy" id="location_xy" value="">
                         <input type="hidden" name="city" id="city" value="">
-                        <input type="hidden" name="nickname" id="nickname" value="{$user.nickname}">
-                        <input type="hidden" name="headimgurl" id="headimgurl" value="{$user.headimgurl}">
+                        <input type="hidden" name="nickname" id="nickname" value="{$user['nickname']}">
+                        <input type="hidden" name="headimgurl" id="headimgurl" value="{$user['headimgurl']}">
                         <div class="pub-line border-1px"></div>
                     </div>
                     <div id="img_hide_list">
