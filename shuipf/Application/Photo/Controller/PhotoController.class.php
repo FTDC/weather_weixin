@@ -29,7 +29,7 @@ class PhotoController extends ShuipFCMS
 
         $code = $_GET['code'];
         $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $appid . '&secret=' . $secret . '&code=' . $code . '&grant_type=authorization_code';
-        $token = json_decode(file_get_contents($token_url), true);
+        $token = json_decode(file_get_contents($token_url));
 
         //打印用户信息
         $openId = $token->openid;
@@ -37,9 +37,9 @@ class PhotoController extends ShuipFCMS
         $info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=" . $access_token . "&openid=" . $openId . "&lang=zh_CN";
         $json_info = https_request($info_url);
 
-        var_dump($json_info); exit();
-
-//        $this->assign("user", json_decode($json_info, true));
+//        var_dump($json_info); exit();
+//
+        $this->assign("user", json_decode($json_info, true));
         $this->display();
     }
 
