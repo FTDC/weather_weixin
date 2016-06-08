@@ -27,6 +27,12 @@ class PhotoController extends ShuipFCMS
         $signPackage = $jssdk->GetSignPackage();
         $this->assign("signPackage", $signPackage);
 
+        $code = $_GET['code'];
+        $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $appid . '&secret=' . $secret . '&code=' . $code . '&grant_type=authorization_code';
+        $token = json_decode(file_get_contents($token_url));
+
+        dump($token); exit();
+
         $this->display();
     }
 
