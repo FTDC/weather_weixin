@@ -37,9 +37,10 @@ class PhotoController extends ShuipFCMS
         $info_url = "https://api.weixin.qq.com/sns/userinfo?access_token=" . $access_token . "&openid=" . $openId . "&lang=zh_CN";
         $json_info = https_request($info_url);
 
-//        var_dump($json_info); exit();
-//
-        $this->assign("user", json_decode($json_info, true));
+
+        $user = json_decode($json_info, true);
+        var_dump($user); exit();
+        $this->assign("user", $user);
         $this->display();
     }
 
@@ -251,17 +252,17 @@ class PhotoController extends ShuipFCMS
 
         $Obj = M('weather_photo');
 
-        $where = array('is_delete' => 0, 'is_validate'=> 1);
+        $where = array('is_delete' => 0, 'is_validate' => 1);
 
         $start_time = strtotime($start_time);
 
 
         if (!empty($start_time) && empty($end_time)) {
             $where['addtime'] = array(array('GT', $start_time));
-        }elseif (empty($start_time) && !empty($end_time)){
+        } elseif (empty($start_time) && !empty($end_time)) {
             $end_time = strtotime($end_time) + 86399;
             $where['addtime'] = array(array('LT', $end_time));
-        }elseif (!empty($start_time) && !empty($end_time)){
+        } elseif (!empty($start_time) && !empty($end_time)) {
             $end_time = strtotime($end_time) + 86399;
             $where['addtime'] = array(array('GT', $start_time), array('LT', $end_time), 'AND');
         }
@@ -271,7 +272,7 @@ class PhotoController extends ShuipFCMS
             $where['city'] = $city;
         }
 
-        $list = $Obj->where($where)->limit(0,12)->order(array('addtime' => 'DESC'))->select();
+        $list = $Obj->where($where)->limit(0, 12)->order(array('addtime' => 'DESC'))->select();
 
 //        echo $Obj->getLastSql(); exit;
 
@@ -284,7 +285,7 @@ class PhotoController extends ShuipFCMS
             $val['img_path_small'] = $this->thumb_name($val['img_path']);
         }
 
-        $this->assign("data", array('city'=>$city, 'start_time'=>$start_time, 'end_time'=>$end_time));
+        $this->assign("data", array('city' => $city, 'start_time' => $start_time, 'end_time' => $end_time));
         $this->assign("list", $list);
         $this->display();
     }
@@ -317,7 +318,7 @@ class PhotoController extends ShuipFCMS
         foreach ($list as &$val) {
             $thumb_name = $this->thumb_name($val['img_path']);
             $val['gg'] = $localfile . $thumb_name;
-            $size= getimagesize($val['gg']);
+            $size = getimagesize($val['gg']);
             $val['width'] = $size[0];
             $val['hight'] = $size[1];
             $val['dateTime'] = date('Y-m-d H:i', $val['addtime']);
@@ -480,9 +481,10 @@ class PhotoController extends ShuipFCMS
 
         $Obj = M('weather_photo');
 //        $res = $Obj->where(array('id' => $photo_id))->save(array('exp','parise+1'));
-        $res = $Obj->query('UPDATE ftdc_weather_photo SET parise=parise+1 WHERE id = '.$photo_id);
+        $res = $Obj->query('UPDATE ftdc_weather_photo SET parise=parise+1 WHERE id = ' . $photo_id);
 
-        echo $Obj->getLastSql(); exit();
+        echo $Obj->getLastSql();
+        exit();
         echo json_encode($res);
         exit;
     }
