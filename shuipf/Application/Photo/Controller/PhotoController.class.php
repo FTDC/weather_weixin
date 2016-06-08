@@ -39,7 +39,6 @@ class PhotoController extends ShuipFCMS
 
 
         $user = json_decode($json_info, true);
-        var_dump($user); exit();
         $this->assign("user", $user);
         $this->display();
     }
