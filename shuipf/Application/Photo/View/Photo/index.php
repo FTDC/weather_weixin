@@ -142,12 +142,12 @@
         }
 
         .pub-location .location-text {
-             padding: 8px 8px 8px 28px;
-             color: #757575;
-             background: #fff url({$config_siteurl}/statics/photo/image/location.png) no-repeat;
-             background-position: 8px center;
-             background-size: 12px 16px;
-         }
+            padding: 8px 8px 8px 28px;
+            color: #757575;
+            background: #fff url({$config_siteurl}/statics/photo/image/location.png) no-repeat;
+            background-position: 8px center;
+            background-size: 12px 16px;
+        }
 
         .pub-location .location-load {
             padding: 8px 8px 8px 28px;
@@ -252,53 +252,57 @@
     </style>
 </head>
 <body style="background: whitesmoke;>
-<div class="am-g am-g-fixed">
-    <div class=" ">
-        <div class="am-g" style="background-color: #fff;">
-            <div class="am-u-sm-11 am-u-sm-centered">
-                <form id="photo_form" action="<?php echo U('Photo/Photo/publish'); ?>" method="post">
-                    <div class="am-cf am-article">
-                        <div class="upload_from">
-                            <div class="editor-outer">
-                                <input maxlength="200" id="title" name="title" spellcheck="false" class="ipt-theme"
-                                       type="text" placeholder="标题，4-25个字">
-                            </div>
-                            <div class="editor-outer">
+<div class=" am-g am-g-fixed
+">
+<div class=" ">
+    <div class="am-g" style="background-color: #fff;">
+        <div class="am-u-sm-11 am-u-sm-centered">
+            <form id="photo_form" action="<?php echo U('Photo/Photo/publish'); ?>" method="post">
+                <div class="am-cf am-article">
+                    <div class="upload_from">
+                        <div class="editor-outer">
+                            <input maxlength="200" id="title" name="title" spellcheck="false" class="ipt-theme"
+                                   type="text" placeholder="标题，4-25个字">
+                        </div>
+                        <div class="editor-outer">
                                 <textarea spellcheck="false" id="description" name="description" class="editor"
                                           placeholder="内容，10-700个字"></textarea>
-                            </div>
-                            <div id="getLocation" class="pub-location"><span id="location_bg" class="location-text">所在城市</span></div>
-                            <input type="hidden" name="location_xy" id="location_xy" value="">
-                            <input type="hidden" name="city" id="city" value="">
-                            <div class="pub-line border-1px"></div>
                         </div>
-                        <div id="img_hide_list">
-
-                        </div>
+                        <div id="getLocation" class="pub-location"><span id="location_bg"
+                                                                         class="location-text">所在城市</span></div>
+                        <input type="hidden" name="location_xy" id="location_xy" value="">
+                        <input type="hidden" name="city" id="city" value="">
+                        <input type="hidden" name="nickname" id="nickname" value="{$user.nickname}">
+                        <input type="hidden" name="headimgurl" id="headimgurl" value="{$user.headimgurl}">
+                        <div class="pub-line border-1px"></div>
                     </div>
-                </form>
+                    <div id="img_hide_list">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="list_img" id="uploader">
+        <!--            <ul class="pub-pics">-->
+        <!--                <li class="up-entry">-->
+        <!--                    <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <div class="queueList">
+            <div id="dndArea" class="placeholder">
+                <div id="filePicker"></div>
+                <p>或将照片拖到这里，单次最多可选10张</p>
             </div>
         </div>
-        <div class="list_img" id="uploader">
-            <!--            <ul class="pub-pics">-->
-            <!--                <li class="up-entry">-->
-            <!--                    <input class="upfile up-entry-two" type="file" accept="image/*"  multiple="">-->
-            <!--                </li>-->
-            <!--            </ul>-->
-            <div class="queueList">
-                <div id="dndArea" class="placeholder">
-                    <div id="filePicker"></div>
-                    <p>或将照片拖到这里，单次最多可选10张</p>
-                </div>
-            </div>
-            <div class="statusBar" style="display:none;">
-                <div class="btns">
-                    <div id="filePicker2"></div>
-                    <div class="uploadBtn">发表</div>
-                </div>
+        <div class="statusBar" style="display:none;">
+            <div class="btns">
+                <div id="filePicker2"></div>
+                <div class="uploadBtn">发表</div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <script type="text/javascript">
     var upload_path = "<?php echo U('Photo/Photo/uploadPhoto'); ?>";
@@ -327,7 +331,7 @@
         signature: '<?php echo $signPackage["signature"];?>',
         jsApiList: [
             // 所有要调用的 API 都要加到这个列表中
-            'checkJsApi',"getLocation"
+            'checkJsApi', "getLocation"
         ]
     });
     wx.ready(function () {
@@ -353,14 +357,14 @@
                             type: "post",
                             url: '<?php echo U('Photo/Photo/getaddressbylngb'); ?>',
                             dataType: "json",
-                            beforeSend:function () {
+                            beforeSend: function () {
                                 $("#location_bg").addClass("location-load").removeClass("location-text");
                             },
                             data: {'latitude': latitude, 'longitude': longitude},
                             success: function (data) {
                                 $("#location_bg").removeClass("location-load").addClass("location-text");
                                 $("#location_bg").html(data.city);
-                                $("#location_xy").val(latitude+','+longitude);
+                                $("#location_xy").val(latitude + ',' + longitude);
                                 $("#city").val(data.city);
                             }
                         })
