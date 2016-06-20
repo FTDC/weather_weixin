@@ -63,9 +63,9 @@
                         </td>
                         <td>
                             <eq name="vo.is_beautiful" value="0">
-                                <span style="color: green">√</span>
-                                <else/>
                                 <span style="color:red">×</span>
+                                <else/>
+                                <span style="color: green">√</span>
                             </eq>
 
                         </td>
