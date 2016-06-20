@@ -225,7 +225,8 @@ class PhotoController extends ShuipFCMS
      */
     public function listPhoto()
     {
-        $list = M('weather_photo')->where(array('is_validate' => 1, 'is_delete' => 0))->select();
+        $list = M('weather_photo')->where(array('is_validate' => 1, 'is_delete' => 0))->order('addtime desc')->select();
+
         $localfile = SITE_PATH . 'd/weather_photo/';
         foreach ($list as &$val) {
             $val['gg'] = $localfile . $val['img_path'];
