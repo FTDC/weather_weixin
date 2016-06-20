@@ -67,14 +67,13 @@
                                 <else/>
                                 <span style="color: green">√</span>
                             </eq>
-
                         </td>
                         <td>
                             {$vo.parise}
                         </td>
                         <td>
-                            <a target="_self" href="{:U('photo/del',array('id'=>$vo['id']))}">修改</a>
-                            <a target="_self" href="{:U('photo/edit',array('id'=>$vo['id']))}">删除</a>
+                            <a target="_self" href="{:U('photo/edit',array('id'=>$vo['id']))}">修改</a>
+                            <a target="_self" href="{:U('photo/del',array('id'=>$vo['id']))}">删除</a>
                         </td>
                 </tr>
                 <tr>

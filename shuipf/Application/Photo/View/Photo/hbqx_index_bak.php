@@ -57,14 +57,12 @@
         #wrap .box .info .title{width:220px;height:75px;margin:0 auto; color:#666;font-size:14px;overflow:hidden;position: relative;
             z-index: 1}
     </style>
-
 </head>
 <body>
 
 <div id="background"></div>
 <div id="warp">
     <div id="headerbar">
-
         <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/date.js"></script>
         <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/setHome.js"></script>
         <script type="text/javascript">
@@ -151,28 +149,20 @@
                                     // title.appendChild(span);
                                     //创建span标记
                                     box+='<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">'+
-                                        '<div class="info">'+
+                                        '<a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'"><div class="info">'+
                                         '<div class="pic"><img src="' + data[i].img_path_small + '"></div>'+
-                                        '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'">'+
-                                        data[i].title+
-                                        ' <span class="__wf_item_time__" style="display:block">'+data[i].dateTime+'</span>'+
+                                        '<div class="title">'+  data[i].title+ ' <span class="__wf_item_time__" style="display:block">'+data[i].dateTime+'</span>'+
                                         '<div class="handle">'+
                                         ' <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>'+
                                         ' <span name="likeCountNum" style="display:inline-block;">'+
                                         ' ( <i data="'+data[i].id+'">'+data[i].parise+'</i>人已赞)'+
-                                        '</span>'+
-                                        '</a>'+
-                                        '</div>'+
-
-                                        '</div>'+
-                                        '</div>'+
-                                        '</div> ';
+                                        '</span>'+''+'</div>'+ '</div>'+  '</div></a>'+ '</div> ';
                                 }
                                 wrap.append(box);
                                 if(res.status > 0){
                                     PBL('wrap','box');
                                 }else{
-                                    status = 0;
+                                    status = 1;
                                 }
 
                             }
@@ -369,31 +359,35 @@
 </div>
 <div id="w_layout_1000" class="wrap">
     <div id="J_Blank_0" class="wf-blank wf-blank-0" style="padding: 10px 0;margin-bottom: 10px;">
-        <h4 class="w_real_title">武汉网友实景</h4>
+        <h4 class="w_real_title">{$data['city']}网友实景</h4>
         <span class="w_real_watch">第一时间窥视(*^__^*)</span>
     </div>
     <div id="w_layout_in" style="">
         <div id="wrap">
-
-            <volist name="list" id="item">
-                <div class="box">
-                    <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
-                        <div class="info">
-                            <div class="pic"><img src="{$item.img_path_small}"></div>
-                            <div class="title">
-                                <span class="__wf_item_time__" style="display:block">{$item.title}</span>
-                                <div class="handle">
-                                    <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
+            <empty name="list">
+                <p style="    width: 100%;    text-align: center;    color: #999;    font-size: 20px;    padding-top: 50px;    overflow: hidden;    position: absolute;"> 请扫描右下角的二维码，关注湖北气象， 上传实景图片。</p>
+                <else />
+                <volist name="list" id="item">
+                    <div class="box">
+                        <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
+                            <div class="info">
+                                <div class="pic"><img src="{$item.img_path_small}"></div>
+                                <div class="title">
+                                    <span class="__wf_item_time__" style="display:block">{$item.title}</span>
+                                    <div class="handle">
+                                        <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
                         <span name="likeCountNum" style="display:inline-block;">
                             ( <i data="{$item.id}">{$item.parise}</i>
                             人已赞)
                         </span>
-                                    </a>
-                                </div></div>
-                        </div>
-                    </a>
-                </div>
-            </volist>
+                                        </a>
+                                    </div></div>
+                            </div>
+                        </a>
+                    </div>
+                </volist>
+            </empty>
+
 
         </div>
     </div>
@@ -409,24 +403,25 @@
                     <div class="w_hotCity">
                         <div style="padding-left:12px;">
                             <ul class="w_hc_list">
-                                <li><a href="javascript:void(0);" data="wh" >武汉市</a></li>
-                                <li><a href="javascript:void(0);" data="hs" >黄石市</a></li>
-                                <li><a href="javascript:void(0);" data="xf" >襄樊市</a></li>
-                                <li><a href="javascript:void(0);" data="sy" >十堰市</a></li>
-                                <li><a href="javascript:void(0);" data="jz" >荆州市</a></li>
-                                <li><a href="javascript:void(0);" data="yc" >宜昌市</a></li>
-                                <li><a href="javascript:void(0);" data="jm" >荆门市</a></li>
-                                <li><a href="javascript:void(0);" data="ez" >鄂州市</a></li>
-                                <li><a href="javascript:void(0);" data="xg" >孝感市</a></li>
-                                <li><a href="javascript:void(0);" data="hg" >黄冈市</a></li>
-                                <li><a href="javascript:void(0);" data="xl" >咸宁市</a></li>
-                                <li><a href="javascript:void(0);" data="sz" >随州市</a></li>
-                                <li><a href="javascript:void(0);" data="ens" >恩施市</a></li>
-                                <li><a href="javascript:void(0);" data="xt" >仙桃市</a></li>
-                                <li><a href="javascript:void(0);" data="qj" >潜江市</a></li>
-                                <li><a href="javascript:void(0);" data="tm" >天门市</a></li>
-                                <li><a href="javascript:void(0);" data="slj" >神农架林区</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh" >武汉市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}" data="hs" >黄石市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}" data="xf" >襄樊市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}" data="sy" >十堰市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}" data="jz" >荆州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}" data="yc" >宜昌市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}" data="jm" >荆门市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}" data="ez" >鄂州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}" data="xg" >孝感市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}" data="hg" >黄冈市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}" data="xl" >咸宁市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}" data="sz" >随州市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}" data="ens" >恩施市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}" data="xt" >仙桃市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}" data="qj" >潜江市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}" data="tm" >天门市</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}" data="slj" >神农架林区</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -450,19 +445,23 @@
                 </div>
             </div>
             <!-- section 查看美图-->
-            <div class="w_section mt35">
-                <h4 class="w_sh">
-                    <span class="w_sh_title">查看美图</span>
-                </h4>
-                <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4321" onFocus="WdatePicker()"/>
-                    <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4322" onFocus="WdatePicker()"/>
-                    <input type="button" value="查看"
-                           style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
+            <form method="post" action="{:U('Photo/Photo/hbqx_index')}">
+                <input type="hidden" id="city" name="city" value="{$data['city']}">
+                <!-- section 查看美图-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">查看美图</span>
+                    </h4>
+                    <div class="w_sm mt10 clearfix">
+                        <input type="text" class="Wdate fl" name="start_time" value="<?php echo empty($data['start_time']) ? '': date('Y-m-d',$data['start_time']);?>"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                        <span class="fl">&nbsp;至&nbsp;</span>
+                        <input type="text" class="Wdate fl" name="end_time" value="<?php echo empty($data['end_time']) ? '': date('Y-m-d',$data['end_time']);?>" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                        <input type="submit" value="查看"
+                               style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
+                    </div>
                 </div>
-            </div>
+            </form>
             <!-- section 图片来源-->
             <div class="w_section mt35">
                 <h4 class="w_sh">
@@ -478,12 +477,86 @@
             </div>
         </div>
     </div>
+    <div class="floatBox" style=" position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30">
+        <div class="backTop" style="display: none;" title="返回顶部">
+            <span></span>
+        </div>
+    </div>
+    <script>
+
+        $(window).scroll(function() {
+            $(document).scrollTop();
+            $(document).height();
+
+            var bodyScrollTop = "";
+            if (document.documentElement && document.documentElement.scrollTop) {
+                bodyScrollTop = document.documentElement.scrollTop;
+            } else if (document.body) {
+                bodyScrollTop = document.body.scrollTop;
+            }
+
+
+            var st = $(document).scrollTop(),
+                winh = $(window).height();
+            if (!window.XMLHttpRequest) {
+                $(".floatBox").css("top", st + winh - 66 - 168);
+            }
+            if (bodyScrollTop == 0) {
+                $(".backTop").css("display", "none");
+            } else {
+                $(".backTop").css("display", "block");
+            }
+        });
+
+        feedbackAndTotop();
+        //回到顶部和用户反馈
+        function feedbackAndTotop() {
+            $(".floatBox").attr("style", " position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30");
+            $(".floatBox").find(".backTop").attr("title", "返回顶部");
+
+            //返回顶部功能实现
+            $(".backTop").bind("click", function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 200);
+                backTop();
+            });
+            $(".backTop").bind("mouseover", function () {
+                $(this).addClass("active");
+            });
+            $(".backTop").bind("mouseout", function () {
+                $(this).removeClass("active");
+            });
+            window.onscroll = backTop;
+
+            function backTop() {
+                var bodyScrollTop = "";
+                if (document.documentElement && document.documentElement.scrollTop) {
+                    bodyScrollTop = document.documentElement.scrollTop;
+                } else if (document.body) {
+                    bodyScrollTop = document.body.scrollTop;
+                }
+
+                var st = $(document).scrollTop(),
+                    winh = $(window).height();
+                if (!window.XMLHttpRequest) {
+                    $(".floatBox").css("top", st + winh - 66 - 168);
+                }
+                if (bodyScrollTop == 0) {
+                    $(".backTop").css("display", "none");
+                } else {
+                    $(".backTop").css("display", "block");
+                }
+            }
+        }
+    </script>
     <script>
         $(function () {
             $("div.list_lh").myScroll({
-                speed: 40, //数值越大，速度越慢
+                speed: 100, //数值越大，速度越慢
                 rowHeight: 68 //li的高度
             });
+
         });</script>
 </div>
 </body>
