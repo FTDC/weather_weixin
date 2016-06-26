@@ -43,8 +43,8 @@ body {font-family:"Microsoft Yahei", SimHei;  color: #333;} /*Î¢ÈíÑÅºÚ */
 .mt5 {margin-top:5px!important;}
 .mt10 {margin-top:10px!important;}
 .mt20 {margin-top:20px!important;}
-.mt30 {margin-top:22px!important;}
-.mt35 {margin-top:35px!important;}
+.mt30 {margin-top:30px!important;}
+.mt35 {margin-top:22px!important;}
 .mt40 {margin-top:40px!important;}
 
 /*Á´½ÓÑÕÉ«*/
@@ -80,7 +80,7 @@ a.linkGreen:hover {color:#f39c11;}
 .w_sh_more{ line-height: 18px; position: absolute; right: 0px; bottom: 2px; font-family: "\5B8B\4F53";}
 .w_sm{ overflow: hidden;}
 
-.w_sm_img{ width: 300px; overflow: hidden; text-align: center;}
+.w_sm_img{ width: 220px; overflow: hidden; text-align: center;}
 .w_sm_img a img{ display: block; width: 120%;}
 
 /*·µ»Ø¶¥²¿css 1000 margin-left:505px; 950¿í margin-left:485px;*/
