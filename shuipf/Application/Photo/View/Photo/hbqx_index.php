@@ -134,10 +134,8 @@
 <div id="warp">
     <div id="headerbar">
 
-        <script language="JavaScript" type="text/javascript"
-                src="{$config_siteurl}/statics/photo/waterfall/js/date.js"></script>
-        <script language="javascript" type="text/javascript"
-                src="{$config_siteurl}/statics/photo/waterfall/js/setHome.js"></script>
+        <script language="JavaScript" type="text/javascript"                src="{$config_siteurl}/statics/photo/waterfall/js/date.js"></script>
+        <script language="javascript" type="text/javascript"                src="{$config_siteurl}/statics/photo/waterfall/js/setHome.js"></script>
         <script type="text/javascript">
             $(function () {
                 $(".menu ul li").hover(function () {
@@ -150,7 +148,7 @@
                 //运行瀑布流主函数
                 PBL('wrap', 'box');
 
-                var num = 2, data = null, status = 1, ishave = true;
+                var num = 4, data = null, status = 1, ishave = true;
 
                 //设置滚动加载
                 window.onscroll = function () {
@@ -186,9 +184,8 @@
                                     var wrap = $('#wrap'), box = '';
                                     if (data != "") {
                                         for (i in data) {
-
                                             box += '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
-                                                '<a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info">' +
+                                                '<a target="_blank" href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info" style="display: none;">' +
                                                 '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
                                                 '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '">' +
                                                 data[i].title +
@@ -213,9 +210,7 @@
                                 }
                             }
                         });
-
                     }
-
                 }
             };
             /**
@@ -229,12 +224,13 @@
                 var boxs = getClass(wrap, box);
                 //  2.获得屏幕可显示的列数
                 var boxW = boxs[0].offsetWidth;
-                // var colsNum = Math.floor(document.documentElement.clientWidth/boxW);
+//                 var colsNum = Math.floor(document.documentElement.clientWidth/boxW);
                 var colsNum = Math.floor(1000 / boxW);
                 wrap.style.width = boxW * colsNum + 'px';//为外层赋值宽度
                 //  3.循环出所有的box并按照瀑布流排列
                 var everyH = [];//定义一个数组存储每一列的高度
                 for (var i = 0; i < boxs.length; i++) {
+//                    console.log(boxs[i].offsetHeight);
                     if (i < colsNum) {
                         everyH[i] = boxs[i].offsetHeight;
                     } else {
@@ -295,6 +291,7 @@
              */
             var getStartNum = 0;//设置请求加载的条数的位置
             function getStyle(box, top, left, index) {
+                console.log('index:'+index);
                 if (getStartNum >= index) return;
                 $(box).css({
                     'position': 'absolute',
@@ -302,6 +299,9 @@
                     "left": left,
                     "opacity": "0"
                 });
+
+                $(box).find(".info").show();
+
                 $(box).stop().animate({
                     "opacity": "1"
                 }, 999);
@@ -525,7 +525,7 @@
                             </div>
                         </div>
                         <else/>
-                        <div class="box">
+                        <div class="box" >
                             <notempty name="item">
                                 <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
                                     <div class="info">
@@ -681,7 +681,7 @@
                 data: {'photo_id': photo_id},
                 dataType: 'html',
                 success: function (des) {
-                    console.log(des);
+//                    console.log(des);
                 }
             });
         }

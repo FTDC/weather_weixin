@@ -273,7 +273,7 @@ class PhotoController extends ShuipFCMS
             $where['city'] = $city;
         }
 
-        $list = $Obj->where($where)->limit(0, 12)->order(array('addtime' => 'DESC'))->select();
+        $list = $Obj->where($where)->limit(0, 16)->order(array('addtime' => 'DESC'))->select();
 
 //        echo $Obj->getLastSql();
 // exit;
@@ -315,7 +315,7 @@ class PhotoController extends ShuipFCMS
         $city = I('city');
         $page = I('page');
 
-        $pageSize = 12;
+        $pageSize = 4;
 
         $Obj = M('weather_photo');
 
