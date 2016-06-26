@@ -178,9 +178,8 @@
                             },
                             success: function (res) {
                                 var data = res.data;
-
                                 //校验数据请求
-                                if (getCheck()) {
+                                if (res.status == 1) {
                                     var wrap = $('#wrap'), box = '';
                                     if (data != "") {
                                         for (i in data) {
