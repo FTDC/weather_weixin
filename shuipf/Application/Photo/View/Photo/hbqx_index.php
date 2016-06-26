@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/index.css">
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/real.css">
     <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
-    <script src="{$config_siteurl}/statics/photo/waterfall/js/masonry-docs.min.js"></script>
     <script language="javascript" type="text/javascript"
             src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
     <style type="text/css">
@@ -530,7 +529,7 @@
                         <else/>
                         <div class="box" >
                             <notempty name="item">
-                                <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
+                                <a target="_blank" href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
                                     <div class="info">
                                         <div class="pic"><img src="{$item.img_path_small}"></div>
                                         <div class="title"><a
