@@ -275,8 +275,9 @@ class PhotoController extends ShuipFCMS
 
         $list = $Obj->where($where)->limit(0, 12)->order(array('addtime' => 'DESC'))->select();
 
-//        echo $Obj->getLastSql(); exit;
-
+//        echo $Obj->getLastSql();
+// exit;
+//
         $localfile = SITE_PATH . 'd/weather_photo/';
 
         if(!empty($list)){
@@ -300,7 +301,7 @@ class PhotoController extends ShuipFCMS
 
 //           var_dump($list); exit();
         }
-        
+
         $this->assign("data", array('city' => $city, 'start_time' => $start_time, 'end_time' => $end_time));
         $this->assign("list", $list);
         $this->assign("gonggao", $this->gonggao);

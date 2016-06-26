@@ -532,7 +532,7 @@
                                         <div class="pic"><img src="{$item.img_path_small}"></div>
                                         <div class="title"><a
                                                 href="{:U('photo/photo/detail', array('id'=>$item['id']))}">{$item.title}</a>
-                                            <span class="__wf_item_time__" style="display:block">{$item.title|date="Y-m-d H:i", ###}</span>
+                                            <span class="__wf_item_time__" style="display:block">{$item.addtime|date="Y-m-d H:i", ###}</span>
                                             <div class="handle">
                                                 <a name="likeOrNo" href="javascript:;" onclick="praise($(this))"
                                                    class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
