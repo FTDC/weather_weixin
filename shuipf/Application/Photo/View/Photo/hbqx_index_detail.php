@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/real.css">
     <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript"  src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
-    <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/scroll.js"></script>
 </head>
 <body>
 
@@ -260,13 +259,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        $("div.list_lh").myScroll({
-            speed: 40, //数值越大，速度越慢
-            rowHeight: 68 //li的高度
-        });
-    });
-</script>
 </body>
 </html>

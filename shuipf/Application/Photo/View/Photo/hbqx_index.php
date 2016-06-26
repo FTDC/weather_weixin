@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/index.css">
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/real.css">
     <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/scroll.js"></script>
     <script language="javascript" type="text/javascript"
             src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
     <style type="text/css">
@@ -483,13 +482,8 @@
                                         <div class="w_sm" style="height:169px;overflow:hidden;">
                                             <!-- 代码开始 -->
                                             <div class="list_lh" style="height:169px;overflow:hidden;">
-                                                <ul style="margin-top: -54px;">
-                                                    <li>
-                                                        <a href="" style="color:red">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $gonggao;?>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                <br />
+                                                <a href="javascript:void(0);" style="color:red">{$gonggao}</a>
                                             </div>
                                             <!-- 代码结束 --> </div>
                                     </div>
