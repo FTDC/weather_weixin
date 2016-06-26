@@ -659,13 +659,6 @@
         </div>
         <!-- 瀑布流开始 -->
     </empty>
-    <script>
-        $(function () {
-            $("div.list_lh").myScroll({
-                speed: 40, //数值越大，速度越慢
-                rowHeight: 68 //li的高度
-            });
-        });</script>
 </div>
 <div class="floatBox"
      style=" position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30">
