@@ -123,7 +123,7 @@
 </div>
 <div id="w_layout_1000" class="wrap">
     <div id="J_Blank_0" class="wf-blank wf-blank-0" style="padding: 10px 0;margin-bottom: 10px;">
-        <h4 class="w_real_title">我是图片标题呀哎呀呀</h4>
+        <h4 class="w_real_title">{$detail['title']}</h4>
         <span class="w_real_watch">第一时间窥视(*^__^*)</span>
     </div>
     <div id="w_layout_in" style="">
@@ -137,7 +137,7 @@
                 <div class="w_mac_user">
                     <div class="w_mac_user_head">
                         <a>
-                            <img src="http://www.sinaimg.cn/dy/weather/main/index14/male_34.png" width="34" height="34" alt="">
+                            <img src="{$config_siteurl}/statics/photo/waterfall/img/male_34.png" width="34" height="34" alt="{$detail['username']}">
                         </a>
                     </div>
                     <p class="font14">
@@ -151,7 +151,8 @@
                 </div>
             </div>
             <div class="w_ma_main">
-                天是好天风不正经
+                <p class="font14">我要分享:</p>
+                <div class="bshare-custom icon-medium-plus"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><a class="bshareDiv" onclick="return false;"></a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
             </div>
         </div>
     </div>
