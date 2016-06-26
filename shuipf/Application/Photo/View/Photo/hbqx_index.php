@@ -200,9 +200,10 @@
                                                 '</div>' +
                                                 '</div></a>' +
                                                 '</div> ';
+                                            wrap.append(box);
+                                            PBL('wrap', 'box');
                                         }
-                                        wrap.append(box);
-                                        PBL('wrap', 'box');
+
                                         status = 1;
                                     } else {
                                         ishave = false;
