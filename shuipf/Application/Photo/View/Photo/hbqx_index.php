@@ -133,7 +133,6 @@
 <div id="background"></div>
 <div id="warp">
     <div id="headerbar">
-
         <script language="JavaScript" type="text/javascript"                src="{$config_siteurl}/statics/photo/waterfall/js/date.js"></script>
         <script language="javascript" type="text/javascript"                src="{$config_siteurl}/statics/photo/waterfall/js/setHome.js"></script>
         <script type="text/javascript">
@@ -144,22 +143,18 @@
             });
         </script>
         <script type="text/javascript">
+//            var start = true;
             window.onload = function () {
                 //运行瀑布流主函数
                 PBL('wrap', 'box');
 
-                var num = 4, data = null, status = 1, ishave = true;
+                var num = 2, data = null, status = 1, ishave = true;
 
                 //设置滚动加载
                 window.onscroll = function () {
                     var scrollTop = $(document).scrollTop();
                     var wrapHeight = $(document).height();
                     var clientHeight = document.body.clientHeight;
-
-//                    console.log('scrollTop'+scrollTop);
-//                    console.log('wrapHeight'+wrapHeight);
-//                    console.log('clientHeight:'+clientHeight);
-//                    console.log(wrapHeight - clientHeight - scrollTop);
 
                     if (wrapHeight - clientHeight - scrollTop < 100 && status && ishave) {
                         var data = null;
@@ -183,7 +178,7 @@
                                     var wrap = $('#wrap'), box = '';
                                     if (data != "") {
                                         for (i in data) {
-                                            box = '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
+                                            box += '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
                                                 '<a target="_blank" href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info" style="display: none;">' +
                                                 '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
                                                 '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '">' +
@@ -199,11 +194,9 @@
                                                 '</div>' +
                                                 '</div></a>' +
                                                 '</div> ';
-                                            wrap.append(box);
-                                            PBL('wrap', 'box');
                                         }
-
-                                        status = 1;
+                                        wrap.append(box);
+                                        PBL('wrap', 'box');
                                     } else {
                                         ishave = false;
                                     }
@@ -230,7 +223,7 @@
                 //  3.循环出所有的box并按照瀑布流排列
                 var everyH = [];//定义一个数组存储每一列的高度
                 for (var i = 0; i < boxs.length; i++) {
-//                    console.log(boxs[i].offsetHeight);
+//                    console.log(everyH);
                     if (i < colsNum) {
                         everyH[i] = boxs[i].offsetHeight;
                     } else {
@@ -240,6 +233,8 @@
                         everyH[minIndex] += boxs[i].offsetHeight;//更新最小列的高度
                     }
                 }
+                status = 1;
+                console.log('status1'+status);
             }
             /**
              * 获取类元素
@@ -291,8 +286,8 @@
              */
             var getStartNum = 3;//设置请求加载的条数的位置
             function getStyle(box, top, left, index) {
-                console.log('index:'+index);
-                console.log('getStartNum:'+getStartNum);
+//                console.log('index:'+index);
+//                console.log('getStartNum:'+getStartNum);
                 if (getStartNum >= index) return;
                 $(box).css({
                     'position': 'absolute',
