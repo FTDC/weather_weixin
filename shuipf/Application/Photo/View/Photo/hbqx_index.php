@@ -293,6 +293,7 @@
             var getStartNum = 0;//设置请求加载的条数的位置
             function getStyle(box, top, left, index) {
                 console.log('index:'+index);
+                console.log('getStartNum:'+getStartNum);
                 if (getStartNum >= index) return;
                 $(box).css({
                     'position': 'absolute',
