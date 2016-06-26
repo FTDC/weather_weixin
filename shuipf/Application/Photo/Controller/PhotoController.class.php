@@ -243,6 +243,7 @@ class PhotoController extends ShuipFCMS
     }
 
 
+    private  $gonggao = '关注湖北气象， 上传实景图片。 赢取幸运好礼.';
     // 管理中心显示图片信息
     public function hbqx_index()
     {
@@ -278,15 +279,31 @@ class PhotoController extends ShuipFCMS
 
         $localfile = SITE_PATH . 'd/weather_photo/';
 
-        foreach ($list as &$val) {
-            $val['gg'] = $localfile . $val['img_path'];
-            $val['size'] = getimagesize($val['gg']);
-            $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
-            $val['img_path_small'] = $this->thumb_name($val['img_path']);
-        }
+        if(!empty($list)){
+            foreach ($list as &$val) {
+                $val['gg'] = $localfile . $val['img_path'];
+                $val['size'] = getimagesize($val['gg']);
+                $val['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $val['img_path'];
+                $val['img_path_small'] = $this->thumb_name($val['img_path']);
+            }
 
+            if(count($list) < 4){
+//                echo '55'; exit();
+                $list = array_pad($list,4,array());
+//                var_dump($list); exit();
+            }else{
+                $temp = $list['3'];
+                $list[3] = [];
+                array_push($list, $temp);
+
+            }
+
+//           var_dump($list); exit();
+        }
+        
         $this->assign("data", array('city' => $city, 'start_time' => $start_time, 'end_time' => $end_time));
         $this->assign("list", $list);
+        $this->assign("gonggao", $this->gonggao);
         $this->display();
     }
 
@@ -297,7 +314,7 @@ class PhotoController extends ShuipFCMS
         $city = I('city');
         $page = I('page');
 
-        $pageSize = 4;
+        $pageSize = 12;
 
         $Obj = M('weather_photo');
 
@@ -354,6 +371,7 @@ class PhotoController extends ShuipFCMS
         $detail['img_path'] = C("WEB_DOMAIN") . '/d/weather_photo/' . $detail['img_path'];
 
         $this->assign("detail", $detail);
+        $this->assign("gonggao", $this->gonggao);
         $this->display('hbqx_index_detail');
 
     }

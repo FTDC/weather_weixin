@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/common.css">
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/index.css">
     <link rel="stylesheet" href="{$config_siteurl}/statics/photo/waterfall/css/cssPb/real.css">
+    <script src="{$config_siteurl}/statics/photo/waterfall/js/jquery-1.11.1.min.js"></script>
     <script language="javascript" type="text/javascript"  src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
     <script type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/scroll.js"></script>
-    <script language="javascript" type="text/javascript" src="{$config_siteurl}/statics/photo/waterfall/js/datepicker/WdatePicker.js"></script>
 </head>
 <body>
 
@@ -131,7 +131,7 @@
         <div class="w_main_article">
             <div class="w_ma_img">
                 <a>
-                    <img src="http://cdn.moji002.com/images/simgs/2016/05/28/14644153110.21448100.1664_android.jpg" alt="">
+                    <img src="{$detail['img_path']}" alt="{$detail['title']}">
                 </a>
             </div>
             <div class="w_ma_infor">
@@ -142,13 +142,13 @@
                         </a>
                     </div>
                     <p class="font14">
-                        <a>漫天风沙里13394498508</a>
+                        <a>{$detail['username']}</a>
                     </p>
                     <p class="c666"></p>
                 </div>
                 <div class="w_mac_address">
-                    <p class="font14">吉林省长春市德惠市303省道靠近边岗乡太兴小学</p>
-                    <p class="c999">2016-05-28 14:00:29</p>
+                    <p class="font14">{$detail['title']}</p>
+                    <p class="c999">{$detail['dateTime']}</p>
                 </div>
             </div>
             <div class="w_ma_main">
@@ -168,53 +168,42 @@
                     <div class="w_hotCity">
                         <div style="padding-left:12px;">
                             <ul class="w_hc_list">
-                                <li>
-                                    <a href="/photos/beijing" target="">北京</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh">武汉市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/shanghai" target="">上海</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}" data="hs">黄石市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/shenyang" target="">沈阳</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}" data="xf">襄樊市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/tianjin" target="">天津</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}" data="sy">十堰市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/shijiazhuang" target="">石家庄</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}" data="jz">荆州市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/wulumuqi" target="">乌鲁木齐</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}" data="yc">宜昌市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/changsha" target="">长沙</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}" data="jm">荆门市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/chongqing" target="">重庆</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}" data="ez">鄂州市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/changchun" target="">长春</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}" data="xg">孝感市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/nanjing" target="">南京</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}" data="hg">黄冈市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/taiyuan" target="">太原</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}" data="xl">咸宁市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/zhengzhou" target="">郑州</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}" data="sz">随州市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/wuhan" target="">武汉</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}" data="ens">恩施市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/xian" target="">西安</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}" data="xt">仙桃市</a>
                                 </li>
-                                <li>
-                                    <a href="/photos/hefei" target="">合肥</a>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}" data="qj">潜江市</a>
                                 </li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}" data="tm">天门市</a>
+                                </li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}"
+                                       data="slj">神农架林区</a></li>
+                                <li><a href="{:U('Photo/Photo/hbqx_index')}">全部</a></li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
@@ -227,32 +216,34 @@
                 <div class="w_sm" style="height:169px;overflow:hidden;">
                     <!-- 代码开始 -->
                     <div class="list_lh" style="height:169px;overflow:hidden;">
-                        <ul>
-                            <li>
-                                <a href="" style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢</a>
-                            </li>
-                        </ul>
+                        <br />
+                        <a href="javascript:void(0);" style="color:red">{$gonggao}</a>
                     </div>
                     <!-- 代码结束 -->
-
                 </div>
             </div>
             <!-- section 查看美图-->
-            <div class="w_section mt35">
-                <h4 class="w_sh">
-                    <span class="w_sh_title">查看美图</span>
-                </h4>
-                <div class="w_sm mt10 clearfix">
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4321"
-                           onFocus="WdatePicker()"/>
-                    <span class="fl">&nbsp;至&nbsp;</span>
-                    <input type="text" class="Wdate fl" style="width:90px" id="d4322"
-                           onFocus="WdatePicker()"/>
-                    <input type="button" value="查看"
-                           style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
+            <form method="post" action="{:U('Photo/Photo/hbqx_index')}">
+                <input type="hidden" id="city" name="city" value="{$data['city']}">
+                <!-- section 查看美图-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">查看美图</span>
+                    </h4>
+                    <div class="w_sm mt10 clearfix">
+                        <input type="text" class="Wdate fl" name="start_time"
+                               value="<?php echo empty($data['start_time']) ? '' : date('Y-m-d', $data['start_time']); ?>"
+                               style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                        <span class="fl">&nbsp;至&nbsp;</span>
+                        <input type="text" class="Wdate fl" name="end_time"
+                               value="<?php echo empty($data['end_time']) ? '' : date('Y-m-d', $data['end_time']); ?>"
+                               style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                        <input type="submit" value="查看"
+                               style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
+                    </div>
                 </div>
-            </div>
+            </form>
             <!-- section 图片来源-->
             <div class="w_section mt35">
                 <h4 class="w_sh">
@@ -261,7 +252,7 @@
                 <div class="w_sm mt10">
                     <!--  墨迹天气logo-->
                     <div class="w_sm_img" style="tex">
-                        <img src="http://wechat.7ido.com/statics/photo/waterfall/img/hbqx.jpg" alt=""></div>
+                        <img src="{$config_siteurl}/statics/photo/waterfall/img/hbqx.jpg" alt=""></div>
                     <!--  天气通logo-->
 
                 </div>

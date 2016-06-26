@@ -80,8 +80,8 @@ a.linkGreen:hover {color:#f39c11;}
 .w_sh_more{ line-height: 18px; position: absolute; right: 0px; bottom: 2px; font-family: "\5B8B\4F53";}
 .w_sm{ overflow: hidden;}
 
-.w_sm_img{ width: 300px; overflow: hidden;}
-.w_sm_img a img{ display: block; width: 100%;}
+.w_sm_img{ width: 300px; overflow: hidden; text-align: center;}
+.w_sm_img a img{ display: block; width: 120%;}
 
 /*·µ»Ø¶¥²¿css 1000 margin-left:505px; 950¿í margin-left:485px;*/
 html,* html body{background-image:url(about:blank);background-attachment:fixed}

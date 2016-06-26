@@ -151,77 +151,71 @@
                 //运行瀑布流主函数
                 PBL('wrap', 'box');
 
-                var num=2,data =null, status=0;
+                var num = 2, data = null, status = 1, ishave = true;
 
                 //设置滚动加载
                 window.onscroll = function () {
-                    console.log(00);
-                    var num = 1, data = null;
-                    $.ajax({
-                        type: 'POST',
-                        url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
-                        data: {'page':num++, 'starttime':'', 'endtime':'',  'city': ''},
-                        dataType:'json',
-                        success: function(res){
-                            var data = res.data;
+                    var scrollTop = $(document).scrollTop();
+                    var wrapHeight = $(document).height();
+                    var clientHeight = document.body.clientHeight;
 
-                            //校验数据请求
-                            if (getCheck()) {
-                                var wrap = $('#wrap'), box = '';
-                                for (i in data) {
-                                    //创建box
-                                    // var box = document.createElement('div');
-                                    // box.className = 'box';
-                                    // wrap.appendChild(box);
-                                    // //创建info
-                                    // var info = document.createElement('div');
-                                    // info.className = 'info';
-                                    // box.appendChild(info);
-                                    // //创建pic
-                                    // var pic = document.createElement('div');
-                                    // pic.className = 'pic';
-                                    // info.appendChild(pic);
-                                    // //创建img
-                                    // var img = document.createElement('img');
-                                    // img.src = data[i].src;
-                                    // img.style.height = 'auto';
-                                    // pic.appendChild(img);
-                                    // //创建title
-                                    // var title = document.createElement('div');
-                                    // title.className = 'title';
-                                    // info.appendChild(title);
-                                    // //创建a标记
-                                    // var a = document.createElement('a');
-                                    // a.innerHTML = data[i].title;
-                                    // title.appendChild(a);
-                                    // //创建span标记
-                                    // var span = document.createElement('span');
-                                    // span.innerHTML = data[i].time;
-                                    // span.style.display="block";
-                                    // title.appendChild(span);
-                                    //创建span标记
-                                    box += '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
-                                        '<a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'"><div class="info">' +
-                                        '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
-                                        '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id='+data[i].id+'">' +
-                                        data[i].title +
-                                        ' <span class="__wf_item_time__" style="display:block">' + data[i].dateTime + '</span>' +
-                                        '<div class="handle">' +
-                                        ' <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>' +
-                                        ' <span name="likeCountNum" style="display:inline-block;">' +
-                                        ' ( <i data="'+data[i].id+'">'+data[i].parise+'</i>人已赞)' +
-                                        '</span>' +
-                                        '</a>' +
-                                        '</div>' +
-                                        '</div>' +
-                                        '</div></a>' +
-                                        '</div> ';
+//                    console.log('scrollTop'+scrollTop);
+//                    console.log('wrapHeight'+wrapHeight);
+//                    console.log('clientHeight:'+clientHeight);
+//                    console.log(wrapHeight - clientHeight - scrollTop);
+
+                    if (wrapHeight - clientHeight - scrollTop < 100 && status && ishave) {
+                        var data = null;
+                        $.ajax({
+                            type: 'POST',
+                            url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=query_list',
+                            data: {
+                                'page': num++,
+                                'starttime': $("#starttime").val(),
+                                'endtime': $("#endtime").val(),
+                                'city': $("#city").val()
+                            },
+                            dataType: 'json',
+                            beforeSend: function () {
+                                status = 0;
+                            },
+                            success: function (res) {
+                                var data = res.data;
+
+                                //校验数据请求
+                                if (getCheck()) {
+                                    var wrap = $('#wrap'), box = '';
+                                    if (data != "") {
+                                        for (i in data) {
+
+                                            box += '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
+                                                '<a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info">' +
+                                                '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
+                                                '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '">' +
+                                                data[i].title +
+                                                ' <span class="__wf_item_time__" style="display:block">' + data[i].dateTime + '</span>' +
+                                                '<div class="handle">' +
+                                                ' <a name="likeOrNo" href="javascript:;" onclick="praise($(this))" class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>' +
+                                                ' <span name="likeCountNum" style="display:inline-block;">' +
+                                                ' ( <i data="' + data[i].id + '">' + data[i].parise + '</i>人已赞)' +
+                                                '</span>' +
+                                                '</a>' +
+                                                '</div>' +
+                                                '</div>' +
+                                                '</div></a>' +
+                                                '</div> ';
+                                        }
+                                        wrap.append(box);
+                                        PBL('wrap', 'box');
+                                        status = 1;
+                                    } else {
+                                        ishave = false;
+                                    }
                                 }
-                                wrap.append(box);
-                                PBL('wrap', 'box');
                             }
-                        }
-                    });
+                        });
+
+                    }
 
                 }
             };
@@ -440,23 +434,42 @@
                                             <div class="w_hotCity">
                                                 <div style="padding-left:12px;">
                                                     <ul class="w_hc_list">
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh" >武汉市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}" data="hs" >黄石市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}" data="xf" >襄樊市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}" data="sy" >十堰市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}" data="jz" >荆州市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}" data="yc" >宜昌市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}" data="jm" >荆门市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}" data="ez" >鄂州市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}" data="xg" >孝感市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}" data="hg" >黄冈市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}" data="xl" >咸宁市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}" data="sz" >随州市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}" data="ens" >恩施市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}" data="xt" >仙桃市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}" data="qj" >潜江市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}" data="tm" >天门市</a></li>
-                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}" data="slj" >神农架林区</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}"
+                                                               data="wh">武汉市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}"
+                                                               data="hs">黄石市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}"
+                                                               data="xf">襄樊市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}"
+                                                               data="sy">十堰市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}"
+                                                               data="jz">荆州市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}"
+                                                               data="yc">宜昌市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}"
+                                                               data="jm">荆门市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}"
+                                                               data="ez">鄂州市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}"
+                                                               data="xg">孝感市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}"
+                                                               data="hg">黄冈市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}"
+                                                               data="xl">咸宁市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}"
+                                                               data="sz">随州市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}"
+                                                               data="ens">恩施市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}"
+                                                               data="xt">仙桃市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}"
+                                                               data="qj">潜江市</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}"
+                                                               data="tm">天门市</a></li>
+                                                        <li>
+                                                            <a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}"
+                                                               data="slj">神农架林区</a></li>
+                                                        <li><a href="{:U('Photo/Photo/hbqx_index')}">全部</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -471,10 +484,9 @@
                                             <!-- 代码开始 -->
                                             <div class="list_lh" style="height:169px;overflow:hidden;">
                                                 <ul style="margin-top: -54px;">
-
                                                     <li>
                                                         <a href="" style="color:red">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢公众气象服务中心于2016你那能看房辽宁省地方了呢
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $gonggao;?>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -490,9 +502,13 @@
                                                 <span class="w_sh_title">查看美图</span>
                                             </h4>
                                             <div class="w_sm mt10 clearfix">
-                                                <input type="text" class="Wdate fl" name="start_time" value="<?php echo empty($data['start_time']) ? '': date('Y-m-d',$data['start_time']);?>"  style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                                                <input type="text" class="Wdate fl" name="start_time"
+                                                       value="<?php echo empty($data['start_time']) ? '' : date('Y-m-d', $data['start_time']); ?>"
+                                                       style="width:90px" id="start_time" onFocus="WdatePicker()"/>
                                                 <span class="fl">&nbsp;至&nbsp;</span>
-                                                <input type="text" class="Wdate fl" name="end_time" value="<?php echo empty($data['end_time']) ? '': date('Y-m-d',$data['end_time']);?>" style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                                                <input type="text" class="Wdate fl" name="end_time"
+                                                       value="<?php echo empty($data['end_time']) ? '' : date('Y-m-d', $data['end_time']); ?>"
+                                                       style="width:90px" id="end_time" onFocus="WdatePicker()"/>
                                                 <input type="submit" value="查看"
                                                        style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
 
@@ -516,28 +532,139 @@
                         </div>
                         <else/>
                         <div class="box">
-                            <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
-                                <div class="info">
-                                    <div class="pic"><img src="{$item.img_path_small}"></div>
-                                    <div class="title"><a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">{$item.title}</a>
-                                        <span class="__wf_item_time__" style="display:block">{$item.title|date="Y-m-d H:i", ###}</span>
-                                        <div class="handle">
-                                            <a name="likeOrNo" href="javascript:;" onclick="praise($(this))"
-                                               class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
+                            <notempty name="item">
+                                <a href="{:U('photo/photo/detail', array('id'=>$item['id']))}">
+                                    <div class="info">
+                                        <div class="pic"><img src="{$item.img_path_small}"></div>
+                                        <div class="title"><a
+                                                href="{:U('photo/photo/detail', array('id'=>$item['id']))}">{$item.title}</a>
+                                            <span class="__wf_item_time__" style="display:block">{$item.title|date="Y-m-d H:i", ###}</span>
+                                            <div class="handle">
+                                                <a name="likeOrNo" href="javascript:;" onclick="praise($(this))"
+                                                   class="a-LGrayl"> <i class="likeIcon"></i> <b>赞</b>
                                                 <span name="likeCountNum" style="display:inline-block;">  ( <i
                                                         data="{$item.id}">{$item.parise}</i>  人已赞)  </span>
-                                            </a>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </notempty>
                         </div>
                     </eq>
                 </volist>
             </empty>
         </div>
     </div>
-    <!-- 瀑布流开始 -->
+
+    <empty name="list">
+
+        <div id="J_WF_Wrap" class="wf-wrap" style="width: 1000px;position: absolute;top: -17px;">
+            <div id="J_Blank_1" class="wf-blank wf-blank-1">
+                <!-- section 湖北城市-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">湖北城市</span>
+                    </h4>
+                    <div class="w_sm mt5">
+                        <div class="w_hotCity">
+                            <div style="padding-left:12px;">
+                                <ul class="w_hc_list">
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>武汉市))}" data="wh">武汉市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄石市))}" data="hs">黄石市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>襄樊市))}" data="xf">襄樊市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>十堰市))}" data="sy">十堰市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆州市))}" data="jz">荆州市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>宜昌市))}" data="yc">宜昌市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>荆门市))}" data="jm">荆门市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>鄂州市))}" data="ez">鄂州市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>孝感市))}" data="xg">孝感市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>黄冈市))}" data="hg">黄冈市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>咸宁市))}" data="xl">咸宁市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>随州市))}" data="sz">随州市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>恩施市))}" data="ens">恩施市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>仙桃市))}" data="xt">仙桃市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>潜江市))}" data="qj">潜江市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>天门市))}" data="tm">天门市</a>
+                                    </li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index', array('city'=>神农架林区))}"
+                                           data="slj">神农架林区</a></li>
+                                    <li><a href="{:U('Photo/Photo/hbqx_index')}">全部</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- section 美图活动-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">美图活动</span>
+                    </h4>
+                    <div class="w_sm" style="height:169px;overflow:hidden;">
+                        <!-- 代码开始 -->
+                        <div class="list_lh" style="height:169px;overflow:hidden;">
+                            <ul style="margin-top: -54px;">
+                                <li>
+                                    <a href="" style="color:red">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;{$gonggao}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 代码结束 --> </div>
+                </div>
+                <!-- section 查看美图-->
+                <form method="post" action="{:U('Photo/Photo/hbqx_index')}">
+                    <input type="hidden" id="city" name="city" value="{$data['city']}">
+                    <!-- section 查看美图-->
+                    <div class="w_section mt35">
+                        <h4 class="w_sh">
+                            <span class="w_sh_title">查看美图</span>
+                        </h4>
+                        <div class="w_sm mt10 clearfix">
+                            <input type="text" class="Wdate fl" name="start_time"
+                                   value="<?php echo empty($data['start_time']) ? '' : date('Y-m-d', $data['start_time']); ?>"
+                                   style="width:90px" id="start_time" onFocus="WdatePicker()"/>
+                            <span class="fl">&nbsp;至&nbsp;</span>
+                            <input type="text" class="Wdate fl" name="end_time"
+                                   value="<?php echo empty($data['end_time']) ? '' : date('Y-m-d', $data['end_time']); ?>"
+                                   style="width:90px" id="end_time" onFocus="WdatePicker()"/>
+                            <input type="submit" value="查看"
+                                   style="height:25px;line-height:25px;padding:0 15px;margin-top:10px;cursor: pointer;"/>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- section 图片来源-->
+                <div class="w_section mt35">
+                    <h4 class="w_sh">
+                        <span class="w_sh_title">图片来源</span>
+                    </h4>
+                    <div class="w_sm mt10">
+                        <!--  墨迹天气logo-->
+                        <div class="w_sm_img" style="tex">
+                            <img src="{$config_siteurl}/statics/photo/waterfall/img/hbqx.jpg" alt=""></div>
+                        <!--  天气通logo--> </div>
+                </div>
+            </div>
+        </div>
+        <!-- 瀑布流开始 -->
+    </empty>
     <script>
         $(function () {
             $("div.list_lh").myScroll({
@@ -564,8 +691,8 @@
             $.ajax({
                 type: 'POST',
                 url: '{$config_siteurl}/index.php?g=Photo&m=Photo&a=parise_photo',
-                data: {'photo_id':photo_id},
-                dataType:'html',
+                data: {'photo_id': photo_id},
+                dataType: 'html',
                 success: function (des) {
                     console.log(des);
                 }
@@ -576,9 +703,11 @@
             return false;
         }
     }
+
+
     $(window).scroll(function () {
-        $(document).scrollTop();
-        $(document).height();
+        var scrollTop = $(document).scrollTop();
+        var wrapHeight = $(document).height();
 
         var bodyScrollTop = "";
         if (document.documentElement && document.documentElement.scrollTop) {
@@ -586,7 +715,6 @@
         } else if (document.body) {
             bodyScrollTop = document.body.scrollTop;
         }
-
 
         var st = $(document).scrollTop(),
             winh = $(window).height();
@@ -600,7 +728,7 @@
         }
     });
 
-    feedbackAndTotop();
+    //feedbackAndTotop();
     //回到顶部和用户反馈
     function feedbackAndTotop() {
         $(".floatBox").attr("style", " position: fixed; _position: absolute; left: 50%; bottom: 0px; margin-left: 520px;z-index:30");
@@ -640,8 +768,6 @@
                 $(".backTop").css("display", "block");
             }
         }
-
-
     }
 </script>
 </body>
