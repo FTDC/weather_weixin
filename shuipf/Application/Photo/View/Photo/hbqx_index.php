@@ -156,7 +156,14 @@
                     var wrapHeight = $(document).height();
                     var clientHeight = document.body.clientHeight;
 
-                    if (wrapHeight - clientHeight - scrollTop < 100 && status && ishave) {
+                    if($(document).height() - $(window).height() - $(document).scrollTop() < 10) {
+
+//                        appendToMasonry();
+//
+//                    }
+//
+//
+//                    if (wrapHeight - clientHeight - scrollTop < 100 && status && ishave) {
                         var data = null;
                         $.ajax({
                             type: 'POST',
