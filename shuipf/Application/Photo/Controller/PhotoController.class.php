@@ -23,9 +23,15 @@ class PhotoController extends ShuipFCMS
         $appid = C('WX_APP_ID');
         $secret = C('WX_SECRET');
 
-        $jssdk = new Jssdk($appid, $secret);
-        $signPackage = $jssdk->GetSignPackage();
-        $this->assign("signPackage", $signPackage);
+        $jssdk = S('jsdk_ticket');
+        if(empty($jssdk)){
+            $jssdk = new Jssdk($appid, $secret);
+            $signPackage = $jssdk->GetSignPackage();
+            S('jsdk_ticket', $signPackage, 7200);
+            $jsdk = $signPackage;
+        }
+
+        $this->assign("signPackage", $jsdk);
 
         $code = $_GET['code'];
         $token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $appid . '&secret=' . $secret . '&code=' . $code . '&grant_type=authorization_code';
