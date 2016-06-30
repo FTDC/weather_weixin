@@ -85,6 +85,7 @@
             padding: 5px;
             border: none;
             float: left;
+            display: block;
         }
 
         #wrap .box .info {
@@ -185,7 +186,7 @@
                                     var wrap = $('#wrap'), box = '';
                                     if (data != "") {
                                         for (i in data) {
-                                            box += '<div class="box" style="position: absolute; top: 786px; left: 0px; opacity: 1;">' +
+                                            box += '<div class="box" >' +
                                                 '<a target="_blank" href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info" style="display: none;">' +
                                                 '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
                                                 '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '">' +
