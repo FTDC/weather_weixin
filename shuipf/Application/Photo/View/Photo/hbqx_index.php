@@ -187,7 +187,7 @@
                                     if (data != "") {
                                         for (i in data) {
                                             box += '<div class="box" >' +
-                                                '<a target="_blank" href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info" style="display: none;">' +
+                                                '<a target="_blank" href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '"><div class="info" style="height:'+((data[i].hight/1.8)+75)+'px;">' +
                                                 '<div class="pic"><img src="' + data[i].img_path_small + '"></div>' +
                                                 '<div class="title"><a href="{$config_siteurl}/index.php?g=Photo&m=Photo&a=detail&id=' + data[i].id + '">' +
                                                 data[i].title +
@@ -303,8 +303,6 @@
                     "left": left,
                     "opacity": "0"
                 });
-
-                $(box).find(".info").show();
 
                 $(box).stop().animate({
                     "opacity": "1"
